@@ -13,6 +13,7 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0;
+    background-color: #b9b7a7;
 }
 
 #main-navigation,
@@ -61,10 +62,6 @@ footer {
     -moz-background-size: cover;
     -o-background-size: cover;
     overflow: hidden;
-}
-
-#home-intro {
-    min-height: 50%;
 }
 
 /* Media queries */
