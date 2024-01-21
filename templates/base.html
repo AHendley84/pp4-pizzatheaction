@@ -43,10 +43,10 @@
 </head>
 
 <body>
-  <header id="main-navigation" class="container-fluid">
+  <header id="main-navigation" class="container-fluid fixed-top">
     <nav class="navbar navbar-expand-lg">
       <div class="container">
-        <a class="pta-logo display-6" href="{% url 'home' %}"><strong>PIZZA</strong>THE<strong>ACTION</strong></a>
+        <a class="pta-logo display-6 text-left" href="{% url 'home' %}"><strong>PIZZA</strong>THE<strong>ACTION</strong></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <i class="fa-solid fa-bars toggler"></i>
@@ -111,7 +111,7 @@
   <div class="message-container"></div>
   {% endif %}
 
-  <div class="container p-0">
+  <div class="content-container p-0 m-0">
     {% block page_header %}
     {% endblock %}
 
@@ -119,7 +119,7 @@
     {% endblock %}
   </div>
 
-  <footer id="main-footer" class="container">
+  <footer id="main-footer" class="container-fluid fixed-bottom">
     <div class="navbar">
       <div class="container">
         <span class="footer-text">

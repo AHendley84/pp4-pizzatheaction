@@ -5,17 +5,19 @@ html {
     height: 100%;
 }
 
-#main-navigation, #main-footer {
-    background-color: #4e5166;
-    margin: 0;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-body {
+body,
+header,
+footer {
     color: #747274;
     font-family: 'Cabin', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#main-navigation,
+#main-footer {
+    background-color: #4e5166;
 }
 
 .pta-logo {
@@ -48,78 +50,35 @@ body {
 /* index.html */
 
 #home-pizza-oven {
-    height: 250px;
+    height: 400px;
     position: relative;
     background-image: url('/media/pizzatheaction_background_image.jpg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    background-size: cover;
     background-color: white;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     overflow: hidden;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
 }
 
 #home-intro {
-    height: 600px;
+    min-height: 50%;
 }
 
 /* Media queries */
 
-@media (min-width: 576px) {
+/* XS Screens Only */
+@media (max-width: 575px) {
     #home-pizza-oven {
-        min-height: 300px;
-        background-size: cover;
-    }
-
-    #home-intro {
-        min-height: 300px;
+        height: 200px;
     }
 }
 
-@media (min-width: 768px) {
+/* Medium Screens and Smaller */
+@media (max-width: 991px) {
     #home-pizza-oven {
-        min-height: 400px;
-        background-size: cover;
-    }
-
-    #home-intro {
-        min-height: 400px;
-    }
-}
-
-@media (min-width: 992px) {
-    #home-pizza-oven {
-        min-height: 500px;
-        background-size: cover;
-    }
-
-    #home-intro {
-        min-height: 500px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    #main-navigation, #main-footer {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    #home-pizza-oven {
-        min-height: 600px;
-        background-size: cover;
-    }
-
-    #home-intro {
-        min-height: 600px;
+        height: 300px;
     }
 }
