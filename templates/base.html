@@ -4,57 +4,132 @@
 <html lang="en">
 
 <head>
-    {% block meta %}
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% endblock %}
+  {% block meta %}
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% endblock %}
 
-    {% block extra_meta %}
-    {% endblock %}
+  {% block extra_meta %}
+  {% endblock %}
 
-    {% block corecss %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    {% endblock %}
+  {% block corecss %}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+  {% endblock %}
 
-    {% block extra_css %}
-    {% endblock %}
-    
-    {% block corejs %}
-    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
-        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
-    {% endblock %}
+  {% block extra_css %}
+  {% endblock %}
 
-    {% block extra_js %}
-    {% endblock %}
+  {% block corejs %}
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+    integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+  {% endblock %}
 
-    <title>PIZZATHEACTION - Come Get Some {% block extra_title %}{% endblock %}</title>
+  {% block extra_js %}
+  {% endblock %}
+
+  <title>PIZZATHEACTION - Come Get Some {% block extra_title %}{% endblock %}</title>
 </head>
 
 <body>
-    <header class="container-fluid fixed-top"></header>
+  <header id="main-navigation" class="container-fluid fixed-top">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}"><strong>PIZZA</strong>THE<strong>ACTION</strong></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Blog</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Account
+              </a>
+              <ul class="dropdown-menu">
+                {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
+                <li><a class="dropdown-item" href="#">Product Management</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                {% endif %}
+                <li><a href="#" class="dropdown-item main-logo-color">My Profile</a></li>
+                <li><a href="{% url 'account_logout' %}" class="dropdown-item main-logo-color">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'account_signup' %}" class="dropdown-item main-logo-color">Register</a></li>
+                <li><a href="{% url 'account_login' %}" class="dropdown-item main-logo-color">Login</a></li>
+                {% endif %}
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="{% if grand_total %}item-in-bag font-weight-bold{% else %}{% endif %} nav-link"
+                  href="">
+                  <div class="text-center">
+                          {% if grand_total %}
+                            £{{ grand_total|floatformat:2 }}
+                          {% else %}
+                            £0.00
+                          {% endif %}
+                      <i class="fas fa-shopping-bag fa-lg"></i>
+                  </div>
+              </a>
+          </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">
+              <span class="icon">
+                <i class="fas fa-search"></i>
+              </span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-    {% if messages %}
-    <div class="message-container"></div>
-    {% endif %}
+  {% if messages %}
+  <div class="message-container"></div>
+  {% endif %}
 
+  <div class="container-fluid">
     {% block page_header %}
     {% endblock %}
 
     {% block content %}
     {% endblock %}
-    
-    <footer class="container-fluid fixed-bottom"></footer>
+  </div>
 
-    {% block postloadjs %}
-    {% endblock %}
+  <footer id="main-footer" class="container-fluid fixed-bottom">
+    <div class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <span class="navbar-text">
+          PIZZATHEACTION is a full stack django site built for educational purposes only.
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  {% block postloadjs %}
+  {% endblock %}
 
 </body>
 
