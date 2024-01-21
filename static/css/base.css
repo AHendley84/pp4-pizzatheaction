@@ -1,0 +1,125 @@
+/* Imported fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+html {
+    height: 100%;
+}
+
+#main-navigation, #main-footer {
+    background-color: #4e5166;
+    margin: 0;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+body {
+    color: #747274;
+    font-family: 'Cabin', sans-serif;
+}
+
+.pta-logo {
+    font-family: 'Quicksand', sans-serif;
+    text-decoration: none;
+    color: #7c90a0;
+}
+
+.dropdown-background {
+    background-color: #b9b7a7;
+}
+
+.footer-text {
+    color: #b5aa9d;
+    font-family: 'Cabin', sans-serif;
+}
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.toggler {
+    color: #b5aa9d;
+}
+
+/* index.html */
+
+#home-pizza-oven {
+    height: 250px;
+    position: relative;
+    background-image: url('/media/pizzatheaction_background_image.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-color: white;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+#home-intro {
+    height: 600px;
+}
+
+/* Media queries */
+
+@media (min-width: 576px) {
+    #home-pizza-oven {
+        min-height: 300px;
+        background-size: cover;
+    }
+
+    #home-intro {
+        min-height: 300px;
+    }
+}
+
+@media (min-width: 768px) {
+    #home-pizza-oven {
+        min-height: 400px;
+        background-size: cover;
+    }
+
+    #home-intro {
+        min-height: 400px;
+    }
+}
+
+@media (min-width: 992px) {
+    #home-pizza-oven {
+        min-height: 500px;
+        background-size: cover;
+    }
+
+    #home-intro {
+        min-height: 500px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    #main-navigation, #main-footer {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    #home-pizza-oven {
+        min-height: 600px;
+        background-size: cover;
+    }
+
+    #home-intro {
+        min-height: 600px;
+    }
+}

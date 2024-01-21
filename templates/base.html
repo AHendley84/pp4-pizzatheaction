@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
       integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
       crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
   {% endblock %}
 
   {% block extra_css %}
@@ -42,28 +43,28 @@
 </head>
 
 <body>
-  <header id="main-navigation" class="container-fluid fixed-top">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}"><strong>PIZZA</strong>THE<strong>ACTION</strong></a>
+  <header id="main-navigation" class="container-fluid">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="pta-logo display-6" href="{% url 'home' %}"><strong>PIZZA</strong>THE<strong>ACTION</strong></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <i class="fa-solid fa-bars toggler"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#">Products</a>
+              <a class="nav-link text-white" href="#">Products</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Blog</a>
+              <a class="nav-link text-white" href="#">Blog</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 Account
               </a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu dropdown-background">
                 {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
                 <li><a class="dropdown-item" href="#">Product Management</a></li>
@@ -95,7 +96,7 @@
           </ul>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">
+            <button class="btn btn-success" type="submit">
               <span class="icon">
                 <i class="fas fa-search"></i>
               </span>
@@ -110,7 +111,7 @@
   <div class="message-container"></div>
   {% endif %}
 
-  <div class="container-fluid">
+  <div class="container p-0">
     {% block page_header %}
     {% endblock %}
 
@@ -118,16 +119,15 @@
     {% endblock %}
   </div>
 
-  <footer id="main-footer" class="container-fluid fixed-bottom">
-    <div class="navbar bg-body-tertiary">
-      <div class="container-fluid">
-        <span class="navbar-text">
-          PIZZATHEACTION is a full stack django site built for educational purposes only.
+  <footer id="main-footer" class="container">
+    <div class="navbar">
+      <div class="container">
+        <span class="footer-text">
+          <strong>PIZZA</strong>THE<strong>ACTION</strong> is a full stack django site built for educational purposes only.
         </span>
       </div>
     </div>
   </footer>
-
   {% block postloadjs %}
   {% endblock %}
 
