@@ -10,6 +10,7 @@ header,
 footer {
     color: #747274;
     font-family: 'Cabin', sans-serif;
+    font-weight: 200;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0;
@@ -19,6 +20,8 @@ footer {
 #main-navigation,
 #main-footer {
     background-color: #4e5166;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .pta-logo {
@@ -46,6 +49,10 @@ footer {
 
 .toggler {
     color: #b5aa9d;
+}
+
+.text-dropdown-color {
+    color: #4e5166;
 }
 
 /* index.html */
@@ -77,5 +84,11 @@ footer {
 @media (max-width: 991px) {
     #home-pizza-oven {
         height: 300px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .pta-logo {
+        padding-right: 60px;
     }
 }
