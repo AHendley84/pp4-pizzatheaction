@@ -56,7 +56,7 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-right">
             <li class="nav-item">
               <div class="text-center">
-                <a class="nav-link text-white" href="#">
+                <a class="nav-link nav-text-color" href="#">
                   <div><i class="fa-solid fa-pizza-slice"></i></div>
                   Products
                 </a>
@@ -64,7 +64,7 @@
             </li>
             <li class="nav-item">
               <div class="text-center">
-                <a class="nav-link text-white" href="#">
+                <a class="nav-link nav-text-color" href="#">
                   <div><i class="fa-solid fa-blog"></i></div>
                   Blog
                 </a>
@@ -72,7 +72,7 @@
             </li>
             <li class="nav-item dropdown">
               <div class="text-center">
-                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                <a class="nav-link dropdown-toggle nav-text-color" href="#" role="button" data-bs-toggle="dropdown"
                   aria-expanded="false">
                   <div><i class="fa-solid fa-user"></i></div>
                   Account
@@ -84,7 +84,7 @@
                     <div class="text-center">
                       <a class="dropdown-item text-dropdown-color" href="#">
                         <div><i class="fa-solid fa-list-check"></i></div>
-                        Product Management
+                        <strong>Product Management</strong>
                       </a>
                     </div>
                   </li>
@@ -96,7 +96,7 @@
                     <div class="text-center">
                       <a class="dropdown-item text-dropdown-color" href="#">
                         <div><i class="fa-solid fa-address-card"></i></div>
-                        My Profile
+                        <strong>My Profile</strong>
                       </a>
                     </div>
                   </li>
@@ -104,7 +104,7 @@
                     <div class="text-center">
                       <a class="dropdown-item text-dropdown-color" href="{% url 'account_logout' %}">
                         <div><i class="fa-solid fa-arrow-right-from-bracket"></i></div>
-                        Logout
+                        <strong>Logout</strong>
                       </a>
                     </div>
                   </li>
@@ -113,7 +113,7 @@
                     <div class="text-center">
                       <a class="dropdown-item text-dropdown-color" href="{% url 'account_signup' %}">
                         <div><i class="fa-solid fa-user-plus"></i></div>
-                        Register
+                        <strong>Register</strong>
                       </a>
                     </div>
                   </li>
@@ -121,16 +121,16 @@
                     <div class="text-center">
                       <a class="dropdown-item text-dropdown-color" href="{% url 'account_login' %}">
                         <div><i class="fa-solid fa-arrow-right-to-bracket"></i></div>
+                        <strong>Login</strong>
+                      </a>
                     </div>
-                    Login
-                    </a>
                   </li>
                   {% endif %}
                 </ul>
             </li>
             <li class="nav-item">
               <div class="text-center">
-                <a class="{% if grand_total %}item-in-bag font-weight-bold{% else %}{% endif %}text-white nav-link"
+                <a class="{% if grand_total %}item-in-bag font-weight-bold{% else %}{% endif %}nav-text-color nav-link"
                   href="">
                   <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                   {% if grand_total %}

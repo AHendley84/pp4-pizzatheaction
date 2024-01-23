@@ -55,6 +55,20 @@ footer {
     color: #4e5166;
 }
 
+.nav-text-color {
+    color: #b5aa9d;
+}
+
+.nav-text-color:focus,
+.nav-text-color:hover,
+.nav-text-color:active {
+    color: white;
+}
+
+.navbar-nav .nav-link.show {
+    color: white;
+}
+
 /* index.html */
 
 #home-pizza-oven {
