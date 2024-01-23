@@ -2,6 +2,10 @@ from django.db import models
 
 
 class Category(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Categories'
+
     name = models.CharField(max_length=100)
     friendly_name = models.CharField(max_length=100)
 
@@ -24,6 +28,7 @@ class Brand(models.Model):
     
 
 class Product(models.Model):
+    sku = models.CharField(max_length=254)
     name = models.CharField(max_length=254)
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     brand = models.ForeignKey('Brand', null=True, blank=True, on_delete=models.SET_NULL)
