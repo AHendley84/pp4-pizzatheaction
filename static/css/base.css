@@ -85,6 +85,14 @@ footer {
     overflow: hidden;
 }
 
+.container-a-background {
+    background-color: #4e5166;
+}
+
+.container-b-background {
+    background-color: #7c90a0;
+}
+
 /* Media queries */
 
 /* XS Screens Only */
@@ -101,7 +109,7 @@ footer {
     }
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 992px) {
     .pta-logo {
         padding-right: 60px;
     }
