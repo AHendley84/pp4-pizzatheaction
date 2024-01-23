@@ -7,7 +7,8 @@ html {
 
 body,
 header,
-footer {
+footer,
+#delivery-banner {
     color: #747274;
     font-family: 'Cabin', sans-serif;
     font-weight: 200;
@@ -22,6 +23,11 @@ footer {
     background-color: #4e5166;
     padding-left: 0;
     padding-right: 0;
+}
+
+#delivery-banner {
+    font-family: 'Cabin', sans-serif;
+    font-size: 18px;
 }
 
 .pta-logo {
@@ -45,6 +51,10 @@ footer {
     outline: none;
     border: none;
     box-shadow: none;
+}
+
+.dropdown-toggle::after { 
+    content: none; 
 }
 
 .toggler {
