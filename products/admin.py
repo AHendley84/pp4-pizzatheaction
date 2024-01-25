@@ -13,6 +13,8 @@ class ProductAdmin(admin.ModelAdmin):
         'image',
     )
 
+    ordering = ('sku',)
+
 class BrandAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
@@ -25,6 +27,6 @@ class CategoryAdmin(admin.ModelAdmin):
         'name',
     )
 
-admin.site.register(Product)
-admin.site.register(Brand)
-admin.site.register(Category)
+admin.site.register(Product, ProductAdmin)
+admin.site.register(Brand, BrandAdmin)
+admin.site.register(Category, BrandAdmin)
