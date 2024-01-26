@@ -30,7 +30,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 if 'DEVELOPMENT' in os.environ:
     ALLOWED_HOSTS = ['127.0.0.1']
 else:
-    ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
+    ALLOWED_HOSTS = ['https://pp4-pizzatheaction-9ec0001d43af.herokuapp.com/']
 
 
 # Application definition
