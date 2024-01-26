@@ -14,8 +14,6 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
-development = os.environ.get('DEVELOPMENT', False)
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -27,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = development
+DEBUG = 'DEVELOPMENT' in os.environ
 
-if development:
+if 'DEVELOPMENT' in os.environ:
     ALLOWED_HOSTS = ['127.0.0.1']
 else:
     ALLOWED_HOSTS = ['https://pp4-pizzatheaction-9ec0001d43af.herokuapp.com/']
@@ -110,7 +108,7 @@ WSGI_APPLICATION = 'pizzatheaction.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-if development:
+if 'DEVELOPMENT' in os.environ:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
