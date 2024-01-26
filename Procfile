@@ -1,0 +1,1 @@
+web: gunicorn pizzatheaction.wsgi:application
