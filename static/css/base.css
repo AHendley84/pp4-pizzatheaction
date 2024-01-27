@@ -79,6 +79,10 @@ footer,
     color: white;
 }
 
+.page-headers {
+    text-shadow: 3px 3px 2px rgba(255, 255, 255, 0.781);
+}
+
 /* index.html */
 
 #home-pizza-oven {
@@ -101,6 +105,18 @@ footer,
 
 .container-b-background {
     background-color: #7c90a0;
+}
+
+/* products.html */
+
+.product-card {
+    border-color: #4e5166;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.card-product-name {
+    font-weight: bold;
 }
 
 /* Media queries */
