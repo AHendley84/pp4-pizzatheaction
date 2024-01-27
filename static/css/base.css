@@ -18,6 +18,10 @@ footer,
     background-color: #b9b7a7;
 }
 
+body {
+    height: calc(100vh - 164px);
+}
+
 #main-navigation,
 #main-footer {
     background-color: #4e5166;
@@ -83,6 +87,16 @@ footer,
     text-shadow: 3px 3px 2px rgba(255, 255, 255, 0.781);
 }
 
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: #b9b7a7;
+	z-index: -1;
+}
+
 /* index.html */
 
 #home-pizza-oven {
@@ -130,6 +144,14 @@ footer,
 
 /* Medium Screens and Smaller */
 @media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
+    }
+
     #home-pizza-oven {
         height: 300px;
     }

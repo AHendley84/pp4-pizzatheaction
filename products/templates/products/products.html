@@ -30,11 +30,11 @@
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 pb-3">
                             <div class="card rounded-1 h-100 product-card">
                                 {% if product.image %}
-                                <a href="">
+                                <a href="{% url 'view_product' product.id %}">
                                     <img src="{{ product.image.url }}" class="card-img-top img-fluid bg-white" alt="{{ product.name }}">
                                 </a>
                                 {% else %}
-                                <a href="">
+                                <a href="{% url 'view_product' product.id %}">
                                     <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top img-fluid bg-white" alt="{{ product.name }}">
                                 </a>
                                 {% endif %}
