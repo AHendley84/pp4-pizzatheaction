@@ -1,6 +1,10 @@
 /* Imported fonts from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cabin&family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+.font-color-1 {
+    color: #4e5166;
+}
+
 html {
     height: 100%;
 }

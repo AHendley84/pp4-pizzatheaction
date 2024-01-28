@@ -54,12 +54,53 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-right">
-            <li class="nav-item">
+            <li class="nav-item dropdown">
               <div class="text-center">
-                <a class="nav-link nav-text-color" href="{% url 'products' %}">
+                <a a class="nav-link dropdown-toggle nav-text-color" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
                   <div><i class="fa-solid fa-pizza-slice"></i></div>
                   Products
                 </a>
+                <ul class="dropdown-menu dropdown-background">
+                  <li>
+                    <div class="text-center">
+                      <a class="dropdown-item text-dropdown-color" href="{% url 'products' %}">
+                        <strong>All Products</strong>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li>
+                    <div class="text-center">
+                      <a class="dropdown-item text-dropdown-color" href="#">
+                        <strong>By Rating</strong>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="text-center">
+                      <a class="dropdown-item text-dropdown-color" href="#">
+                        <strong>By Brand</strong>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="text-center">
+                      <a class="dropdown-item text-dropdown-color" href="#">
+                        <strong>By Category</strong>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="text-center">
+                      <a class="dropdown-item text-dropdown-color" href="#">
+                        <strong>By Price</strong>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </li>
             <li class="nav-item">
@@ -172,7 +213,7 @@
     {% endblock %}
   </div>
 
-  <footer id="main-footer" class="container-fluid fixed-bottom">
+  <footer id="main-footer" class="container-fluid">
     <div class="navbar">
       <div class="container">
         <span class="footer-text">
