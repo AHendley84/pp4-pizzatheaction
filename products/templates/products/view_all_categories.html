@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="home-pizza-oven">
+    <div class="row h-100">
+        <div class="col-8"></div>
+        <div class="col-4 my-auto">
+            <h1 class="page-headers">
+                Categories
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="product-container col-10 offset-1">
+                <div class="row mt-1 mb-2"></div>
+                <div class="row">
+                    {% for category in categories %}
+                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 pb-3">
+                        <div class="card rounded-1 h-100 product-card">
+                            <div class="card-body">
+                                <a href="#">
+                                    {{ category.friendly_name }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
