@@ -149,7 +149,7 @@ body {
 /* Medium Screens and Smaller */
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 116px;
+        padding-top: 50px;
     }
 
     body {
