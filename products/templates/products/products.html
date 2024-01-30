@@ -24,48 +24,75 @@
     <div class="row">
         <div class="col">
             <div class="product-container col-10 offset-1">
-                <div class="row mt-1 mb-2"></div>
+                <div class="row mt-1 mb-2">
+                    <div class="col-12 col-md-6 order">
+                        <p class="mt-3 text-center">
+                            {% if search_term or current_categories or current_sorting != 'None_None' %}
+                                <span class="">| <a href="{% url 'products' %}" class="search-product-link">Products Home</a> </span>
+                            {% endif %}
+                            | {{ products|length }} Products{% if search_term %} found_for <strong>"{{ search_term}}"</strong>{% endif %} |
+                        </p>
+                    </div>
+                </div>
                 <div class="row">
                     {% for product in products %}
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 pb-3">
-                            <div class="card rounded-1 h-100 product-card">
-                                {% if product.image %}
-                                <a href="{% url 'view_product' product.id %}">
-                                    <img src="{{ product.image.url }}" class="card-img-top img-fluid bg-white" alt="{{ product.name }}">
-                                </a>
-                                {% else %}
-                                <a href="{% url 'view_product' product.id %}">
-                                    <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top img-fluid bg-white" alt="{{ product.name }}">
-                                </a>
-                                {% endif %}
-                                <div class="card-body p-2 container-a-background">
-                                  <div class="row px-2">
+                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 pb-3">
+                        <div class="card rounded-1 h-100 product-card">
+                            {% if product.image %}
+                            <a href="{% url 'view_product' product.id %}">
+                                <img src="{{ product.image.url }}" class="card-img-top img-fluid bg-white"
+                                    alt="{{ product.name }}">
+                            </a>
+                            {% else %}
+                            <a href="{% url 'view_product' product.id %}">
+                                <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top img-fluid bg-white"
+                                    alt="{{ product.name }}">
+                            </a>
+                            {% endif %}
+                            <div class="card-body p-2 container-a-background">
+                                <div class="row px-2">
                                     <p class="mb-0 card-product-name text-white">{{ product.name }}</p>
-                                  </div>
-                                  <div class="row ps-2">
-                                    <small class="text-white">{{ product.brand.friendly_name }}</small>
-                                  </div>
                                 </div>
-                                <div class="card-footer container-b-background p-1 border-0 text-left">
-                                    <div class="row ps-2">
-                                        <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
-                                    </div>
-                                    <div class="row ps-2">
-                                        {% if product.rating %}
-                                            {% if product.rating >= 0.1 and product.rating <= 2 %}
-                                                <small><i class="fa-solid fa-temperature-empty mr-1 text-primary"></i>&nbsp;{{ product.rating }} / 5</small>
-                                            {% elif product.rating > 2 and product.rating <= 4.9 %}
-                                                <small><i class="fa-solid fa-temperature-half mr-1 text-warning"></i>&nbsp;{{ product.rating }} / 5</small>
+                                <div class="row ps-2">
+                                    <p class="small mt-1 mb-0">
+                                        <a class="category-brand-link"
+                                            href="{% url 'products' %}?brand={{ product.brand.name }}">
+                                            {{ product.brand.friendly_name }}
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="row ps-2">
+                                    <p class="small mt-1 mb-0">
+                                        <a class="category-brand-link"
+                                            href="{% url 'products' %}?category={{ product.category.name }}">
+                                            {{ product.category.friendly_name }}
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card-footer container-b-background p-1 border-0 text-left">
+                                <div class="row ps-2">
+                                    <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                                </div>
+                                <div class="row ps-2">
+                                    {% if product.rating %}
+                                    {% if product.rating >= 0.1 and product.rating <= 2 %} <small><i
+                                            class="fa-solid fa-temperature-empty mr-1 text-primary"></i>&nbsp;{{
+                                        product.rating }} / 5</small>
+                                        {% elif product.rating > 2 and product.rating <= 4.9 %} <small><i
+                                                class="fa-solid fa-temperature-half mr-1 text-warning"></i>&nbsp;{{
+                                            product.rating }} / 5</small>
                                             {% elif product.rating == 5 %}
-                                                <small><i class="fa-solid fa-temperature-full mr-1 text-danger"></i>&nbsp;{{ product.rating }} / 5</small>
+                                            <small><i class="fa-solid fa-temperature-full mr-1 text-danger"></i>&nbsp;{{
+                                                product.rating }} / 5</small>
                                             {% endif %}
-                                        {% else %}
-                                        <small>No Rating</small>
-                                        {% endif %}
-                                    </div>
+                                            {% else %}
+                                            <small>No Rating</small>
+                                            {% endif %}
                                 </div>
-                              </div>
+                            </div>
                         </div>
+                    </div>
                     {% endfor %}
                 </div>
             </div>

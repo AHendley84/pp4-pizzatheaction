@@ -137,6 +137,42 @@ footer {
     font-weight: bold;
 }
 
+.category-brand-link {
+    font-family: 'Cabin', sans-serif;
+    text-decoration: none;
+    color: white;
+}
+
+.category-brand-link:focus,
+.category-brand-link:hover,
+.category-brand-link:active {
+    color: #b5aa9d;
+}
+
+.view-product-link {
+    font-family: 'Cabin', sans-serif;
+    text-decoration: none;
+    color: #7c90a0;
+}
+
+.view-product-link:focus,
+.view-product-link:hover,
+.view-product-link:active {
+    color: white;
+}
+
+.search-product-link {
+    font-family: 'Cabin', sans-serif;
+    text-decoration: none;
+    color: #747274;
+}
+
+.search-product-link:focus,
+.search-product-link:hover,
+.search-product-link:active {
+    color: white;
+}
+
 /* Media queries */
 
 /* XS Screens Only */
