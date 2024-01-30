@@ -12,8 +12,20 @@ def all_products(request):
 
     products = Product.objects.all()
     query = None
+    categories = None
+    brands = None
 
     if request.GET:
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
+
+        if 'brand' in request.GET:
+            brands = request.GET['brand'].split(',')
+            products = products.filter(brand__name__in=brands)
+            brands = Brand.objects.filter(name__in=brands)
+
         if 'search' in request.GET:
             query = request.GET['search']
             if not query:
@@ -26,6 +38,8 @@ def all_products(request):
     context = {
         'products': products,
         'search_term': query,
+        'current_categories': categories,
+        'current_brands': brands,
     }
     
     return render(request, 'products/products.html', context)

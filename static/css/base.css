@@ -22,10 +22,6 @@ footer,
     background-color: #b9b7a7;
 }
 
-body {
-    height: calc(100vh - 164px);
-}
-
 #main-navigation,
 #main-footer {
     background-color: #4e5166;
