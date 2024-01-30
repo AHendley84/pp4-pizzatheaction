@@ -74,13 +74,6 @@
                   </li>
                   <li>
                     <div class="text-center">
-                      <a class="dropdown-item text-dropdown-color" href="#">
-                        <strong>By Rating</strong>
-                      </a>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="text-center">
                       <a class="dropdown-item text-dropdown-color" href="{% url 'view_all_brands' %}">
                         <strong>By Brand</strong>
                       </a>
@@ -95,8 +88,15 @@
                   </li>
                   <li>
                     <div class="text-center">
-                      <a class="dropdown-item text-dropdown-color" href="#">
-                        <strong>By Price</strong>
+                      <a class="dropdown-item text-dropdown-color" href="{% url 'products' %}?sort=rating&direction=desc">
+                        <strong>All By Rating</strong>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="text-center">
+                      <a class="dropdown-item text-dropdown-color" href="{% url 'products' %}?sort=price&direction=asc">
+                        <strong> All By Price</strong>
                       </a>
                     </div>
                   </li>
