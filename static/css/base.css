@@ -22,6 +22,10 @@ footer,
     background-color: #b9b7a7;
 }
 
+footer {
+    margin-top: 50px;
+}
+
 #main-navigation,
 #main-footer {
     background-color: #4e5166;
