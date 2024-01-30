@@ -14,9 +14,19 @@
     <div class="row h-100">
         <div class="col-8"></div>
         <div class="col-4 my-auto">
+            {% if current_categories %}
+            <h1 class="page-headers">
+                {{ current_categories.0.friendly_name }}
+            </h1>
+            {% elif current_brands %}
+            <h1 class="page-headers">
+                {{ current_brands.0.friendly_name }}
+            </h1>
+            {% else %}
             <h1 class="page-headers">
                 Products
             </h1>
+            {% endif %}
         </div>
     </div>
 </div>
@@ -77,18 +87,15 @@
                                 <div class="row ps-2">
                                     {% if product.rating %}
                                     {% if product.rating >= 0.1 and product.rating <= 2 %} <small><i
-                                            class="fa-solid fa-temperature-empty mr-1 text-primary"></i>&nbsp;{{
-                                        product.rating }} / 5</small>
+                                            class="fa-solid fa-temperature-empty mr-1 text-primary"></i>&nbsp;{{ product.rating }} / 5</small>
                                         {% elif product.rating > 2 and product.rating <= 4.9 %} <small><i
-                                                class="fa-solid fa-temperature-half mr-1 text-warning"></i>&nbsp;{{
-                                            product.rating }} / 5</small>
+                                                class="fa-solid fa-temperature-half mr-1 text-warning"></i>&nbsp;{{ product.rating }} / 5</small>
                                             {% elif product.rating == 5 %}
-                                            <small><i class="fa-solid fa-temperature-full mr-1 text-danger"></i>&nbsp;{{
-                                                product.rating }} / 5</small>
+                                            <small><i class="fa-solid fa-temperature-full mr-1 text-danger"></i>&nbsp;{{ product.rating }} / 5</small>
                                             {% endif %}
-                                            {% else %}
-                                            <small>No Rating</small>
-                                            {% endif %}
+                                    {% else %}
+                                        <small>No Rating</small>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -99,4 +106,4 @@
         </div>
     </div>
 </div>
-{% endblock %}e
+{% endblock %}
