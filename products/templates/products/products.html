@@ -12,18 +12,18 @@
 {% block content %}
 <div id="home-pizza-oven">
     <div class="row h-100">
-        <div class="col-8"></div>
-        <div class="col-4 my-auto">
+        <div class="col-6"></div>
+        <div class="col-6 my-auto">
             {% if current_categories %}
-            <h1 class="page-headers">
+            <h1 class="page-headers display-3">
                 {{ current_categories.0.friendly_name }}
             </h1>
             {% elif current_brands %}
-            <h1 class="page-headers">
+            <h1 class="page-headers display-3">
                 {{ current_brands.0.friendly_name }}
             </h1>
             {% else %}
-            <h1 class="page-headers">
+            <h1 class="page-headers display-3">
                 Products
             </h1>
             {% endif %}
@@ -32,78 +32,128 @@
 </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col">
-            <div class="product-container col-10 offset-1">
-                <div class="row mt-1 mb-2">
-                    <div class="col-12 col-md-6 order">
-                        <p class="mt-3 text-center">
-                            {% if search_term or current_categories or current_sorting != 'None_None' %}
-                                <span class="">| <a href="{% url 'products' %}" class="search-product-link">Products Home</a> </span>
-                            {% endif %}
-                            | {{ products|length }} Products{% if search_term %} found_for <strong>"{{ search_term}}"</strong>{% endif %} |
-                        </p>
+        <div class="product-container col-10 offset-1">
+            <div class="row mt-3 mb-2">
+                <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                    <div class="sort-select-wrapper w-80">
+                        <select id="sort-selector" class="custom-select custom-select-sm rounded-1 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                            <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                            <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
+                            <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
+                        </select>
                     </div>
                 </div>
-                <div class="row">
-                    {% for product in products %}
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 pb-3">
-                        <div class="card rounded-1 h-100 product-card">
-                            {% if product.image %}
-                            <a href="{% url 'view_product' product.id %}">
-                                <img src="{{ product.image.url }}" class="card-img-top img-fluid bg-white"
-                                    alt="{{ product.name }}">
-                            </a>
-                            {% else %}
-                            <a href="{% url 'view_product' product.id %}">
-                                <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top img-fluid bg-white"
-                                    alt="{{ product.name }}">
-                            </a>
-                            {% endif %}
-                            <div class="card-body p-2 container-a-background">
-                                <div class="row px-2">
-                                    <p class="mb-0 card-product-name text-white">{{ product.name }}</p>
-                                </div>
-                                <div class="row ps-2">
-                                    <p class="small mt-1 mb-0">
-                                        <a class="category-brand-link"
-                                            href="{% url 'products' %}?brand={{ product.brand.name }}">
-                                            {{ product.brand.friendly_name }}
-                                        </a>
-                                    </p>
-                                </div>
-                                <div class="row ps-2">
-                                    <p class="small mt-1 mb-0">
-                                        <a class="category-brand-link"
-                                            href="{% url 'products' %}?category={{ product.category.name }}">
-                                            {{ product.category.friendly_name }}
-                                        </a>
-                                    </p>
-                                </div>
+                <div class="col-12 col-md-6 order-md-first">
+                    <p class="mt-3 text-center text-md-start">
+                        {% if search_term or current_categories or current_sorting != 'None_None' %}
+                            <span class="">| <a href="{% url 'products' %}" class="search-product-link">Products Home</a> </span>
+                        {% endif %}
+                        | {{ products|length }} Products{% if search_term %} found for "{{ search_term}}"{% endif %} |
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                {% for product in products %}
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 pb-3">
+                    <div class="card rounded-1 h-100 product-card">
+                        {% if product.image %}
+                        <a href="{% url 'view_product' product.id %}">
+                            <img src="{{ product.image.url }}" class="card-img-top img-fluid bg-white"
+                                alt="{{ product.name }}">
+                        </a>
+                        {% else %}
+                        <a href="{% url 'view_product' product.id %}">
+                            <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top img-fluid bg-white"
+                                alt="{{ product.name }}">
+                        </a>
+                        {% endif %}
+                        <div class="card-body p-2 container-a-background">
+                            <div class="row px-2">
+                                <p class="mb-0 card-product-name text-white">{{ product.name }}</p>
                             </div>
-                            <div class="card-footer container-b-background p-1 border-0 text-left">
-                                <div class="row ps-2">
-                                    <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
-                                </div>
-                                <div class="row ps-2">
-                                    {% if product.rating %}
-                                    {% if product.rating >= 0.1 and product.rating <= 2 %} <small><i
-                                            class="fa-solid fa-temperature-empty mr-1 text-primary"></i>&nbsp;{{ product.rating }} / 5</small>
-                                        {% elif product.rating > 2 and product.rating <= 4.9 %} <small><i
-                                                class="fa-solid fa-temperature-half mr-1 text-warning"></i>&nbsp;{{ product.rating }} / 5</small>
-                                            {% elif product.rating == 5 %}
-                                            <small><i class="fa-solid fa-temperature-full mr-1 text-danger"></i>&nbsp;{{ product.rating }} / 5</small>
-                                            {% endif %}
-                                    {% else %}
-                                        <small>No Rating</small>
-                                    {% endif %}
-                                </div>
+                            <div class="row ps-2">
+                                <p class="small mt-1 mb-0">
+                                    <a class="category-brand-link"
+                                        href="{% url 'products' %}?brand={{ product.brand.name }}">
+                                        {{ product.brand.friendly_name }}
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="row ps-2">
+                                <p class="small mt-1 mb-0">
+                                    <a class="category-brand-link"
+                                        href="{% url 'products' %}?category={{ product.category.name }}">
+                                        {{ product.category.friendly_name }}
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-footer container-b-background p-1 border-0 text-left">
+                            <div class="row ps-2">
+                                <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                            </div>
+                            <div class="row ps-2">
+                                {% if product.rating %}
+                                {% if product.rating >= 0.1 and product.rating <= 2 %} <small><i
+                                        class="fa-solid fa-temperature-empty mr-1 text-primary"></i>&nbsp;{{ product.rating }} / 5</small>
+                                    {% elif product.rating > 2 and product.rating <= 4.9 %} <small><i
+                                            class="fa-solid fa-temperature-half mr-1 text-warning"></i>&nbsp;{{ product.rating }} / 5</small>
+                                        {% elif product.rating == 5 %}
+                                        <small><i class="fa-solid fa-temperature-full mr-1 text-danger"></i>&nbsp;{{ product.rating }} / 5</small>
+                                        {% endif %}
+                                {% else %}
+                                    <small>No Rating</small>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
 </div>
+<div class="btt-button shadow-sm rounded-1 container-b-background">
+    <a class="btt-link d-flex h-100" title="Back to Top">
+        <i class="fa-solid fa-turn-up mx-auto my-auto font-color-1"></i>
+    </a>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+		$('.btt-link').click(function(e) {
+			window.scrollTo(0,0)
+		})
+	</script>
+    
+    <script type="text/javascript">
+        $('#sort-selector').change(function() {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+
+            var selectedVal = selector.val();
+            if(selectedVal != "reset"){
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
+
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
 {% endblock %}
