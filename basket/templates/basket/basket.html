@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="home-pizza-oven">
+    <div class="row h-100">
+        <div class="col-6"></div>
+        <div class="col-6 my-auto">
+            <h1 class="page-headers display-3">
+                Your Basket
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="container mb-2">
+    <div class="row mt-3">
+        <div class="col">
+            {% if bag_items %}
+                <div class="table-responsive rounded"></div>
+            {% else %}
+                <p class="mb-5 lead">Your bag is empty</p>
+                <a href="{% url 'products' %}" class="btn rounded-1 btn-lg">
+                    <span class="icon">
+                        <i class="fa-solid fa-circle-chevron-left"></i>
+                    </span>
+                    <span class="text-uppercase">Return to the shop</span>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
