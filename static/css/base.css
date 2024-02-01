@@ -189,6 +189,18 @@ footer {
     cursor: pointer;
 }
 
+/* Basket */
+
+.item-in-bag {
+    color: #7c90a0;
+}
+
+.item-in-bag:focus,
+.item-in-bag:hover,
+.item-in-bag:active {
+    color: white;
+}
+
 /* Media queries */
 
 /* XS Screens Only */
