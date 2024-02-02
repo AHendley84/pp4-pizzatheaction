@@ -28,9 +28,9 @@
                 <div class="row">
                     {% for brand in brands %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 pb-3">
-                        <div class="card rounded-1 h-100 product-card">
-                            <div class="card-body">
-                                <a href="{% url 'products' %}?brand={{ brand.name }}">
+                        <div class="card rounded-1 h-100 product-card brand-cards">
+                            <div class="card-body text-center">
+                                <a class="brand-names display-6" href="{% url 'products' %}?brand={{ brand.name }}">
                                     {{ brand.friendly_name }}
                                 </a>
                             </div>
