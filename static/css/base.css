@@ -184,7 +184,9 @@ footer {
     z-index: 1000;
 }
 
-.btt-link {
+.btt-link,
+.update-link,
+.remove-item {
     text-decoration: none;
     cursor: pointer;
 }
