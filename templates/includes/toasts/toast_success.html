@@ -1,9 +1,9 @@
-<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header bg-success">
-        <strong class="me-auto text-white">Success</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-        {{ message }}
+<div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+    <div class="d-flex bg-success rounded-1">
+        <div class="toast-body text-white">
+            Success - {{ message }}
+        </div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"
+            aria-label="Close"></button>
     </div>
 </div>

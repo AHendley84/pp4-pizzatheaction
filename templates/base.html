@@ -26,9 +26,8 @@
   {% endblock %}
 
   {% block corejs %}
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>
@@ -58,7 +57,7 @@
             <li class="nav-item dropdown">
               <div class="text-center">
                 <a a class="nav-link dropdown-toggle nav-text-color" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+                  aria-expanded="false">
                   <div><i class="fa-solid fa-pizza-slice"></i></div>
                   Products
                 </a>
@@ -89,7 +88,8 @@
                   </li>
                   <li>
                     <div class="text-center">
-                      <a class="dropdown-item text-dropdown-color" href="{% url 'products' %}?sort=rating&direction=desc">
+                      <a class="dropdown-item text-dropdown-color"
+                        href="{% url 'products' %}?sort=rating&direction=desc">
                         <strong>All By Rating</strong>
                       </a>
                     </div>
@@ -203,9 +203,19 @@
   </header>
 
   {% if messages %}
-  <div class="message-container toast-container">
+  <div class="message-container">
     {% for message in messages %}
-      {% include 'includes/toasts/toast_success.html' %}
+      {% with message.level as level %}
+        {% if level == 40 %}
+          {% include 'includes/toasts/toast_error.html' %}
+        {% elif level == 30 %}
+          {% include 'includes/toasts/toast_warning.html' %}
+        {% elif level == 25 %}
+          {% include 'includes/toasts/toast_success.html' %}
+        {% else %}
+          {% include 'includes/toasts/toast_info.html' %}
+        {% endif %}
+      {% endwith %}
     {% endfor %}
   </div>
   {% endif %}
@@ -228,12 +238,13 @@
       </div>
     </div>
   </footer>
+
   {% block postloadjs %}
-
   <script type="text/javascript">
-    $('.toast').toast('show');
+    jQuery(document).ready(function ($) {
+      $('.toast').toast('show');
+    });
   </script>
-
   {% endblock %}
 
 </body>
