@@ -10,7 +10,6 @@ var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
-var card = elements.create('card', {style: style});
 
 var style = {
     base: {
@@ -28,6 +27,7 @@ var style = {
     }
 };
 
+var card = elements.create('card', {style: style});
 card.mount('#card-element');
 
 // Handle realtime validation errors on the card element
@@ -61,8 +61,8 @@ form.addEventListener('submit', function(ev) {
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     var postData = {
         'csrfmiddlewaretoken': csrfToken,
-        'clientSecret': clientSecret,
-        'save_info': saveInfo,
+        'client_secret': clientSecret,
+        'saveInfo': saveInfo,
     }
     var url = '/checkout/cache_checkout_data/';
 
@@ -91,7 +91,7 @@ form.addEventListener('submit', function(ev) {
                     line2: $.trim(form.address_line2.value),
                     city: $.trim(form.town_city.value),
                     state: $.trim(form.county.value),
-                    postal_code: $.trim(form.post_code.value),
+                    postal_code: $.trim(form.postcode.value),
                     country: $.trim(form.country.value),
                 }
             }
