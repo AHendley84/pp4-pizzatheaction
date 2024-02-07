@@ -61,7 +61,7 @@ class StripeWH_Handler:
                     postcode__iexact=shipping_details.address.postal_code,
                     country__iexact=shipping_details.address.country,
                     grand_total=grand_total,
-                    original_basket =basket,
+                    original_basket=basket,
                     stripe_pid=pid,
                 )
                 order_exists = True
