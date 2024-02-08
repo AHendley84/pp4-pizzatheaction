@@ -125,7 +125,7 @@
                   {% if request.user.is_superuser %}
                   <li>
                     <div class="text-center">
-                      <a class="dropdown-item text-dropdown-color" href="#">
+                      <a class="dropdown-item text-dropdown-color" href="{% url 'add_product' %}">
                         <div><i class="fa-solid fa-list-check"></i></div>
                         <strong>Product Management</strong>
                       </a>
