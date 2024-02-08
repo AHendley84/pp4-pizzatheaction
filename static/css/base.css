@@ -97,8 +97,9 @@ footer {
 }
 
 .page-headers {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Cabin', sans-serif;
     text-shadow: 3px 3px 2px rgba(255, 255, 255, 0.781);
+    color: #4e5166;
 }
 
 .overlay {
@@ -272,6 +273,17 @@ footer {
     height: 100px;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+/* Allauth formatting */
+
+.allauth-form-inner-content p {
+    margin-top: 1.5rem;
+    color: #747274;
+}
+
+.allauth-form-inner-content input {
+    border-color: #4e5166;
 }
 
 /* Media queries */
