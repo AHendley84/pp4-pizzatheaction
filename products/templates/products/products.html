@@ -110,6 +110,31 @@
                                 {% else %}
                                     <small>No Rating</small>
                                 {% endif %}
+                                {% if request.user.is_superuser %}
+                                <div class="text-end">
+                                    <small class="ml-3">
+                                        <a class="btn btn-sm btn-info" href="{% url 'edit_product' product.id %}">Edit</a> |
+                                        <a class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteDefence{{ product.id }}">Delete</a>
+                                        <div class="modal fade" id="deleteDefence{{ product.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteDefenceLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h1 class="modal-title fs-5 text-danger" id="staticBackdropLabel">Warning</h1>
+                                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body text-start">
+                                                  If you delete {{ product.name }} it cannot be undone. Are you sure you want to proceed?
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
+                                                  <a href="{% url 'delete_product' product.id %}" class="btn btn-danger">Delete</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </small>
+                                </div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
