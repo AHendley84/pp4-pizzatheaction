@@ -56,6 +56,7 @@
                     <small class="ml-3">
                         <a class="btn btn-sm btn-info" href="{% url 'edit_product' product.id %}">Edit</a> |
                         <a class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteDefence">Delete</a>
+                        <!-- Modal warning to prevent accidental deletion of items -->
                         <div class="modal fade" id="deleteDefence" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteDefenceLabel" aria-hidden="true">
                             <div class="modal-dialog">
                               <div class="modal-content">
