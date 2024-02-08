@@ -1,0 +1,46 @@
+Hello {{ order.full_name }},
+
+Thanks for taking the time to browse our site and place and order.
+
+We can confirm receipt and payment. Your order is as follows:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.order_date }}
+
+------------------------------------------------------------------
+
+Order Total: {{ order.order_total }}
+Delivery Charge: {{ order.delivery_charge }}
+Grand Total: {{ order.grand_total }}
+
+------------------------------------------------------------------
+
+Delivery:
+
+Your order will be shipped to:
+
+{{ order.address_line1|default_if_none:"" }}
+{{ order.address_line2|default_if_none:"" }}
+{{ order.town_city|default_if_none:"" }}
+{{ order.county|default_if_none:"" }}
+{{ order.postcode|default_if_none:"" }}
+{{ order.country|default_if_none:"" }}
+
+------------------------------------------------------------------
+
+Contact:
+
+We have your contact information saved as:
+
+{{ order.phone_number }}
+{{ order.email }}
+
+------------------------------------------------------------------
+
+If you have any questions please contact us at {{ contact_email }}.
+
+Thank again ordering from PIZZATHEACTION, we hope to see you back soon.
+
+Sincerely,
+
+PIZZATHEACTION
