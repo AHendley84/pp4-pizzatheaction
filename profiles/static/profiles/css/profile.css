@@ -5,3 +5,8 @@
     padding: 6px;
     width: 80%;
 }
+
+.order-history {
+    max-height: 416px;
+    overflow-y: auto;
+}
