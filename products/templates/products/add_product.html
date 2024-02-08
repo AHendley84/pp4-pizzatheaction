@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% load basket_tools %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="home-pizza-oven">
+    <div class="row h-100">
+        <div class="col-6"></div>
+        <div class="col-6 my-auto">
+            <h1 class="page-headers display-3">
+                Product Management
+            </h1>
+            <h5 class="page-headers display-5">
+                Add a Product
+            </h5>
+        </div>
+    </div>
+</div>
+<div class="container my-2">
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2">
+            <form method="POST" class="form mb-2" action="{% url 'add_product' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="pt-3">
+                    <a class="btn rounded-1 btn-danger" href="{% url 'products' %}">Cancel</a>
+                    <button class="btn btn-success rounded-1" type="submit">Add Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
