@@ -106,6 +106,12 @@
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
                 <div class="submit-button text-right mt-5 mb-2">
+                    <p class="small text-danger my-0 pb-3 fs-5">
+                        <span class="icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                        <span>Your card will be charged £{{ grand_total|floatformat:2 }}</span>
+                    </p>
                     <a href="{% url 'view_basket' %}" class="btn rounded-1">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
@@ -118,12 +124,6 @@
                             <i class="fas fa-lock"></i>
                         </span>
                     </button>
-                    <p class="small text-danger my-0">
-                        <span class="icon">
-                            <i class="fas fa-exclamation-circle"></i>
-                        </span>
-                        <span>Your card will be charged £{{ grand_total|floatformat:2 }}</span>
-                    </p>
                 </div>
             </form>
         </div>

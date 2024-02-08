@@ -6,7 +6,7 @@
                 Success - {{ message }}
                 </div>
             </div>
-            {% if grand_total %}
+            {% if grand_total and not on_profile_page %}
             <div class="col bg-white align-items-center rounded-1 m-1">
                 <hr class="mt-3 mb-1">
                     <p class="text-black p-1 fw-bold">Your Basket ({{ product_count }})</p>
