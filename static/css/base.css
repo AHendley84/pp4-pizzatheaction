@@ -203,41 +203,23 @@ footer {
 
 /* All Brands & All Categories */
 
-.brand-cards:focus,
-.brand-cards:active,
-.brand-cards:hover {
-    background-color: #7c90a0;
+/* Custom styles to override Bootstrap accordion button styles */
+div.accordion {
+    border-color: transparent;
+    box-shadow: none;
 }
 
-.brand-names {
-    font-family: 'Quicksand', sans-serif;
-    color: #4e5166;
+div.accordion a.accordion-button {
+    background-color: #4e5166;
+    color: #b5aa9d;
+    border-color: transparent;
+    box-shadow: none;
     text-decoration: none;
 }
 
-.brand-names:focus,
-.brand-names:active,
-.brand-names:hover {
-    color: white;
-}
-
-.category-cards:focus,
-.category-cards:active,
-.category-cards:hover {
-    background-color: #7c90a0;
-}
-
-.category-names {
-    font-family: 'Quicksand', sans-serif;
-    color: #4e5166;
-    text-decoration: none;
-}
-
-.category-names:focus,
-.category-names:active,
-.category-names:hover {
-    color: white;
-}
+/*div.accordion a.accordion-button:hover {
+    background-color: transparent;
+}*/
 
 /* Basket */
 

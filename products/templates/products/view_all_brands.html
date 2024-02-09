@@ -23,17 +23,27 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <div class="product-container col-10 offset-1">
+            <div class="product-container col-12 col-md-8 offset-2">
                 <div class="row mt-1 mb-2"></div>
                 <div class="row">
                     {% for brand in brands %}
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 pb-3">
-                        <div class="card rounded-1 h-100 product-card brand-cards">
-                            <div class="card-body text-center">
-                                <a class="brand-names display-6" href="{% url 'products' %}?brand={{ brand.name }}">
-                                    {{ brand.friendly_name }}
-                                </a>
+                    <div class="accordion m-2" id="accordionBrand{{ brand.id }}">
+                        <div class="accordion-item border-0 rounded-1">
+                          <h2 class="accordion-header">
+                            <a class="accordion-button fs-2" data-bs-toggle="collapse" data-bs-target="#collapse{{ brand.id }}" aria-expanded="true" aria-controls="collapse{{ brand.id }}">
+                                {{ brand.friendly_name }}
+                            </a>
+                          </h2>
+                          <div id="collapse{{ brand.id }}" class="accordion-collapse collapse" data-bs-parent="#accordionBrand{{ brand.id }}">
+                            <div class="accordion-body">
+                              <small>
+                                {{ brand.description }}
+                              </small>
                             </div>
+                            <div class="accordion-body">
+                                <a class="btn btn-sm btn-success text-end" href="{% url 'products' %}?brand={{ brand.name }}">Shop {{ brand.friendly_name }}</a>
+                            </div>
+                          </div>
                         </div>
                     </div>
                     {% endfor %}
@@ -42,4 +52,15 @@
         </div>
     </div>
 </div>
-{% endblock %}e
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $(document).ready(function () {
+    $('.accordion').on('show.bs.collapse', function () {
+        $('.accordion .collapse.show').not($(this).find('.collapse')).collapse('hide');
+        });
+    });
+</script>
+{% endblock %}
