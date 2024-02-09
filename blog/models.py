@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class BlogPost(models.Model):
@@ -11,6 +12,9 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('blog:content_view', args=(str(self.id)))
 
     def save(self, *args, **kwargs):
         # If the created_by field is not set, and there is a logged-in user,

@@ -26,7 +26,7 @@ For my fourth and final project, I have undertaken the task of conceptualizing, 
 ### Data Design
 As this is a data driven project I planned how each data set would appear in the database and connect with each other and then via the user on the front end. Using [drawSQL](https://drawsql.app/) I took the time visualise the database to help witht he construction of the applications and the website to ensure the funcationality I included was available and working correctly.
 
-![Visual Representation of database](#)
+![Visual Representation of database](media/documentation/data_layout.png)
 
 ---
 ## Features
