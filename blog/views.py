@@ -1,8 +1,18 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView
+from .models import BlogPost
 
 
-def blog_home(request):
+class BlogHomeView(ListView):
     """
-    A view to retun the blog page
+    A view to return all the blog entries
     """
-    return render(request, 'blog/blog.html')
+    model = BlogPost
+    template_name = 'blog/all_blogs.html'
+    context_object_name = 'all_objects'
+
+
+class BlogDetailView(DetailView):
+    model = BlogPost
+    template_name = 'blog/blog_details.html'
+    

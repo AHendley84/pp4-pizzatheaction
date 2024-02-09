@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="home-pizza-oven">
+    <div class="row h-100">
+        <div class="col-6"></div>
+        <div class="col-6 my-auto">
+            <h1 class="page-headers display-3">
+                Blog
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="container mb-2 p-2">
+    <div class="row">
+        <ul>
+            {% for post in all_objects %}
+                <li>
+                    <a href="{% url 'blog:content_view' post.pk %}">{{ post.title }}</a> - {{ post.created_by }}
+                    <br>
+                    {{ post.created_by.first_name }} {{ post.created_by.last_name }}
+                    <br>
+                    {{ post.content }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
