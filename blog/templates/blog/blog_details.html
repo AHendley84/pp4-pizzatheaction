@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% load static %}
 
 {% block extra_css %}
@@ -26,17 +27,19 @@
 </div>
 <div class="container mb-2 p-2">
     <div class="row">
-        <div class="col-12">
-            <h2>{{ object.title }}</h2>
-            <br>
-            <small>
-                {{ object.created_by.first_name }} {{ object.created_by.last_name }}
-            </small>
-            <br>
-            <p>
-                {{ object.content }}
-            </p>
-            <a class="btn btn-success" href="{% url 'blog:blog_home' %}">Back</a>
+        <div class="col-12 col-md-8 offset-md-2 mt-3">
+            <div class="md-3">
+                <h2>{{ object.title }}</h2>
+                <br>
+                <small>
+                    {{ object.created_by.first_name }} {{ object.created_by.last_name }}
+                </small>
+                <br>
+                <p>
+                    {{ object.content }}
+                </p>
+                <a class="btn btn-success" href="{% url 'blog:blog_home' %}">Back</a>
+            </div>
         </div>
     </div>
 </div>

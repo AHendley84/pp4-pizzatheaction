@@ -26,17 +26,15 @@
 </div>
 <div class="container mb-2 p-2">
     <div class="row">
-        <ul>
+        <div class="col-12 col-md-8 offset-md-2 mt-3">
             {% for post in all_objects %}
-                <li>
-                    <a href="{% url 'blog:content_view' post.pk %}">{{ post.title }}</a> - {{ post.created_by }}
-                    <br>
-                    {{ post.created_by.first_name }} {{ post.created_by.last_name }}
-                    <br>
-                    {{ post.content }}
-                </li>
+                <div class="card m-3">
+                    <div class="card-body">
+                        <a class="fs-3" href="{% url 'blog:content_view' post.pk %}">{{ post.title }}</a> by {{ post.created_by }}
+                    </div>
+                </div>
             {% endfor %}
-        </ul>
+        </div>
     </div>
 </div>
 {% endblock %}
