@@ -38,8 +38,8 @@ def order_history(request, order_number):
     order =get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (
-        'This is a previous order confirmation for order number:'
-        f'{order_number}.'
+        f'This is a previous order confirmation for order number:\n'
+        f'{order_number}.\n'
         'Confirmation was sent via email.'
     ))
 
