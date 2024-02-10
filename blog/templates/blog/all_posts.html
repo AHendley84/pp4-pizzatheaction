@@ -27,10 +27,18 @@
 <div class="container mb-2 p-2">
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2 mt-3">
+            <a class="fs-4 btn btn-success" href="{% url 'blog:add_post' %}">Add a Post</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2 mt-3">
             {% for post in all_objects %}
                 <div class="card m-3">
                     <div class="card-body">
-                        <a class="fs-3" href="{% url 'blog:content_view' post.pk %}">{{ post.title }}</a> by {{ post.created_by }}
+                        <a class="text-decoration-none" href="{% url 'blog:content_view' post.pk %}">
+                            <strong class="fs-3">{{ post.title }}</strong> by <small>{{ post.created_by }}</small>
+                        </a>
+                        <a class="btn btn-sm btn-danger float-end" href="{% url 'blog:update_post' post.pk %}">Edit</a>
                     </div>
                 </div>
             {% endfor %}

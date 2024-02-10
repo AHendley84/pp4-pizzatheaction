@@ -28,17 +28,13 @@
 <div class="container mb-2 p-2">
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2 mt-3">
-            <div class="md-3">
-                <h2>{{ object.title }}</h2>
-                <br>
-                <small>
-                    Created by {{ object.created_by.first_name }} {{ object.created_by.last_name }} on {{ onject.created_on }}
-                </small>
-                <br>
-                <p>
-                    {{ object.content }}
-                </p>
-                <a class="btn btn-success" href="{% url 'blog:blog_home' %}">Back</a>
+            <h2>Edit Post</h2>
+            <div class="form-group md-3">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn btn-success m-2">Update</button>
+                </form>
             </div>
         </div>
     </div>
