@@ -32,6 +32,7 @@
                 <div class="form-group md-3">
                     <form method="POST">
                         {% csrf_token %}
+                        {{ form.media }}
                         {{ form|crispy }}
                         <button class="btn btn-success m-2">Post</button>
                     </form>

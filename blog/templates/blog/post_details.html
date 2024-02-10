@@ -42,7 +42,7 @@
                     Category: {{ object.category }}
                 </small>
                 <p class="p-2 content-display">
-                    {{ object.content }}
+                    {{ object.content|safe }}
                 </p>
                 {% if request.user.is_authenticated %}
                     <form action="{% url 'blog:like_post' object.pk %}" method="POST">

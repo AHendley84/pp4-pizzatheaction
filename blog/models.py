@@ -3,13 +3,15 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 from datetime import datetime, date
+from ckeditor.fields import RichTextField
 
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=254)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey('BlogCategory', null=True, blank=False, on_delete=models.SET_NULL)
-    content = models.TextField()
+    #content = models.TextField()
+    content = RichTextField(blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     likes = models.ManyToManyField(User, related_name='blog_posts')

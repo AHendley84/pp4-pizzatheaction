@@ -7,8 +7,8 @@ class AddPostForm(forms.ModelForm):
         model = BlogPost
         fields = (
             'title',
-            'content',
             'category',
+            'content',
         )
 
         widgets = {

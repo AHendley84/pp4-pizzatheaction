@@ -41,11 +41,9 @@
                             </a>
                         </div>
                         <div class="card-body">
-                            <small>| Created by: {{ post.created_by.first_name }} {{ post.created_by.last_name }} ({{ post.created_by }}) |</small>
+                            <small>| Created by: {{ post.created_by.first_name }} {{ post.created_by.last_name }} ({{ post.created_by }}) | Category: {{ post.category }} |</small>
                             <br>
                             <small>| Created on: {{ post.created_on }} | Updated on: {{ post.updated_on }} |</small>
-                            <br>
-                            <small>| Category: {{ post.category }} |</small>
                         </div>
                         <div class="card-footer">
                             {% if request.user.is_authenticated %}
