@@ -31,17 +31,21 @@
             <div class="md-3">
                 <h2>{{ object.title }}</h2>
                 <br>
-                <small>
-                    Created by {{ object.created_by.first_name }} {{ object.created_by.last_name }} on 
+                <small class="p-2">
+                    Created by {{ object.created_by.first_name }} {{ object.created_by.last_name }} on {{ object.created_on }}
                 </small>
                 <br>
-                <p>
+                <p class="p-2">
                     {{ object.content }}
                 </p>
-                <div class="float-end">
-                    <a class="btn btn-sm btn-success" href="{% url 'blog:blog_home' %}">Back</a>
-                    <a class="btn btn-sm btn-danger" href="{% url 'blog:update_post' object.pk %}">Edit</a>
-                    <a class="btn btn-sm btn-info" href="{% url 'blog:delete_post' object.pk %}">Delete</a>
+                <div>
+                    <div class="float-start">
+                        <a class="btn btn-sm btn-success" href="{% url 'blog:blog_home' %}">Back</a>
+                        <a class="btn btn-sm btn-info" href="{% url 'blog:update_post' object.pk %}">Edit</a>
+                    </div>
+                    <div class="float-end">
+                        <a class="btn btn-sm btn-danger" href="{% url 'blog:delete_post' object.pk %}">Delete</a>
+                    </div>
                 </div>
             </div>
         </div>

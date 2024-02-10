@@ -34,10 +34,15 @@
         <div class="col-12 col-md-8 offset-md-2 mt-3">
             {% for post in all_objects %}
                 <div class="card m-3">
-                    <div class="card-body">
+                    <div class="card-header container-b-background">
                         <a class="text-decoration-none" href="{% url 'blog:content_view' post.pk %}">
-                            <strong class="fs-3">{{ post.title }}</strong> by <small>{{ post.created_by }}</small>
+                            <strong class="fs-3">{{ post.title }}</strong>
                         </a>
+                    </div>
+                    <div class="card-body">
+                        <small>{{ post.created_by.first_name }} {{ post.created_by.last_name }} ({{ post.created_by }})</small>
+                        <br>
+                        <small>Created on {{ post.created_on }}</small>
                         <div class="float-end">
                             <a class="btn btn-sm btn-info" href="{% url 'blog:update_post' post.pk %}">Edit</a>
                             <a class="btn btn-sm btn-danger" href="{% url 'blog:delete_post' post.pk %}">Delete</a>

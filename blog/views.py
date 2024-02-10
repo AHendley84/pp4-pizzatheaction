@@ -12,7 +12,7 @@ class BlogHomeView(ListView):
     model = BlogPost
     template_name = 'blog/all_posts.html'
     context_object_name = 'all_objects'
-    ordering = ['-id']
+    ordering = ['-created_on']
 
 
 class PostDetailView(DetailView):
