@@ -28,21 +28,15 @@
 <div class="container mb-2 p-2">
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2 mt-3">
-            <div class="md-3">
-                <h2>{{ object.title }}</h2>
-                <br>
-                <small>
-                    Created by {{ object.created_by.first_name }} {{ object.created_by.last_name }} on 
-                </small>
-                <br>
-                <p>
-                    {{ object.content }}
-                </p>
-                <div class="float-end">
-                    <a class="btn btn-sm btn-success" href="{% url 'blog:blog_home' %}">Back</a>
-                    <a class="btn btn-sm btn-danger" href="{% url 'blog:update_post' object.pk %}">Edit</a>
-                    <a class="btn btn-sm btn-info" href="{% url 'blog:delete_post' object.pk %}">Delete</a>
-                </div>
+            <h2>Delete Post</h2>
+            <br>
+            <h3>{{ post.title }}</h3>
+            <div class="form-group md-3">
+                <form method="POST">
+                    {% csrf_token %}
+                    <strong>Once deleted this cannot be undone, are you sure you wish to proceed?</strong>
+                    <button class="btn btn-danger m-2">Delete</button>
+                </form>
             </div>
         </div>
     </div>

@@ -38,7 +38,10 @@
                         <a class="text-decoration-none" href="{% url 'blog:content_view' post.pk %}">
                             <strong class="fs-3">{{ post.title }}</strong> by <small>{{ post.created_by }}</small>
                         </a>
-                        <a class="btn btn-sm btn-danger float-end" href="{% url 'blog:update_post' post.pk %}">Edit</a>
+                        <div class="float-end">
+                            <a class="btn btn-sm btn-info" href="{% url 'blog:update_post' post.pk %}">Edit</a>
+                            <a class="btn btn-sm btn-danger" href="{% url 'blog:delete_post' post.pk %}">Delete</a>
+                        </div>
                     </div>
                 </div>
             {% endfor %}
