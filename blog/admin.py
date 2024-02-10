@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BlogPost
+from .models import BlogPost, BlogCategory
 
 
 class BlogAdmin(admin.ModelAdmin):
@@ -8,4 +8,10 @@ class BlogAdmin(admin.ModelAdmin):
         'created_by',
     )
 
-admin.site.register(BlogPost)
+class BlogCategoryAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+    )
+
+admin.site.register(BlogPost, BlogAdmin)
+admin.site.register(BlogCategory, BlogCategoryAdmin)

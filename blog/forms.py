@@ -8,11 +8,13 @@ class AddPostForm(forms.ModelForm):
         fields = (
             'title',
             'content',
+            'category',
         )
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'created_by': forms.Select(attrs={'class': 'form-control'}),
+            'category': forms.Select(attrs={'class': 'form-control'}),
             'content': forms.Textarea(attrs={'class': 'form-control'}),
         }
     

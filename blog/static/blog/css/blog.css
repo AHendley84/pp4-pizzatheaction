@@ -1,0 +1,17 @@
+.content-display {
+    white-space: pre-line;
+}
+
+.card {
+    border-style: none;
+}
+
+.post-title h2 {
+    color: white;
+}
+
+.post-title h2:focus,
+.post-title h2:hover,
+.post-title h2:active {
+    color: #b5aa9d;
+}

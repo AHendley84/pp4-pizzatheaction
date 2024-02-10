@@ -1,9 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponseRedirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import BlogPost
-from .forms import AddPostForm
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.contrib import messages
+from datetime import datetime, date
+
+from .models import BlogPost, BlogCategory
+from .forms import AddPostForm
 
 
 class BlogHomeView(ListView):
@@ -19,6 +22,19 @@ class BlogHomeView(ListView):
 class PostDetailView(DetailView):
     model = BlogPost
     template_name = 'blog/post_details.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = get_object_or_404(BlogPost, id=self.kwargs['pk'])
+        total_likes = post.total_likes()
+
+        liked = False
+        if post.likes.filter(id=self.request.user.id).exists():
+            liked = True
+
+        context['total_likes'] = total_likes
+        context['liked'] = liked
+        return context
 
 
 class AddPostView(CreateView):
@@ -38,7 +54,7 @@ class AddPostView(CreateView):
 class UpdatePostView(UpdateView):
     model = BlogPost
     template_name = 'blog/update_post.html'
-    fields = ['title', 'content',]
+    fields = ['title', 'content','category',]
 
     def form_valid(self, form):
         messages.success(self.request, 'Post updated successfully!')
@@ -53,3 +69,16 @@ class DeletePostView(DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, 'Post deleted successfully!')
         return super().delete(request, *args, **kwargs)
+
+
+def LikeView(request, pk):
+    post = get_object_or_404(BlogPost, id=request.POST.get('post_like'))
+    liked = False
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+        liked = False
+    else:
+        post.likes.add(request.user)
+        liked = True
+
+    return HttpResponseRedirect(reverse('blog:content_view', args=[str(pk)]))

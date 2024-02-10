@@ -26,37 +26,45 @@
 </div>
 <div class="container mb-2 p-2">
     <div class="row">
+        {% if request.user.is_authenticated %}
         <div class="col-12 col-md-8 offset-md-2 mt-3">
-            <a class="fs-4 btn btn-success" href="{% url 'blog:add_post' %}">Add Post</a>
+            <a class="fs-4 btn btn-success float-end" href="{% url 'blog:add_post' %}">Add Post</a>
         </div>
     </div>
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2 mt-3">
-        {% if all_objects %}
-            {% for post in all_objects %}
-                <div class="card m-3">
-                    <div class="card-header container-b-background">
-                        <a class="text-decoration-none" href="{% url 'blog:content_view' post.pk %}">
-                            <strong class="fs-3">{{ post.title }}</strong>
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <small>{{ post.created_by.first_name }} {{ post.created_by.last_name }} ({{ post.created_by }})</small>
-                        <br>
-                        <small>Created on {{ post.created_on }}</small>
-                        {% if request.user.is_authenticated %}
-                            {% if post.created_by == request.user or request.user.is_superuser %}
-                                <div class="float-end">
-                                    <a class="btn btn-sm btn-info" href="{% url 'blog:update_post' post.pk %}">Edit</a>
-                                    <a class="btn btn-sm btn-danger" href="{% url 'blog:delete_post' post.pk %}">Delete</a>
-                                </div>
+            {% if all_objects %}
+                {% for post in all_objects %}
+                    <div class="card m-3">
+                        <div class="card-header container-b-background">
+                            <a class="post-title text-decoration-none" href="{% url 'blog:content_view' post.pk %}">
+                                <h2 class="fs-3">{{ post.title }}</h2>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <small>| Created by: {{ post.created_by.first_name }} {{ post.created_by.last_name }} ({{ post.created_by }}) |</small>
+                            <br>
+                            <small>| Created on: {{ post.created_on }} | Updated on: {{ post.updated_on }} |</small>
+                            <br>
+                            <small>| Category: {{ post.category }} |</small>
+                        </div>
+                        <div class="card-footer">
+                            {% if request.user.is_authenticated %}
+                                {% if post.created_by == request.user or request.user.is_superuser %}
+                                    <div class="float-end">
+                                        <a class="btn btn-sm btn-info" href="{% url 'blog:update_post' post.pk %}">Edit</a>
+                                        <a class="btn btn-sm btn-danger" href="{% url 'blog:delete_post' post.pk %}">Delete</a>
+                                    </div>
+                                {% endif %}
                             {% endif %}
-                        {% endif %}
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            {% else %}
+                <h3>No posts yet! Start a post using the Add Post button above!</h3>
+            {% endif %}
         {% else %}
-            <h3>No posts yet! Start a post using the Add Post button above!</h3>
+            <h3>You must be registered and logged in to view the blog</h3>
         {% endif %}
         </div>
     </div>

@@ -29,16 +29,46 @@
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2 mt-3">
             <div class="md-3">
-                <h2>{{ object.title }}</h2>
+                <h2 class="p-2">{{ object.title }}</h2>
                 <br>
                 <small class="p-2">
                     Created by {{ object.created_by.first_name }} {{ object.created_by.last_name }} on {{ object.created_on }}
                 </small>
                 <br>
-                <p class="p-2">
+                <small class="p-2">
+                    Updated on: {{ object.updated_on }}
+                </small>
+                <br>
+                <small class="p-2">
+                    Category: {{ object.category }}
+                </small>
+                <p class="p-2 content-display">
                     {{ object.content }}
                 </p>
-                <div>
+                {% if request.user.is_authenticated %}
+                    <form action="{% url 'blog:like_post' object.pk %}" method="POST">
+                        <div class="col-6 pb-2">
+                            {% csrf_token %}
+                            {% if liked %}
+                                <button type="submit" name="post_like" value="{{ object.id }}" class="btn btn-danger btn-sm rounded-circle m-3">
+                                    <i class="fa-regular fa-thumbs-down"></i>
+                                </button>
+                                <br>
+                            {% else %}
+                                <button type="submit" name="post_like" value="{{ object.id }}" class="btn btn-success btn-sm rounded-circle m-3">
+                                    <i class="fa-regular fa-thumbs-up text-white"></i>
+                                </button>
+                                <br>
+                            {% endif %}
+                            <small>
+                                Total Likes: {{ object.total_likes }}
+                            </small>
+                        </div>
+                    </form>
+                {% else %}
+                    <h3>You must be logged in to like a blog post</h3>
+                {% endif %}
+                <div class="m-2">
                     <div class="float-start">
                         <a class="btn btn-sm btn-success" href="{% url 'blog:blog_home' %}">Back</a>
                     </div>
