@@ -7,7 +7,6 @@ class AddPostForm(forms.ModelForm):
         model = BlogPost
         fields = (
             'title',
-            'created_by',
             'content',
         )
 
@@ -16,3 +15,6 @@ class AddPostForm(forms.ModelForm):
             'created_by': forms.Select(attrs={'class': 'form-control'}),
             'content': forms.Textarea(attrs={'class': 'form-control'}),
         }
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)

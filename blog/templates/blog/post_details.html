@@ -41,11 +41,15 @@
                 <div>
                     <div class="float-start">
                         <a class="btn btn-sm btn-success" href="{% url 'blog:blog_home' %}">Back</a>
-                        <a class="btn btn-sm btn-info" href="{% url 'blog:update_post' object.pk %}">Edit</a>
                     </div>
-                    <div class="float-end">
-                        <a class="btn btn-sm btn-danger" href="{% url 'blog:delete_post' object.pk %}">Delete</a>
-                    </div>
+                    {% if request.user.is_authenticated %}
+                        {% if post.created_by == request.user or request.user.is_superuser %}
+                            <div class="float-end">
+                                <a class="btn btn-sm btn-info" href="{% url 'blog:update_post' object.pk %}">Edit</a>
+                                <a class="btn btn-sm btn-danger" href="{% url 'blog:delete_post' object.pk %}">Delete</a>
+                            </div>
+                        {% endif %}
+                    {% endif %}
                 </div>
             </div>
         </div>

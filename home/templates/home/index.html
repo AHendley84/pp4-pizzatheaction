@@ -37,8 +37,29 @@
                     <a href="{% url 'products' %}" class="btn-shop btn btn-lg container-b-background text-white">Start Shopping</a>
                 </div>
             </div>
-            
         </div>
+        {% if not request.user.is_authenticated %}
+        <div class="col-sm-12 col-md-6 p-3 d-flex flex-column align-items-stretch">
+            <div class="container-b-background p-3">
+                <p class="text-white">
+                    In our PIZZATHEACTION blog, we're not just passionate about providing top-notch products; we're
+                    committed to building a vibrant community of pizza enthusiasts. Join us in the discussion section,
+                    where you can share your favorite tips, tricks, and secret recipes with like-minded individuals.
+                    Whether you're a seasoned pizzaiolo or a novice in the dough, our blog is the perfect space to
+                    exchange ideas, troubleshoot challenges, and inspire each other to create the ultimate homemade
+                    pizza experience. Together, let's elevate our pizza game and turn every baking session into a slice
+                    of perfection. Come for the tools, stay for the community, and let's make PIZZATHEACTION your go-to
+                    source for all things pizza!
+                </p>
+                <p class="text-white">
+                    For registered members only. Already registered? <a href="{% url 'account_login' %}">Login</a> Not yet registered?
+                </p>
+                <div class="text-center">
+                    <a href="{% url 'account_signup' %}" class="btn-blog btn btn-lg container-a-background text-white">Sign Up</a>
+                </div>
+            </div> 
+        </div>
+        {% else %}
         <div class="col-sm-12 col-md-6 p-3 d-flex flex-column align-items-stretch">
             <div class="container-b-background p-3">
                 <p class="text-white">
@@ -52,11 +73,11 @@
                     source for all things pizza!
                 </p>
                 <div class="text-center">
-                    <a href="#" class="btn-blog btn btn-lg container-a-background text-white">Join the community</a>
+                    <a href="{% url 'blog:blog_home' %}" class="btn-blog btn btn-lg container-a-background text-white">Join the community</a>
                 </div>
-            </div>
-            
+            </div> 
         </div>
+        {% endif %}
     </div>
 </div>
-{% endblock %}e
+{% endblock %}

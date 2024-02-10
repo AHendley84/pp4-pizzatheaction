@@ -28,14 +28,24 @@
 <div class="container mb-2 p-2">
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2 mt-3">
-            <h2>Edit Post</h2>
-            <div class="form-group md-3">
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <button class="btn btn-success m-2">Update</button>
-                </form>
-            </div>
+            {% if post.created_by == request.user or request.user.is_superuser %}
+                <h2>Edit Post</h2>
+                <div class="form-group md-3">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        {% if request.user.is_authenticated %}
+                            {% if post.created_by == request.user or request.user.is_superuser %}
+                                <button class="btn btn-success m-2">Update</button>
+                            {% endif %}
+                        {% endif %}
+                        <a class="btn btn-info m-2" href="{% url 'blog:blog_home' %}">Cancel</a>
+                    </form>
+                </div>
+            {% else %}
+                <h2>You do not have permission to access this page. Please follow the button below to return to the home page.</h2>
+                <a class="btn btn-info" href="{% url 'home' %}">Home</a>
+            {% endif %}
         </div>
     </div>
 </div>

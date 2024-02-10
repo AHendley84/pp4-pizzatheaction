@@ -28,16 +28,21 @@
 <div class="container mb-2 p-2">
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2 mt-3">
-            <h2>Delete Post</h2>
-            <br>
-            <h3>{{ post.title }}</h3>
-            <div class="form-group md-3">
-                <form method="POST">
-                    {% csrf_token %}
-                    <strong>Once deleted this cannot be undone, are you sure you wish to proceed?</strong>
-                    <button class="btn btn-danger m-2">Delete</button>
-                </form>
-            </div>
+            {% if post.created_by == request.user or request.user.is_superuser %}
+                <h2>Delete Post</h2>
+                <br>
+                <h3>{{ post.title }}</h3>
+                <div class="form-group md-3">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <strong>Once deleted this cannot be undone, are you sure you wish to proceed?</strong>
+                        <button class="btn btn-danger m-2">Delete</button>
+                    </form>
+                </div>
+            {% else %}
+                <h2>You do not have permission to access this page. Please follow the button below to return to the home page.</h2>
+                <a class="btn btn-info" href="{% url 'home' %}">Home</a>
+            {% endif %}
         </div>
     </div>
 </div>
