@@ -16,10 +16,9 @@
 {% block content %}
 <div id="home-pizza-oven">
     <div class="row h-100">
-        <div class="col-6"></div>
-        <div class="col-6 my-auto">
+        <div class="col-sm-12 col-md-8 offset-md-2 my-auto text-center">
             <h1 class="page-headers display-3">
-                Blog
+                PIZZATHEACTION Community
             </h1>
         </div>
     </div>
@@ -64,7 +63,9 @@
                 <h3>No posts yet! Start a post using the Add Post button above!</h3>
             {% endif %}
         {% else %}
-            <h3>You must be registered and logged in to view the blog</h3>
+            <div class="col-12 col-md-8 offset-md-2 mt-3 text-center">
+                <h3>You must be registered and logged in to view the blog</h3>
+            </div>
         {% endif %}
         </div>
     </div>
