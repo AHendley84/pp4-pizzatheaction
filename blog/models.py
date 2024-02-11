@@ -52,7 +52,7 @@ class BlogCategory(models.Model):
 class BlogComment(models.Model):
     post = models.ForeignKey(BlogPost, related_name="post_comments", on_delete=models.CASCADE)
     name = models.CharField(max_length=254)
-    comments = models.TextField()
+    comments = RichTextField(blank=True, null=True)
     comment_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
