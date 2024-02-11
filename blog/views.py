@@ -1,12 +1,14 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import FormView
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy, reverse
 from django.contrib import messages
 from django.utils import timezone
 
-from .models import BlogPost, BlogCategory
-from .forms import AddPostForm
+from .models import BlogPost, BlogCategory, BlogComment
+from .forms import AddPostForm, AddCommentForm
 
 
 class BlogHomeView(ListView):
@@ -34,6 +36,7 @@ class PostDetailView(DetailView):
 
         context['total_likes'] = total_likes
         context['liked'] = liked
+        
         return context
 
 
@@ -49,6 +52,25 @@ class AddPostView(CreateView):
 
     def get_success_url(self):
         return reverse_lazy('blog:content_view', kwargs={'pk': self.object.pk})
+
+
+class AddCommentView(CreateView):
+    form_class = AddCommentForm
+    template_name = 'blog/add_comment.html'
+
+    def form_valid(self, form):
+        post_id = self.kwargs['pk']
+        post = BlogPost.objects.get(pk=post_id)
+
+        form.instance.post = post
+        form.instance.created_by = self.request.user
+        form.instance.name = self.request.user.username
+        messages.success(self.request, 'Comment added successfully!')
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        # Redirect to the correct post detail view with the correct post ID
+        return reverse_lazy('blog:content_view', kwargs={'pk': self.kwargs['pk']})
 
 
 class UpdatePostView(UpdateView):

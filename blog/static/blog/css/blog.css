@@ -16,6 +16,10 @@
     color: #b5aa9d;
 }
 
-.comments-container .comment-card {
+.comment-card {
     width: 85%;
+}
+
+.match-comment {
+    margin-left: 15%;
 }

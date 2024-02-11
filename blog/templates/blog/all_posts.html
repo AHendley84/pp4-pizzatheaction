@@ -45,7 +45,10 @@
                             <br>
                             <small class="my-2">| Created on: {{ post.created_on }} |{% if post.updated_on == None %}{% else %} Original post updated on: {{ post.updated_on }} |{% endif %}</small>
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer container-a-background">
+                            <small class="float-start text-white">
+                                | Comments: {{ post.post_comments.all.count }} | Likes: {{ post.likes.count }} |
+                            </small>
                             {% if request.user.is_authenticated %}
                                 {% if post.created_by == request.user or request.user.is_superuser %}
                                     <div class="float-end">

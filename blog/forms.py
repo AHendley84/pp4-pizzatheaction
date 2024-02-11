@@ -1,5 +1,5 @@
 from django import forms
-from .models import BlogPost
+from .models import BlogPost, BlogComment
 
 
 class AddPostForm(forms.ModelForm):
@@ -18,5 +18,14 @@ class AddPostForm(forms.ModelForm):
             'content': forms.Textarea(attrs={'class': 'form-control'}),
         }
     
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+
+class AddCommentForm(forms.ModelForm):
+    class Meta:
+        model = BlogComment
+        fields = ['comments']
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

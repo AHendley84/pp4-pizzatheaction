@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="home-pizza-oven">
+    <div class="row h-100">
+        <div class="col-sm-12 col-md-8 offset-md-2 my-auto text-center">
+            <h1 class="page-headers display-3">
+                PIZZATHEACTION Community
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="container mb-2 p-2">
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2 mt-3">
+            {% if request.user.is_authenticated or request.user.is_superuser %}
+                <h2>Add Comment to </h2>
+                <div class="form-group md-3">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.media }}
+                        {{ form|crispy }}
+                        <button class="btn btn-success m-2">Add</button>
+                        <a class="btn btn-danger" href="#">Cancel</a>
+                    </form>
+                </div>
+            {% else %}
+                <h2>You do not have permission to access this page. Please follow the button below to return to the home page.</h2>
+                <a class="btn btn-info" href="#">Home</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

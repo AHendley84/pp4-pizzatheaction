@@ -13,6 +13,7 @@ class BlogPost(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True, null=True, blank=True)
     likes = models.ManyToManyField(User, related_name='blog_posts')
+    comments = models.ManyToManyField('BlogComment', related_name='post_comments', blank=True)
 
     def total_likes(self):
         return self.likes.count()
@@ -49,7 +50,7 @@ class BlogCategory(models.Model):
 
 
 class BlogComment(models.Model):
-    post = models.ForeignKey(BlogPost, related_name="comments", on_delete=models.CASCADE)
+    post = models.ForeignKey(BlogPost, related_name="post_comments", on_delete=models.CASCADE)
     name = models.CharField(max_length=254)
     comments = models.TextField()
     comment_on = models.DateTimeField(auto_now_add=True)

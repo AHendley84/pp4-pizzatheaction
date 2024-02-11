@@ -28,57 +28,63 @@
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2 mt-3">
             <div class="md-3">
-                <h2 class="p-2">{{ object.title }}</h2>
-                <br>
-                <small class="p-2">
-                    Created by {{ object.created_by.first_name }} {{ object.created_by.last_name }} on {{
-                    object.created_on }}
-                </small>
-                {% if object.updated_on == None %}
-                {% else %}
-                <br>
-                <small class="p-2">
-                    Original post updated on: {{ object.updated_on }}
-                </small>
-                {% endif %}
-                <br>
-                <small class="p-2">
-                    Category: {{ object.category }}
-                </small>
-                <p class="p-2 content-display">
-                    {{ object.content|safe }}
-                </p>
-                {% if request.user.is_authenticated %}
-                <div class="m-2">
-                    <form action="{% url 'blog:like_post' object.pk %}" method="POST">
-                        <div class="col-6">
-                            {% csrf_token %}
-                            {% if liked %}
-                            <button type="submit" name="post_like" value="{{ object.id }}"
-                                class="btn btn-danger btn-sm rounded-circle m-3">
-                                <i class="fa-regular fa-thumbs-down"></i>
-                            </button>
-                            <br>
-                            {% else %}
-                            <button type="submit" name="post_like" value="{{ object.id }}"
-                                class="btn btn-success btn-sm rounded-circle m-3">
-                                <i class="fa-regular fa-thumbs-up text-white"></i>
-                            </button>
-                            <br>
-                            {% endif %}
-                            <small>
-                                Total Likes: {{ object.total_likes }}
-                            </small>
-                        </div>
-                    </form>
-                    {% if request.user.is_authenticated %}
-                    {% if post.created_by == request.user or request.user.is_superuser %}
-                    <div class="float-end">
-                        <a class="btn btn-sm btn-info" href="{% url 'blog:update_post' object.pk %}">Edit</a>
-                        <a class="btn btn-sm btn-danger" href="{% url 'blog:delete_post' object.pk %}">Delete</a>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="p-2">{{ object.title }}</h2>
+                        <small class="p-2">
+                            Created by {{ object.created_by.first_name }} {{ object.created_by.last_name }} ({{ object.created_by }}) on {{ object.created_on }}
+                        </small>
+                        {% if object.updated_on == None %}
+                        {% else %}
+                        <br>
+                        <small class="p-2">
+                            Original post updated on: {{ object.updated_on }}
+                        </small>
+                        {% endif %}
+                        <br>
+                        <small class="p-2">
+                            Category: {{ object.category }}
+                        </small>
                     </div>
-                    {% endif %}
-                    {% endif %}
+                    <div class="card-body">
+                        {{ object.content|safe }}
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                        {% if request.user.is_authenticated %}
+                            <div class="col my-auto">
+                                <form action="{% url 'blog:like_post' object.pk %}" method="POST">
+                                    {% csrf_token %}
+                                    {% if liked %}
+                                    <button type="submit" name="post_like" value="{{ object.id }}"
+                                        class="btn btn-danger btn-sm rounded-circle m-3" title="Unlike this post">
+                                        <i class="fa-regular fa-thumbs-down"></i>
+                                    </button>
+                                    <br>
+                                    {% else %}
+                                    <button type="submit" name="post_like" value="{{ object.id }}"
+                                        class="btn btn-success btn-sm rounded-circle m-3" title="Like this post">
+                                        <i class="fa-regular fa-thumbs-up text-white"></i>
+                                    </button>
+                                    <br>
+                                    {% endif %}
+                                    <small>
+                                        Total Likes: {{ object.total_likes }}
+                                    </small>
+                                </form>
+                            </div>
+                            <div class="col my-auto">
+                                {% if request.user.is_authenticated %}
+                                {% if post.created_by == request.user or request.user.is_superuser %}
+                                <div class="float-end">
+                                    <a class="btn btn-info" href="{% url 'blog:update_post' object.pk %}">Edit</a>
+                                    <a class="btn btn-danger" href="{% url 'blog:delete_post' object.pk %}">Delete</a>
+                                </div>
+                                {% endif %}
+                            {% endif %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="comments-container my-5">
                     <div class="row">
@@ -86,26 +92,24 @@
                             <h3 class="my-3">Comments:</h2>
                         </div>
                         <div class="col-12">
-                        {% if not object.comments.all %}
+                        {% if not object.post_comments.all %}
                             <p>
-                                No Comments Yet. <a href="#">Add One.</a>
+                                No Comments Yet. <a href="{% url 'blog:add_comment' object.pk %}">Add One.</a>
                             </p>
                         {% else %}
-                            {% for comment in object.comments.all %}
-                                <div class="card my-2 comment-card float-start">
-                                    <div class="card-header">
-                                        
-                                    </div>
+                            {% for comment in object.post_comments.all %}
+                                <div class="card my-2 comment-card {% if comment.name|lower == object.created_by.username|lower %}float-end{% else %}float-start{% endif %}">
                                     <div class="card-body">
                                         {{ comment.comments }}
                                     </div>
                                     <div class="card-footer">
-                                        <small>
+                                        <small class="float-start">
                                             By {{ comment.name }} on {{ comment.comment_on }}
                                         </small>
                                     </div>
                                 </div>
                             {% endfor %}
+                            <a class="btn btn-success my-2" href="{% url 'blog:add_comment' object.pk %}">Add Comment</a>
                         {% endif %}
                         </div>
                     </div>
