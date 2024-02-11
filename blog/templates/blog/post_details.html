@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+<link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
 {% endblock %}
 
 {% block page_header %}
@@ -31,7 +31,8 @@
                 <h2 class="p-2">{{ object.title }}</h2>
                 <br>
                 <small class="p-2">
-                    Created by {{ object.created_by.first_name }} {{ object.created_by.last_name }} on {{ object.created_on }}
+                    Created by {{ object.created_by.first_name }} {{ object.created_by.last_name }} on {{
+                    object.created_on }}
                 </small>
                 {% if object.updated_on == None %}
                 {% else %}
@@ -48,25 +49,67 @@
                     {{ object.content|safe }}
                 </p>
                 {% if request.user.is_authenticated %}
+                <div class="m-2">
                     <form action="{% url 'blog:like_post' object.pk %}" method="POST">
-                        <div class="col-6 pb-2">
+                        <div class="col-6">
                             {% csrf_token %}
                             {% if liked %}
-                                <button type="submit" name="post_like" value="{{ object.id }}" class="btn btn-danger btn-sm rounded-circle m-3">
-                                    <i class="fa-regular fa-thumbs-down"></i>
-                                </button>
-                                <br>
+                            <button type="submit" name="post_like" value="{{ object.id }}"
+                                class="btn btn-danger btn-sm rounded-circle m-3">
+                                <i class="fa-regular fa-thumbs-down"></i>
+                            </button>
+                            <br>
                             {% else %}
-                                <button type="submit" name="post_like" value="{{ object.id }}" class="btn btn-success btn-sm rounded-circle m-3">
-                                    <i class="fa-regular fa-thumbs-up text-white"></i>
-                                </button>
-                                <br>
+                            <button type="submit" name="post_like" value="{{ object.id }}"
+                                class="btn btn-success btn-sm rounded-circle m-3">
+                                <i class="fa-regular fa-thumbs-up text-white"></i>
+                            </button>
+                            <br>
                             {% endif %}
                             <small>
                                 Total Likes: {{ object.total_likes }}
                             </small>
                         </div>
                     </form>
+                    {% if request.user.is_authenticated %}
+                    {% if post.created_by == request.user or request.user.is_superuser %}
+                    <div class="float-end">
+                        <a class="btn btn-sm btn-info" href="{% url 'blog:update_post' object.pk %}">Edit</a>
+                        <a class="btn btn-sm btn-danger" href="{% url 'blog:delete_post' object.pk %}">Delete</a>
+                    </div>
+                    {% endif %}
+                    {% endif %}
+                </div>
+                <div class="comments-container my-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="my-3">Comments:</h2>
+                        </div>
+                        <div class="col-12">
+                        {% if not object.comments.all %}
+                            <p>
+                                No Comments Yet. <a href="#">Add One.</a>
+                            </p>
+                        {% else %}
+                            {% for comment in object.comments.all %}
+                                <div class="card my-2 comment-card float-start">
+                                    <div class="card-header">
+                                        
+                                    </div>
+                                    <div class="card-body">
+                                        {{ comment.comments }}
+                                    </div>
+                                    <div class="card-footer">
+                                        <small>
+                                            By {{ comment.name }} on {{ comment.comment_on }}
+                                        </small>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
                 {% else %}
                     <h3>You must be logged in to like a blog post</h3>
                 {% endif %}
@@ -74,14 +117,6 @@
                     <div class="float-start">
                         <a class="btn btn-sm btn-success" href="{% url 'blog:blog_home' %}">Back</a>
                     </div>
-                    {% if request.user.is_authenticated %}
-                        {% if post.created_by == request.user or request.user.is_superuser %}
-                            <div class="float-end">
-                                <a class="btn btn-sm btn-info" href="{% url 'blog:update_post' object.pk %}">Edit</a>
-                                <a class="btn btn-sm btn-danger" href="{% url 'blog:delete_post' object.pk %}">Delete</a>
-                            </div>
-                        {% endif %}
-                    {% endif %}
                 </div>
             </div>
         </div>

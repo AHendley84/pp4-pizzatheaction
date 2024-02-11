@@ -15,3 +15,7 @@
 .post-title h2:active {
     color: #b5aa9d;
 }
+
+.comments-container .comment-card {
+    width: 85%;
+}
