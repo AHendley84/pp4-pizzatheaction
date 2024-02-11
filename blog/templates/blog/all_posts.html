@@ -41,9 +41,9 @@
                             </a>
                         </div>
                         <div class="card-body">
-                            <small>| Created by: {{ post.created_by.first_name }} {{ post.created_by.last_name }} ({{ post.created_by }}) | Category: {{ post.category }} |</small>
+                            <small class="my-2">| Created by: {{ post.created_by.first_name }} {{ post.created_by.last_name }} ({{ post.created_by }}) | Category: {{ post.category }} |</small>
                             <br>
-                            <small>| Created on: {{ post.created_on }} | Updated on: {{ post.updated_on }} |</small>
+                            <small class="my-2">| Created on: {{ post.created_on }} |{% if post.updated_on == None %}{% else %} Original post updated on: {{ post.updated_on }} |{% endif %}</small>
                         </div>
                         <div class="card-footer">
                             {% if request.user.is_authenticated %}

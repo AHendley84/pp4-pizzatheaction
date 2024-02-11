@@ -33,10 +33,13 @@
                 <small class="p-2">
                     Created by {{ object.created_by.first_name }} {{ object.created_by.last_name }} on {{ object.created_on }}
                 </small>
+                {% if object.updated_on == None %}
+                {% else %}
                 <br>
                 <small class="p-2">
-                    Updated on: {{ object.updated_on }}
+                    Original post updated on: {{ object.updated_on }}
                 </small>
+                {% endif %}
                 <br>
                 <small class="p-2">
                     Category: {{ object.category }}

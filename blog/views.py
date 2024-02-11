@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy, reverse
 from django.contrib import messages
-from datetime import datetime, date
+from django.utils import timezone
 
 from .models import BlogPost, BlogCategory
 from .forms import AddPostForm
@@ -54,9 +54,12 @@ class AddPostView(CreateView):
 class UpdatePostView(UpdateView):
     model = BlogPost
     template_name = 'blog/update_post.html'
-    fields = ['title', 'content','category',]
+    fields = ['title', 'content', 'category',]
 
     def form_valid(self, form):
+        # Set the updated_on field to the current date and time
+        form.instance.updated_on = timezone.now()
+
         messages.success(self.request, 'Post updated successfully!')
         return super().form_valid(form)
 
