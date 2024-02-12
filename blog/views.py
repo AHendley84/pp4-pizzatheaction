@@ -21,6 +21,7 @@ class BlogHomeView(ListView):
     ordering = ['-created_on']
 
 
+# All Post classes
 class PostDetailView(DetailView):
     model = BlogPost
     template_name = 'blog/post_details.html'
@@ -54,25 +55,6 @@ class AddPostView(CreateView):
         return reverse_lazy('blog:content_view', kwargs={'pk': self.object.pk})
 
 
-class AddCommentView(CreateView):
-    form_class = AddCommentForm
-    template_name = 'blog/add_comment.html'
-
-    def form_valid(self, form):
-        post_id = self.kwargs['pk']
-        post = BlogPost.objects.get(pk=post_id)
-
-        form.instance.post = post
-        form.instance.created_by = self.request.user
-        form.instance.name = self.request.user.username
-        messages.success(self.request, 'Comment added successfully!')
-        return super().form_valid(form)
-
-    def get_success_url(self):
-        # Redirect to the correct post detail view with the correct post ID
-        return reverse_lazy('blog:content_view', kwargs={'pk': self.kwargs['pk']})
-
-
 class UpdatePostView(UpdateView):
     model = BlogPost
     template_name = 'blog/update_post.html'
@@ -96,6 +78,27 @@ class DeletePostView(DeleteView):
         return super().delete(request, *args, **kwargs)
 
 
+# All comment views
+class AddCommentView(CreateView):
+    form_class = AddCommentForm
+    template_name = 'blog/add_comment.html'
+
+    def form_valid(self, form):
+        post_id = self.kwargs['pk']
+        post = BlogPost.objects.get(pk=post_id)
+
+        form.instance.post = post
+        form.instance.created_by = self.request.user
+        form.instance.name = self.request.user.username
+        messages.success(self.request, 'Comment added successfully!')
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        # Redirect to the correct post detail view with the correct post ID
+        return reverse_lazy('blog:content_view', kwargs={'pk': self.kwargs['pk']})
+
+
+# All like views
 def LikeView(request, pk):
     post = get_object_or_404(BlogPost, id=request.POST.get('post_like'))
     liked = False

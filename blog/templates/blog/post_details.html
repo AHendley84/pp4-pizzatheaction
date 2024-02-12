@@ -75,7 +75,7 @@
                             </div>
                             <div class="col my-auto">
                                 {% if request.user.is_authenticated %}
-                                {% if post.created_by == request.user or request.user.is_superuser %}
+                                {% if object.created_by == request.user or request.user.is_superuser %}
                                 <div class="float-end">
                                     <a class="btn btn-info" href="{% url 'blog:update_post' object.pk %}">Edit</a>
                                     <a class="btn btn-danger" href="{% url 'blog:delete_post' object.pk %}">Delete</a>
@@ -103,9 +103,11 @@
                                         {{ comment.comments|safe }}
                                     </div>
                                     <div class="card-footer">
-                                        <small class="float-start">
-                                            By {{ comment.name }} on {{ comment.comment_on }}
-                                        </small>
+                                        <div class="float-start">
+                                            <small>
+                                                By {{ comment.name }} on {{ comment.comment_on }}
+                                            </small>
+                                        </div>
                                     </div>
                                 </div>
                             {% endfor %}
