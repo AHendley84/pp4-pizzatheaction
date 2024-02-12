@@ -35,7 +35,7 @@
                         {{ form.media }}
                         {{ form|crispy }}
                         {% if request.user.is_authenticated %}
-                            {% if post.created_by == request.user or request.user.is_superuser %}
+                            {% if object.created_by == request.user or request.user.is_superuser %}
                                 <button class="btn btn-success m-2">Update</button>
                             {% endif %}
                         {% endif %}

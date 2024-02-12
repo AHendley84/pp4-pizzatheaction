@@ -77,13 +77,18 @@
                                 {% if request.user.is_authenticated %}
                                 {% if object.created_by == request.user or request.user.is_superuser %}
                                 <div class="float-end">
-                                    <a class="btn btn-info" href="{% url 'blog:update_post' object.pk %}">Edit</a>
-                                    <a class="btn btn-danger" href="{% url 'blog:delete_post' object.pk %}">Delete</a>
+                                    <a class="btn btn-info my-0 py-0" href="{% url 'blog:update_post' object.pk %}">Edit</a>
+                                    <a class="btn btn-danger my-0 py-0" href="{% url 'blog:delete_post' object.pk %}">Delete</a>
                                 </div>
                                 {% endif %}
                             {% endif %}
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="my-3 ms-0">
+                    <div class="float-start">
+                        <a class="btn btn-success my-0 py-0" href="{% url 'blog:blog_home' %}">Back</a>
                     </div>
                 </div>
                 <div class="comments-container my-5">
@@ -111,7 +116,7 @@
                                     </div>
                                 </div>
                             {% endfor %}
-                            <a class="btn btn-success my-2" href="{% url 'blog:add_comment' object.pk %}">Add Comment</a>
+                            <a class="btn btn-success my-0 py-0" href="{% url 'blog:add_comment' object.pk %}">Add Comment</a>
                         {% endif %}
                         </div>
                     </div>
@@ -119,9 +124,9 @@
                 {% else %}
                     <h3>You must be logged in to like a blog post</h3>
                 {% endif %}
-                <div class="m-2">
+                <div class="m-3 ms-0">
                     <div class="float-start">
-                        <a class="btn btn-sm btn-success" href="{% url 'blog:blog_home' %}">Back</a>
+                        <a class="btn btn-success my-0 py-0 ms-0" href="{% url 'blog:blog_home' %}">Back</a>
                     </div>
                 </div>
             </div>

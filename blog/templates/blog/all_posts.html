@@ -27,7 +27,7 @@
     <div class="row">
         {% if request.user.is_authenticated %}
         <div class="col-12 col-md-8 offset-md-2 mt-3">
-            <a class="fs-4 btn btn-success float-end" href="{% url 'blog:add_post' %}">Add Post</a>
+            <a class="fs-4 btn btn-success float-end my-0 py-0" href="{% url 'blog:add_post' %}">Add Post</a>
         </div>
     </div>
     <div class="row">
@@ -52,8 +52,8 @@
                             {% if request.user.is_authenticated %}
                                 {% if object.created_by == request.user or request.user.is_superuser %}
                                     <div class="float-end">
-                                        <a class="btn btn-sm btn-info" href="{% url 'blog:content_view' object.pk %}">Edit</a>
-                                        <a class="btn btn-sm btn-danger" href="{% url 'blog:delete_post' object.pk %}">Delete</a>
+                                        <a class="btn btn-sm btn-info my-0 py-0" href="{% url 'blog:update_post' pk=object.pk %}">Edit</a>
+                                        <a class="btn btn-sm btn-danger my-0 py-0" href="{% url 'blog:delete_post' object.pk %}">Delete</a>
                                     </div>
                                 {% endif %}
                             {% endif %}
