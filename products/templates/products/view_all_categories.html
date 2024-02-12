@@ -23,11 +23,10 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <div class="product-container col-12 col-md-8 offset-2">
-                <div class="row mt-3 mb-2"></div>
-                <div class="row">
+            <div class="product-container col-12 col-md-8 offset-md-2">
+                <div class="row pb-4">
                     {% for category in categories %}
-                    <div class="accordion m-2" id="accordionCategory{{ category.id }}">
+                    <div class="accordion mt-2" id="accordionCategory{{ category.id }}">
                         <div class="accordion-item border-0 rounded-1">
                           <h2 class="accordion-header">
                             <a class="accordion-button fs-2" data-bs-toggle="collapse" data-bs-target="#collapse{{ category.id }}" aria-expanded="true" aria-controls="collapse{{ category.id }}">
