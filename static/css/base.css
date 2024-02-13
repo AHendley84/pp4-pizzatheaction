@@ -136,6 +136,17 @@ footer {
     background-color: #7c90a0;
 }
 
+.home-links {
+    text-decoration: none;
+    color: #4e5166;
+}
+
+.home-links:focus,
+.home-links:hover,
+.home-links:active {
+    color: #b5aa9d;
+}
+
 /* products.html */
 
 .product-card {

@@ -33,7 +33,7 @@
                     PIZZATHEACTION!
                 </p>
                 <div class="text-center">
-                    <a href="{% url 'products' %}" class="btn-shop btn btn-lg container-b-background text-white">Start Shopping</a>
+                    <a href="{% url 'products' %}" class="btn btn-lg btn-success text-white">Start Shopping</a>
                 </div>
             </div>
         </div>
@@ -48,14 +48,11 @@
                     exchange ideas, troubleshoot challenges, and inspire each other to create the ultimate homemade
                     pizza experience. Together, let's elevate our pizza game and turn every baking session into a slice
                     of perfection. Come for the tools, stay for the community, and let's make PIZZATHEACTION your go-to
-                    source for all things pizza!
+                    source for all things pizza! For registered members only. 
                 </p>
                 <p class="text-white">
-                    For registered members only. Already registered? <a href="{% url 'account_login' %}">Login</a> Not yet registered?
+                    Already registered? <a href="{% url 'account_login' %}" class="home-links">Login.</a> Not yet registered? <a href="{% url 'account_signup' %}" class="home-links">Sign Up</a>
                 </p>
-                <div class="text-center">
-                    <a href="{% url 'account_signup' %}" class="btn-blog btn btn-lg container-a-background text-white">Sign Up</a>
-                </div>
             </div> 
         </div>
         {% else %}
@@ -72,7 +69,7 @@
                     source for all things pizza!
                 </p>
                 <div class="text-center">
-                    <a href="{% url 'blog:blog_home' %}" class="btn-blog btn btn-lg container-a-background text-white">Join the community</a>
+                    <a href="{% url 'blog:blog_home' %}" class="btn btn-lg btn-success text-white">Start Talking</a>
                 </div>
             </div> 
         </div>
