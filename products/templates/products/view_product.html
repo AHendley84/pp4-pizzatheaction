@@ -28,13 +28,13 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4">
             <div class="product-details-container p-1 mb-5 mt-md-5">
-                <p class="mb-0 display-3 font-color-1">{{ product.name }}</p>
-                <p class="mt-3 display-5 font-color-1">
+                <p class="mb-0 display-2 font-color-1">
+                    {{ product.name }}
+                </p>
+                <p class="my-1 fs-4 font-color-1">
                     <a class="view-product-link" href="{% url 'products' %}?brand={{ product.brand.name }}">
                         {{ product.brand.friendly_name }}
-                    </a>
-                </p>
-                <p class="mt-3 display-6">
+                    </a> | 
                     <a class="view-product-link" href="{% url 'products' %}?category={{ product.category.name }}">
                         {{ product.category.friendly_name }}
                     </a>
@@ -52,9 +52,9 @@
                 <small>No Rating</small>
                 {% endif %}
                 {% if request.user.is_superuser %}
-                <div class="text-end">
+                <div class="text-end mb-2">
                     <small class="ml-3">
-                        <a class="btn btn-sm btn-info" href="{% url 'edit_product' product.id %}">Edit</a> |
+                        <a class="btn btn-sm btn-warning" href="{% url 'edit_product' product.id %}">Edit</a> |
                         <a class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteDefence">Delete</a>
                         <!-- Modal warning to prevent accidental deletion of items -->
                         <div class="modal fade" id="deleteDefence" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteDefenceLabel" aria-hidden="true">
@@ -79,57 +79,62 @@
                     </small>
                 </div>
                 {% endif %}
-                <p class="mt-3">{{ product.description }}</p>
-                {% if product.fuel %}
-                    <p class="mt-3"><strong>Fuel Type:</strong> {{ product.fuel }}</p>
-                {% endif %}
-                {% if product.dimensions %}
-                    <p class="mt-3"><strong>Dimensions:</strong> {{ product.dimensions }}</p>
-                {% endif %}
-                {% if product.weight %}
-                <p class="mt-3"><strong>Weight:</strong> {{ product.weight }}</p>
-                {% endif %}
-                <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
-                    {% csrf_token %}
-                    <div class="form-row">
-                        <div class="col-12">
-                            <p class="mt-3"><strong>Quantity:</strong></p>
-                            <div class="form-group w-50">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <button class="decrement-qty btn rounded-0" 
-                                            data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                                            <span class="icon">
-                                                <i class="fas fa-minus"></i>
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <input class="form-control qty_input" type="number" 
-                                        name="quantity" value="1" min="1" max="99" 
-                                        data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                                    <div class="input-group-append">
-                                        <button class="increment-qty btn rounded-0"
-                                            data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                                            <span class="icon">
-                                                <i class="fas fa-plus"></i>
-                                            </span>
-                                        </button>
+                <div class="card">
+                    <div class="card-body m-2 p-1">
+                        <p class="mt-1">{{ product.description }}</p>
+                        {% if product.fuel %}
+                            <p class="mt-1"><strong>Fuel Type:</strong> {{ product.fuel }}</p>
+                        {% endif %}
+                        {% if product.dimensions %}
+                            <p class="mt-1"><strong>Dimensions:</strong> {{ product.dimensions }}</p>
+                        {% endif %}
+                        {% if product.weight %}
+                        <p class="mt-1"><strong>Weight:</strong> {{ product.weight }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="card mt-2">
+                    <div class="card-body p-1 m-1">
+                        <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <p class="mt-1"><strong>Quantity:</strong></p>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <button class="decrement-qty btn btn-danger rounded-1" 
+                                                    data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                                    <span class="icon">
+                                                        <i class="fas fa-minus"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                            <input class="form-control qty_input text-center" type="number" 
+                                                name="quantity" value="1" min="1" max="99" 
+                                                data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                            <div class="input-group-append">
+                                                <button class="increment-qty btn btn-success rounded-1"
+                                                    data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
+                                                    <span class="icon">
+                                                        <i class="fas fa-plus"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="col-12">
+                                    <a href="{% url 'products' %}" class="btn btn-large btn-warning rounded-1 mt-5 float-start">
+                                        <span class="text-uppercase">Keep Shopping</span>
+                                    </a>
+                                    <input type="submit" class="btn btn-large btn-success rounded-1 text-uppercase mt-5 float-end" value="Add to Basket">
+                                </div>
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <a href="{% url 'products' %}" class="btn btn-large rounded-1 mt-5 container-b-background">
-                                <span class="icon">
-                                    <i class="fas fa-chevron-left"></i>
-                                </span>
-                                <span class="text-uppercase">Keep Shopping</span>
-                            </a>
-                            <input type="submit" class="btn btn-large rounded-1 text-uppercase mt-5 container-b-background" value="Add to Basket">
-                        </div>
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
