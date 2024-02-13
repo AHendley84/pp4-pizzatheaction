@@ -17,11 +17,11 @@
             <div class="image-container my-5">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
-                    <img src="{{ product.image.url }}" class="card-img-top img-fluid bg-white view-product-image" alt="{{ product.name }}">
+                    <img src="{{ product.image.url }}" class="card-img-top img-fluid bg-white view-product-image rounded-2" alt="{{ product.name }}">
                 </a>
                 {% else %}
                 <a href="">
-                    <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top img-fluid bg-white view-product-image" alt="{{ product.name }}">
+                    <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top img-fluid bg-white view-product-image rounded-2" alt="{{ product.name }}">
                 </a>
                 {% endif %}
             </div>
@@ -80,6 +80,15 @@
                 </div>
                 {% endif %}
                 <p class="mt-3">{{ product.description }}</p>
+                {% if product.fuel %}
+                    <p class="mt-3"><strong>Fuel Type:</strong> {{ product.fuel }}</p>
+                {% endif %}
+                {% if product.dimensions %}
+                    <p class="mt-3"><strong>Dimensions:</strong> {{ product.dimensions }}</p>
+                {% endif %}
+                {% if product.weight %}
+                <p class="mt-3"><strong>Weight:</strong> {{ product.weight }}</p>
+                {% endif %}
                 <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
                     {% csrf_token %}
                     <div class="form-row">
