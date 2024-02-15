@@ -119,7 +119,7 @@
                                 {% if request.user.is_superuser %}
                                 <div class="text-end">
                                     <small class="ml-3">
-                                        <a class="btn btn-sm btn-info"
+                                        <a class="btn btn-sm btn-warning"
                                             href="{% url 'edit_product' product.id %}">Edit</a> |
                                         <a class="btn btn-sm btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#deleteDefence{{ product.id }}">Delete</a>
