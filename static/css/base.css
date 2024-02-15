@@ -175,7 +175,7 @@ footer {
     color: #b5aa9d;
 }
 
-/* products.html */
+/* products pages */
 
 .product-card {
     border-color: #4e5166;
@@ -240,6 +240,10 @@ footer {
     cursor: pointer;
 }
 
+.edit-product {
+    color: #4e5166;
+}
+
 /* All Brands & All Categories */
 
 /* Custom styles to override Bootstrap accordion button styles */
@@ -255,10 +259,6 @@ div.accordion a.accordion-button {
     box-shadow: none;
     text-decoration: none;
 }
-
-/*div.accordion a.accordion-button:hover {
-    background-color: transparent;
-}*/
 
 /* Basket */
 
