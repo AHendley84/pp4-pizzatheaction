@@ -28,19 +28,29 @@
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2 mt-3">
             {% if object.created_by == request.user or request.user.is_superuser %}
-                <h2>Delete Post</h2>
-                <br>
-                <h3>{{ post.title }}</h3>
-                <div class="form-group md-3">
-                    <form method="POST">
-                        {% csrf_token %}
-                        <strong>Once deleted this cannot be undone, are you sure you wish to proceed?</strong>
-                        <button class="btn btn-danger m-2">Delete</button>
-                    </form>
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Delete Post</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group md-3">
+                            <form id="deletePost" method="POST">
+                                {% csrf_token %}
+                                <strong>Once deleted this cannot be undone, are you sure you wish to proceed?</strong>
+                            </form>
+                            <button form="deletePost" class="btn btn-danger m-2">Delete</button>
+                            <a class="btn btn-success m-2" href="{% url 'blog:blog_home' %}">Cancel</a>
+                        </div>
+                    </div>
                 </div>
             {% else %}
-                <h2>You do not have permission to access this page. Please follow the button below to return to the home page.</h2>
-                <a class="btn btn-info" href="{% url 'home' %}">Home</a>
+            <div class="card">
+                <div class="card-body">
+                    <h2>You do not have permission to access this page. Please follow the button below to return to the home page.</h2>
+                    <br>
+                    <a class="btn btn-success m-2" href="{% url 'home' %}">Home</a>
+                </div>
+            </div>
             {% endif %}
         </div>
     </div>
