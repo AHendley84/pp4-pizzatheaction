@@ -19,57 +19,66 @@
         </div>
     </div>
 </div>
-<div class="container-fluid" id="home-intro">
+<div class="container-fluid pb-4" id="home-intro">
     <div class="row">
         <div class="col-sm-12 col-md-6 p-3 d-flex flex-column align-items-stretch">
             <div class="container-a-background p-3">
-                <p class="text-white">
-                    Welcome to PIZZATHEACTION, where your culinary journey begins! We invite you to step into a world of
-                    delicious possibilities, offering a one-stop destination for all your home pizza oven needs. At
-                    PIZZATHEACTION, we've curated a diverse selection of top-quality tools and equipment, empowering you
-                    to master the art of pizza-making in the comfort of your own kitchen. From premium pizza stones to
-                    artisanal peels, we've got everything you need to turn your home into a pizzeria. Come Get Some –
-                    dive into the world of flavor, innovation, and the pure joy of crafting your own perfect pizza at
-                    PIZZATHEACTION!
-                </p>
-                <div class="text-center">
-                    <a href="{% url 'products' %}" class="btn btn-lg btn-success text-white">Start Shopping</a>
+                <div id="pizza-shop" class="row d-none d-sm-block m-1 mb-3"></div>
+                <div class="row">
+                    <p class="text-white">
+                        Welcome to PIZZATHEACTION, where your culinary journey begins! We invite you to step into a world of
+                        delicious possibilities, offering a one-stop destination for all your home pizza oven needs. At
+                        PIZZATHEACTION, we've curated a diverse selection of top-quality tools and equipment, empowering you
+                        to master the art of pizza-making in the comfort of your own kitchen. From premium pizza stones to
+                        artisanal peels, we've got everything you need to turn your home into a pizzeria. Come Get Some –
+                        dive into the world of flavor, innovation, and the pure joy of crafting your own perfect pizza at
+                        PIZZATHEACTION!
+                    </p>
+                    <div class="text-center">
+                        <a href="{% url 'products' %}" class="btn btn-lg btn-success text-white">Start Shopping</a>
+                    </div>
                 </div>
             </div>
         </div>
         {% if not request.user.is_authenticated %}
         <div class="col-sm-12 col-md-6 p-3 d-flex flex-column align-items-stretch">
             <div class="container-b-background p-3">
-                <p class="text-white">
-                    In our PIZZATHEACTION blog, we're not just passionate about providing top-notch products; we're
-                    committed to building a vibrant community of pizza enthusiasts. Join us in the discussion section,
-                    where you can share your favorite tips, tricks, and secret recipes with like-minded individuals.
-                    Whether you're a seasoned pizzaiolo or a novice in the dough, our blog is the perfect space to
-                    exchange ideas, troubleshoot challenges, and inspire each other to create the ultimate homemade
-                    pizza experience. Together, let's elevate our pizza game and turn every baking session into a slice
-                    of perfection. Come for the tools, stay for the community, and let's make PIZZATHEACTION your go-to
-                    source for all things pizza! For registered members only. 
-                </p>
-                <p class="text-white">
-                    Already registered? <a href="{% url 'account_login' %}" class="home-links">Login.</a> Not yet registered? <a href="{% url 'account_signup' %}" class="home-links">Sign Up</a>
-                </p>
+                <div id="pizza-blog" class="row d-none d-sm-block m-1 mb-3"></div>
+                <div class="row">
+                    <p class="text-white">
+                        In our PIZZATHEACTION blog, we're not just passionate about providing top-notch products; we're
+                        committed to building a vibrant community of pizza enthusiasts. Join us in the discussion section,
+                        where you can share your favorite tips, tricks, and secret recipes with like-minded individuals.
+                        Whether you're a seasoned pizzaiolo or a novice in the dough, our blog is the perfect space to
+                        exchange ideas, troubleshoot challenges, and inspire each other to create the ultimate homemade
+                        pizza experience. Together, let's elevate our pizza game and turn every baking session into a slice
+                        of perfection. Come for the tools, stay for the community, and let's make PIZZATHEACTION your go-to
+                        source for all things pizza! For registered members only. 
+                    </p>
+                    <p class="text-white">
+                        Already registered? <a href="{% url 'account_login' %}" class="home-links">Login.</a> Not yet registered? <a href="{% url 'account_signup' %}" class="home-links">Sign Up</a>
+                    </p>
+                </div>
             </div> 
         </div>
         {% else %}
         <div class="col-sm-12 col-md-6 p-3 d-flex flex-column align-items-stretch">
             <div class="container-b-background p-3">
-                <p class="text-white">
-                    In our PIZZATHEACTION blog, we're not just passionate about providing top-notch products; we're
-                    committed to building a vibrant community of pizza enthusiasts. Join us in the discussion section,
-                    where you can share your favorite tips, tricks, and secret recipes with like-minded individuals.
-                    Whether you're a seasoned pizzaiolo or a novice in the dough, our blog is the perfect space to
-                    exchange ideas, troubleshoot challenges, and inspire each other to create the ultimate homemade
-                    pizza experience. Together, let's elevate our pizza game and turn every baking session into a slice
-                    of perfection. Come for the tools, stay for the community, and let's make PIZZATHEACTION your go-to
-                    source for all things pizza!
-                </p>
-                <div class="text-center">
-                    <a href="{% url 'blog:blog_home' %}" class="btn btn-lg btn-success text-white">Start Talking</a>
+                <div id="pizza-blog" class="row d-none d-sm-block m-1 mb-3"></div>
+                <div class="row">
+                    <p class="text-white">
+                        In our PIZZATHEACTION blog, we're not just passionate about providing top-notch products; we're
+                        committed to building a vibrant community of pizza enthusiasts. Join us in the discussion section,
+                        where you can share your favorite tips, tricks, and secret recipes with like-minded individuals.
+                        Whether you're a seasoned pizzaiolo or a novice in the dough, our blog is the perfect space to
+                        exchange ideas, troubleshoot challenges, and inspire each other to create the ultimate homemade
+                        pizza experience. Together, let's elevate our pizza game and turn every baking session into a slice
+                        of perfection. Come for the tools, stay for the community, and let's make PIZZATHEACTION your go-to
+                        source for all things pizza!
+                    </p>
+                    <div class="text-center">
+                        <a href="{% url 'blog:blog_home' %}" class="btn btn-lg btn-success text-white">Start Talking</a>
+                    </div>
                 </div>
             </div> 
         </div>
