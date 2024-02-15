@@ -24,57 +24,71 @@
         </div>
     </div>
 </div>
-<div class="container mb-2 p-2">
+<div class="container mb-2 p-2 pb-4">
     <div class="row">
         <div class="col-12 col-lg-6">
-            <p>Order History</p>
-            <div class="order-history table-responsive rounded-1">
-                <table class="table table-sm rounded-1">
-                    <thead>
-                        <tr>
-                            <th>Order Number</th>
-                            <th>Date</th>
-                            <th>Items</th>
-                            <th>Order Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for order in orders %}
-                            <tr>
-                                <td>
-                                    <a href="{% url 'order_history' order.order_number %}" 
-                                        title="{{ order.order_number }}">
-                                        {{ order.order_number|truncatechars:6 }}
-                                    </a>
-                                </td>
-                                <td>
-                                    {{ order.order_date }}
-                                </td>
-                                <td>
-                                    <ul class="list-unstyled">
-                                        {% for item in order.lineitems.all %}
-                                            <li class="small">
-                                                {{ item.product.name }} x {{ item.quantity }}
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </td>
-                                <td>
-                                    £{{ order.grand_total }}
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+            <div class="card mt-3">
+                <div class="card-header fs-3">
+                    <p class="mb-0">Order History</p>
+                </div>
+                <div class="card-body">
+                    <div class="order-history table-responsive rounded-1">
+                        <table class="table table-sm rounded-1">
+                            <thead>
+                                <tr>
+                                    <th>Order Number</th>
+                                    <th>Date</th>
+                                    <th>Items</th>
+                                    <th>Order Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for order in orders %}
+                                    <tr>
+                                        <td>
+                                            <a href="{% url 'order_history' order.order_number %}" 
+                                                title="{{ order.order_number }}">
+                                                {{ order.order_number|truncatechars:6 }}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            {{ order.order_date }}
+                                        </td>
+                                        <td>
+                                            <ul class="list-unstyled">
+                                                {% for item in order.lineitems.all %}
+                                                    <li class="small">
+                                                        {{ item.product.name }} x {{ item.quantity }}
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            £{{ order.grand_total }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-12 col-lg-6">
-            <p>Default Delivery Information</p>
-            <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <button class="btn rounded-1 mt-2">Update Info</button>
-            </form>
+            <div class="card mt-3">
+                <div class="card-header fs-3">
+                    <p class="mb-0">Default Delivery Information</p>
+                </div>
+                <div class="card-body px-5">
+                    <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button class="btn rounded-1 btn-success float-end" form="profile-update-form">Update Info</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

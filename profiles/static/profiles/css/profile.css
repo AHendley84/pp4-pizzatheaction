@@ -1,9 +1,10 @@
 .profile-form-input {
     color: #4e5166;
     border: 1px solid #4e5166;
-    margin: 6px;
+    margin-top: 6px;
+    margin-bottom: 6px;
     padding: 6px;
-    width: 80%;
+    width: 100%;
 }
 
 .order-history {
