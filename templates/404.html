@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="home-pizza-oven">
+    <div class="row h-100">
+        <div class="col-12 my-auto">
+            <h1 class="page-headers display-3 text-center">
+                404 Error
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="container-fluid pb-4">
+    <div class="row">
+        <div class="col-sm-12 col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Sorry! The page you're looking for does not exist.</h2>
+                    <br>
+                    <a class="btn btn-lg btn-success" href="{% url 'home' %}">Return to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
