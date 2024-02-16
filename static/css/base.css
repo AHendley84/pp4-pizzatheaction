@@ -348,6 +348,11 @@ div.accordion a.accordion-button {
     border-color: #4e5166;
 }
 
+.allauth-card-headers {
+    background-color: #4e5166;
+    color: white;
+}
+
 /* Media queries */
 
 /* XS Screens Only */
