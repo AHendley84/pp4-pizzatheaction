@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -12,6 +13,7 @@ from basket.contexts import basket_contents
 
 import stripe
 import json
+
 
 @require_POST
 def cache_checkout_data(request):
@@ -68,25 +70,28 @@ def checkout(request):
                         order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your basket was not found in our database. "
+                        "One of the products in your basket"
+                        "was not found in our database. "
                         "Please contact us for assistance.")
                     )
                     order.delete()
                     return redirect(reverse('view_basket'))
-                
+
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse(
+                'checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                            Please check the information supplied is correct.')
     else:
         basket = request.session.get('basket', {})
         if not basket:
-            messages.error(request, "There are currently no items in your basket")
+            messages.error(
+                request, "There are currently no items in your basket")
             return redirect(reverse('products'))
-        
+
         current_basket = basket_contents(request)
-        total = current_basket ['grand_total']
+        total = current_basket['grand_total']
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
@@ -96,7 +101,7 @@ def checkout(request):
 
         if request.user.is_authenticated:
             try:
-                profile=UserProfile.objects.get(user=request.user)
+                profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
                     'full_name': profile.user.get_full_name(),
                     'email': profile.user.email,
@@ -156,11 +161,12 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
-    messages.success(request, f'Order successfully placed! Your order number is: \
+    messages.success(
+        request, f'Order successfully placed! Your order number is: \
                      {order_number}. \
                      A confirmation email has been sent to: \
                      {order.email}.')
-    
+
     if 'basket' in request.session:
         del request.session['basket']
 
@@ -170,3 +176,4 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
+    

@@ -1,11 +1,11 @@
 from django.http import HttpResponse
-from django.core.mail import send_mail # Updated 08/02/2024
+from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
 
 from .models import Order, OrderLineItem
 from products.models import Product
-from profiles.models import UserProfile # Updated 08/02/2024
+from profiles.models import UserProfile
 
 import json
 import time
@@ -19,7 +19,6 @@ class StripeWH_Handler:
     def __init__(self, request):
         self.request = request
 
-    # Send confirmation email - Updated 08/02/2024
     def _send_confirmation_email(self, order):
         """
         Send the user a confirmation email.
@@ -31,7 +30,7 @@ class StripeWH_Handler:
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-        
+
         send_mail(
             subject,
             body,
@@ -61,16 +60,16 @@ class StripeWH_Handler:
             intent.latest_charge
         )
 
-        billing_details = stripe_charge.billing_details # updated
+        billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
-        grand_total = round(stripe_charge.amount / 100, 2) # updated
+        grand_total = round(stripe_charge.amount / 100, 2)
 
         # Clean data in the shipping details
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
 
-        # Update profile information if save_info was checked - Updated 08/02/2024
+        # Update profile information if save_info was checked
         profile = None
         username = intent.metadata.username
         if username != 'AnonymousUser':
@@ -84,7 +83,6 @@ class StripeWH_Handler:
                 profile.default_postcode = shipping_details.address.postal_code
                 profile.default_country = shipping_details.address.country
                 profile.save()
-
 
         order_exists = False
         attempt = 1
@@ -106,21 +104,22 @@ class StripeWH_Handler:
                 )
                 order_exists = True
                 break
-                
+
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
-            self._send_confirmation_email(order) # Updated 08/02/2024
+            self._send_confirmation_email(order)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
+                content=f'Webhook received: {event["type"]} |'
+                        'SUCCESS: Verified order already in database',
                 status=200)
         else:
             order = None
             try:
                 order = Order.objects.create(
                         full_name=shipping_details.name,
-                        user_profile=profile, # Updated 08/02/2024
+                        user_profile=profile,
                         email=billing_details.email,
                         phone_number=shipping_details.phone,
                         address_line1=shipping_details.address.line1,
@@ -147,11 +146,12 @@ class StripeWH_Handler:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
-        self._send_confirmation_email(order) # Updated 08/02/2024
+        self._send_confirmation_email(order)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Create order in webhook',
+            content=f'Webhook received: {event["type"]} |'
+                    'SUCCESS: Create order in webhook',
             status=200)
-    
+
     def handle_payment_intent_payment_failed(self, event):
         """
         Handle the payment_intent.payment_failed webhook from Stripe.
