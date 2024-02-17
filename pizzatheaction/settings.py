@@ -29,7 +29,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = 'DEVELOPMENT' in os.environ
 
 if 'DEVELOPMENT' in os.environ:
-    ALLOWED_HOSTS = ['8000-ahendley84-pp4pizzathea-0qvu5gaq5i7.ws-eu108.gitpod.io']
+    ALLOWED_HOSTS = [
+        '8000-ahendley84-pp4pizzathea-0qvu5gaq5i7.ws-eu108.gitpod.io']
 else:
     ALLOWED_HOSTS = ['pp4-pizzatheaction-9ec0001d43af.herokuapp.com']
 
@@ -142,18 +143,10 @@ else:
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
 
