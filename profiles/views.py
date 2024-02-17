@@ -21,7 +21,10 @@ def profile(request):
             request.user.save()
             messages.success(request, 'Profile successfully updated')
         else:
-            messages.error(request, 'Update of profile failed. Please review and ensure it is valid.')
+            messages.error(
+                request,
+                'Update of profile failed.'
+                'Please review and ensure it is valid.')
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
@@ -38,7 +41,7 @@ def profile(request):
 
 @login_required
 def order_history(request, order_number):
-    order =get_object_or_404(Order, order_number=order_number)
+    order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (
         f'This is a previous order confirmation for order number:\n'
