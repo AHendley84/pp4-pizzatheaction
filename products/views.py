@@ -7,7 +7,7 @@ from django.db.models.functions import Lower
 from .models import Product, Brand, Category
 from .forms import ProductForm
 
-# Create your views here.
+
 def all_products(request):
     """
     A view to show all products including sorting
@@ -37,7 +37,6 @@ def all_products(request):
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
 
-
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
@@ -53,8 +52,9 @@ def all_products(request):
             if not query:
                 messages.error(request, "No search parameters entered")
                 return redirect(reverse('products'))
-            
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+
+            queries = Q(name__icontains=query) | Q(
+                description__icontains=query)
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -66,7 +66,7 @@ def all_products(request):
         'current_brands': brands,
         'current_sorting': current_sorting,
     }
-    
+
     return render(request, 'products/products.html', context)
 
 
@@ -80,7 +80,7 @@ def view_product(request, product_id):
     context = {
         'product': product,
     }
-    
+
     return render(request, 'products/view_product.html', context)
 
 
@@ -94,7 +94,7 @@ def view_all_brands(request):
     context = {
         'brands': brands,
     }
-    
+
     return render(request, 'products/view_all_brands.html', context)
 
 
@@ -108,7 +108,7 @@ def view_all_categories(request):
     context = {
         'categories': categories,
     }
-    
+
     return render(request, 'products/view_all_categories.html', context)
 
 
@@ -118,7 +118,8 @@ def add_product(request):
     Add a product to the store
     """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners have access to this.')
+        messages.error(
+            request, 'Sorry, only store owners have access to this.')
         return redirect(reverse('home'))
 
     if request.method == 'POST':
@@ -128,7 +129,10 @@ def add_product(request):
             messages.success(request, f'{product.name} added successfully')
             return redirect(reverse('view_product', args=[product.id]))
         else:
-            messages.error(request, 'Product failed submission. Pleas review and ensure it is valid.')
+            messages.error(
+                request,
+                'Product failed submission.'
+                'Please review and ensure it is valid.')
     else:
         form = ProductForm()
 
@@ -146,7 +150,8 @@ def edit_product(request, product_id):
     Edit a product in the store
     """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners have access to this.')
+        messages.error(
+            request, 'Sorry, only store owners have access to this.')
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
@@ -157,7 +162,9 @@ def edit_product(request, product_id):
             messages.success(request, f'{product.name} edited successfully')
             return redirect(reverse('view_product', args=[product.id]))
         else:
-            messages.error(request, f'{product.name} has not updated successfully. Please review and ensure it is valid')
+            messages.error(
+                request, f'{product.name} has not updated successfully.'
+                f'Please review and ensure it is valid')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -177,7 +184,8 @@ def delete_product(request, product_id):
     Delete a product in the store
     """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners have access to this.')
+        messages.error(
+            request, 'Sorry, only store owners have access to this.')
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)

@@ -12,10 +12,10 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     def get_friendly_name(self):
         return self.friendly_name
-    
+
 
 class Brand(models.Model):
     name = models.CharField(max_length=100)
@@ -24,19 +24,22 @@ class Brand(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     def get_friendly_name(self):
         return self.friendly_name
-    
+
 
 class Product(models.Model):
     sku = models.CharField(max_length=254)
     name = models.CharField(max_length=254)
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
-    brand = models.ForeignKey('Brand', null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey(
+        'Category', null=True, blank=True, on_delete=models.SET_NULL)
+    brand = models.ForeignKey(
+        'Brand', null=True, blank=True, on_delete=models.SET_NULL)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    rating = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True)
     dimensions = models.CharField(max_length=254, null=True, blank=True)
     fuel = models.CharField(max_length=20, null=True, blank=True)
     weight = models.CharField(max_length=40, null=True, blank=True)
