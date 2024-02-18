@@ -28,18 +28,33 @@
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2 mt-3">
             {% if request.user.is_authenticated or request.user.is_superuser %}
-                <h2>Add Post</h2>
-                <div class="form-group md-3">
-                    <form method="POST">
-                        {% csrf_token %}
-                        {{ form.media }}
-                        {{ form|crispy }}
+                <div class="card border-0 my-4">
+                    <div class="card-header allauth-card-headers">
+                        <h2>Add Post</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group md-3">
+                            <form method="POST" id="addPost">
+                                {% csrf_token %}
+                                {{ form.media }}
+                                {{ form|crispy }}
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card-footer allauth-card-headers">
                         <button class="btn btn-success m-2">Post</button>
-                    </form>
+                        <a class="btn btn-danger" href="{% url 'blog:blog_home' %}" form="addPost">Cancel</a>
+                    </div>
                 </div>
             {% else %}
-                <h2>You do not have permission to access this page. Please follow the button below to return to the home page.</h2>
-                <a class="btn btn-info" href="{% url 'home' %}">Home</a>
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h2>You do not have permission to access this page. Please follow the button below to return to the home page.</h2>
+                    </div>
+                    <div class="card-footer allauth-card-headers text-center">
+                        <a class="btn btn-success" href="{% url 'home' %}">Home</a>
+                    </div>
+                </div>
             {% endif %}
         </div>
     </div>
