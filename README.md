@@ -220,15 +220,41 @@ Due to development time scales there were a few items I didn't include in this p
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
-### Frameworks, libraries and programs used
-Django
-AllAuth
-Bootstrap 5
+### Frontend Frameworks and libraries used
+- [Bootstrap]()
+- [Font Awesome]()
+- [JQuery]()
+
+### Backend Frameworks, Modules and Packages used
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
 
 ---
 ## Testing
 ---
-
+For all aspects of testing please see [TESTING.md](TESTING.md)
 
 ---
 ## Deployment
