@@ -47,13 +47,18 @@ Based on what I wanted the project to provide, I came up with a number of user s
 |28|Site User|Leave comments on existing posts|Interact with other users around their blog posts..|
 
 ### Color Scheme
+![Coolors color palette](media/documentation/coolors_palette.png)
 
+Using [Coolors](https://coolors.co/) I generated a color palette that projected the style and feel that I wanted the website to project to the user. I coupled this with the [Bootstrap](https://getbootstrap.com/docs/5.3/components/buttons/) button classes to inject some contrasting colors.
 
 ### Typography
+Google Fonts was used to import the 'Cabin' and the 'Quicksand' fonts into the base.css file for use across all pages.
 
+![Cabin font](media/documentation/cabin_font.png)
+![Quicksand font](media/documentation/quicksand_font.png)
 
 ### Wireframes
-
+For all wireframes please see [WIREFRAMES](WIREFRAMES.md).
 
 ### Data Design
 As this is a data driven project I planned how each data set would appear in the database and connect with each other and then via the user on the front end. Using [drawSQL](https://drawsql.app/) I took the time visualise the database to help witht he construction of the applications and the website to ensure the funcationality I included was available and working correctly.
@@ -64,6 +69,146 @@ As this is a data driven project I planned how each data set would appear in the
 ## Features
 ---
 
+### Home Page
+
+
+![Home page image]()
+
+### Nav bar
+
+
+![Nav Bar Logged Out image]()
+![Nav Bar Logged In image]()
+
+### Footer
+
+
+![Footer image]()
+
+### Register Page
+
+
+![Register page image]()
+
+### Login Page
+
+
+![Login page image]()
+
+### Profile Page
+
+
+![Profile page image]()
+
+### Sign Out Page
+
+![Order History page image]()
+
+### Sign Out Page
+
+
+![Sign Out page image]()
+
+### All Products Page
+
+
+![All Products page image]()
+
+### Products by Brand Page
+
+
+![Products by Brand page image]()
+
+### Products by Category Page
+
+
+![Products by Category page image]()
+
+### All Products by Rating Page
+
+
+![Products by Rating page image]()
+
+### All Products by Price Page
+
+
+![Products by Price page image]()
+
+### View Single Product Page
+
+
+![View Single Product page image]()
+
+### Edit Product Page
+
+
+![Edit Product page with permissions image]()
+![Edit Product page without permissions image]()
+
+### Edit Product Page
+
+
+![Edit Product page with permissions image]()
+![Edit Product page without permissions image]()
+
+### View Basket Page
+
+
+![View Basket page with items image]()
+![View Basket page without items image]()
+
+### Checkout Page
+
+
+![Checkout page image]()
+
+### Checkout Success
+
+
+![Checkout Success page image]()
+
+### Blog/Community Page
+
+
+![Blog/Community page with permissions image]()
+![Blog/Community page without permissions image]()
+
+### View Post Page
+
+
+![View Post page with permissions image]()
+![View Post page without permissions image]()
+
+### Add Post Page
+
+
+![Add Post page with permissions image]()
+![Add Post page without permissions image]()
+
+### Edit Post Page
+
+
+![Edit Post page with permissions image]()
+![Edit Post page without permissions image]()
+
+### Delete Post Page
+
+
+![Delete Post page with permissions image]()
+![Delete Post page without permissions image]()
+
+### Add Comment Page
+
+
+![Add Comment page with permissions image]()
+![Add Comment page without permissions image]()
+
+---
+## Future Features
+---
+
+Due to development time scales there were a few items I didn't include in this project, however, would consider adding into future builds. These are, but not limited to:
+- 
 
 ---
 ## Technologies Used
