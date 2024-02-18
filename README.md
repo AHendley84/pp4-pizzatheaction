@@ -221,35 +221,52 @@ Due to development time scales there were a few items I didn't include in this p
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 ### Frontend Frameworks and libraries used
-- [Bootstrap]()
-- [Font Awesome]()
-- [JQuery]()
+- [Bootstrap](https://getbootstrap.com/) utilised throughout the site for the styling, layout & responsiveness.
+- [Font Awesome](https://fontawesome.com/) used to add icons to the site to help with UX.
+- [JQuery](https://jquery.com/) a fast, small, and feature-rich JavaScript library.
 
 ### Backend Frameworks, Modules and Packages used
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
+- [ASGI](https://pypi.org/project/asgiref/) is a standard for Python asynchronous web apps and servers to communicate with each other, and positioned as an asynchronous successor to WSGI.
+- [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) & [Botocore](https://botocore.amazonaws.com/v1/documentation/api/latest/index.html) used to create, configure, and manage AWS services.
+- [Chardet](https://pypi.org/project/chardet/) a universal encoding detector for Python 3.
+- [dj-database-url](https://pypi.org/project/dj-database-url/) to use Database URLs in your Django Application.
+- [Django](https://www.djangoproject.com/) a high-level Python web framework.
+- [AllAuth](https://docs.allauth.org/en/latest/) an integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
+- [CKEditor](https://ckeditor.com/) a WYSIWYG HTML editor that can fit a wide range of use cases.
+- [Django Countries](https://pypi.org/project/django-countries/) provides a country field for Django models.
+- [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) to control the rendering behavior of your Django forms in a very elegant and DRY way.
+- [JS Asset](https://pypi.org/project/django-js-asset/) allows a script tag with additional attributes for django.forms.Media.
+- [Django Storages](https://django-storages.readthedocs.io/en/latest/) a collection of custom storage backends for Django.
+- [Gunicorn](https://gunicorn.org/) a Python WSGI HTTP Server for UNIX.
+- [JMESPath](https://jmespath.org/) a query language for JSON.
+- [oauthlib](https://pypi.org/project/oauthlib/) & [requests-oauthlib](https://pypi.org/project/requests-oauthlib/) to handle authentication using the OAuth request signin logic.
+- [Pillow](https://pypi.org/project/Pillow/) a Python imaging Library for extended image handling capabilities.
+- [Psycopg2](https://www.psycopg.org/) a postgres adaptor to allow smooth communication between the backend and the database.
+- [python3-openid](https://pypi.org/project/python3-openid/) a set of python packages to support the use of teh OpenID decentralised identity system.
+- [pytz](https://pypi.org/project/pytz/) World timezone definitions, modern and historical.
+- [s3transfer](https://pypi.org/project/s3transfer/) a Python library for managing Amazon AWS S3 Transfers.
+- [sqlparse](https://pypi.org/project/sqlparse/) SQL parser for Python.
+- [Stripe](https://stripe.com/gb) the Stripe package, part of the Stripe ecosystem to manage secure online payments.
+- [urllib3](https://pypi.org/project/urllib3/) an HTTP client for Python.
+
+### Datbases
+- [SQLITE](https://docs.djangoproject.com/en/4.1/ref/databases/#sqlite-notes) used as the built in Django database for development.
+- [Elephant SQL](https://www.elephantsql.com/) a postgres-based database host. Used to host the database for the live production app.
+
+### Other Tools
+- [Git](https://git-scm.com/) used for version control via Gitpod by using the terminal to Push to GitHub.
+- [GitHub](https://github.com/) used to store the project code.
+- [Gitpod](https://www.gitpod.io/) used to create, edit & preview the project's code.
+- [Heroku](https://dashboard.heroku.com/apps) used to deploy the live site.
+- [Amazon Web Services (AWS)](https://aws.amazon.com/) used to host the static files and images for the live production site.
+- [Google Chrome Dev Tools](https://www.google.com/intl/en_uk/chrome/) used to test and debug the production and live apps.
+
+### Eternal Sites, Resources and Software
+- [Google Fonts](https://fonts.google.com/) used to import selected font into the project.
+- [DrawSQL](https://drawsql.app/) used to visulaise the database schema.
+- [ChatGPT](https://chat.openai.com/auth/login) used to generate text paragraphs for the site (Not used for code).
+- [Favicon](https://favicon.io/favicon-converter/) used to create and add the favicon to the browser tab.
+- [Google Chrome Dev Tools](https://www.google.com/intl/en_uk/chrome/) used to inspect pages, debug any issues identified and test the responsiveness of the site on different device sizes.
 
 ---
 ## Testing
@@ -516,3 +533,8 @@ MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 ---
 ## Credits & Acknowledgments
 ---
+
+### Credits
+
+
+### Acknowledgements
