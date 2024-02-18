@@ -69,139 +69,7 @@ As this is a data driven project I planned how each data set would appear in the
 ## Features
 ---
 
-### Home Page
-
-
-![Home page image]()
-
-### Nav bar
-
-
-![Nav Bar Logged Out image]()
-![Nav Bar Logged In image]()
-
-### Footer
-
-
-![Footer image]()
-
-### Register Page
-
-
-![Register page image]()
-
-### Login Page
-
-
-![Login page image]()
-
-### Profile Page
-
-
-![Profile page image]()
-
-### Sign Out Page
-
-![Order History page image]()
-
-### Sign Out Page
-
-
-![Sign Out page image]()
-
-### All Products Page
-
-
-![All Products page image]()
-
-### Products by Brand Page
-
-
-![Products by Brand page image]()
-
-### Products by Category Page
-
-
-![Products by Category page image]()
-
-### All Products by Rating Page
-
-
-![Products by Rating page image]()
-
-### All Products by Price Page
-
-
-![Products by Price page image]()
-
-### View Single Product Page
-
-
-![View Single Product page image]()
-
-### Edit Product Page
-
-
-![Edit Product page with permissions image]()
-![Edit Product page without permissions image]()
-
-### Edit Product Page
-
-
-![Edit Product page with permissions image]()
-![Edit Product page without permissions image]()
-
-### View Basket Page
-
-
-![View Basket page with items image]()
-![View Basket page without items image]()
-
-### Checkout Page
-
-
-![Checkout page image]()
-
-### Checkout Success
-
-
-![Checkout Success page image]()
-
-### Blog/Community Page
-
-
-![Blog/Community page with permissions image]()
-![Blog/Community page without permissions image]()
-
-### View Post Page
-
-
-![View Post page with permissions image]()
-![View Post page without permissions image]()
-
-### Add Post Page
-
-
-![Add Post page with permissions image]()
-![Add Post page without permissions image]()
-
-### Edit Post Page
-
-
-![Edit Post page with permissions image]()
-![Edit Post page without permissions image]()
-
-### Delete Post Page
-
-
-![Delete Post page with permissions image]()
-![Delete Post page without permissions image]()
-
-### Add Comment Page
-
-
-![Add Comment page with permissions image]()
-![Add Comment page without permissions image]()
+For a full list of the features see [FEATURES.md](FEATURES.md).
 
 ---
 ## Future Features
@@ -536,5 +404,34 @@ MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
 ### Credits
 
+#### Code
+During the course of the project I have found myself searching Slack or Google for assistance. I've also utilised the team channel on Slack. To assist me with building this site I found guidance and inspiration from the following sources:
+
+- [Code Institue](https://codeinstitute.net/) for their Boutique Ado build along. This was a huge influence on my PIZZATHEACTION product, with the basket, checkout, home, products and profiles apps based on the code used in the build along, with adjustments made where necessary to accomodate my own requirements.
+- Create A Simple Blog With Python and Django by [Codemy.com](https://www.youtube.com/watch?v=B40bteAMM_M&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi&index=1) for his super useful build along. The base code was utilised with adjustments made to incoprorate it into the existing user profiles.
+- [Emma Hewson's Island Bees E-Commerce site](https://github.com/emmahewson/island-bees/tree/main) for insipiration on completing my README. I'm thankfully for her clear and precise document that prodivded considerable inspiration for me to complete mine.
+
+#### Code
+
+##### Text
+- [ChatGPT](https://chat.openai.com/auth/login) was used to generate text for the home intro paragraphs for the shop and the blog, and the brand descriptions utilised on the Products by Brand page.
+
+##### Images
+- Pizza Image at the top of each page courtsey of [Hotels.com](https://in.hotels.com/go/england/uk-best-outdoor-restaurants-liverpool).
+- Image used in the Shop section of the home template courtsey of [King Arthur Baking Company](https://www.kingarthurbaking.com/blog/2022/05/23/the-stress-free-way-to-load-your-pizza-in-the-oven).
+- Image used in the Blog section of the home template courtsey of [Camden House of Pizza](https://www.camdenhouseofpizza.com/how-to-order-pizza-for-a-large-event).
+
+##### Products
+- Gozney products, images, prices and descriptions courtsey of [Gozney.com](https://www.gozney.com/).
+- Ooni products, images, prices and descriptions courtsey of [UK.Ooni.com](https://uk.ooni.com/).
+- Stadler Made products, images, prices and descriptions courtsey of [StadlerMade.com](https://www.stadlermade.com/).
+- Fireland products, images, prices and descriptions courtsey of [Fireland.co.uk](https://fireland.co.uk/).
+- Latteria Sorrentina products, images, prices and descriptions courtsey of [RattonPantry.co.uk](https://www.rattonpantry.co.uk/).
+- Mutti products, images, prices and descriptions courtsey of [Tesco.co.uk](https://www.tesco.co.uk/).
+- Caputo products, images, prices and descriptions courtsey of [FifoStore.co.uk](https://fifostore.co.uk/).
 
 ### Acknowledgements
+- My mentor Mitko Bachvarov for his help and advice on this and my previous projects.
+- Tutor Support at [Code Institute](https://codeinstitute.net/) for help and guidance when I hit some issues with Webhook Handlers.
+- Our Cohort Facilitator, Amy Richardson, for her support and advice.
+- All my fellow students in the Feb-2023-PLA channel.
