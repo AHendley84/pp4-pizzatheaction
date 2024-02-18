@@ -78,7 +78,7 @@
                                 {% if request.user.is_authenticated %}
                                     {% if object.created_by == request.user or request.user.is_superuser %}
                                     <div class="float-end">
-                                        <a class="btn btn-info my-0 py-0" href="{% url 'blog:update_post' object.pk %}">Edit</a>
+                                        <a class="btn btn-warning my-0 py-0" href="{% url 'blog:update_post' object.pk %}">Edit</a>
                                         <a class="btn btn-danger my-0 py-0" href="{% url 'blog:delete_post' object.pk %}">Delete</a>
                                     </div>
                                     {% endif %}

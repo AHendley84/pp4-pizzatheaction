@@ -29,30 +29,34 @@
         <div class="col-12 col-md-8 offset-md-2 mt-3">
             {% if object.created_by == request.user or request.user.is_superuser %}
             <div class="card">
-                <div class="card-header">
+                <div class="card-header allauth-card-headers">
                     <h2>Edit Post</h2>
                 </div>
                 <div class="card-body">
                     <div class="form-group md-3">
-                        <form method="POST">
+                        <form method="POST" id="updatePost">
                             {% csrf_token %}
                             {{ form.media }}
                             {{ form|crispy }}
-                            {% if request.user.is_authenticated %}
-                                {% if object.created_by == request.user or request.user.is_superuser %}
-                                    <button class="btn btn-success mt-3 m-2">Update</button>
-                                {% endif %}
-                            {% endif %}
-                            <a class="btn btn-warning mt-3 m-2" href="{% url 'blog:blog_home' %}">Cancel</a>
+                            
                         </form>
                     </div>
                 </div>
+                <div class="card-footer allauth-card-headers">
+                    {% if request.user.is_authenticated %}
+                        {% if object.created_by == request.user or request.user.is_superuser %}
+                            <button class="btn btn-success mt-3 m-2" form="updatePost">Update</button>
+                        {% endif %}
+                    {% endif %}
+                    <a class="btn btn-warning mt-3 m-2" href="{% url 'blog:blog_home' %}">Cancel</a>
+                </div>
             </div>
             {% else %}
-            <div class="card">
-                <div class="card-body">
+            <div class="card border-0 my-4">
+                <div class="card-body text-center">
                     <h2>You do not have permission to access this page. Please follow the button below to return to the home page.</h2>
-                    <br>
+                </div>
+                <div class="card-footer allauth-card-headers text-center">
                     <a class="btn btn-success m-2" href="{% url 'home' %}">Home</a>
                 </div>
             </div>
