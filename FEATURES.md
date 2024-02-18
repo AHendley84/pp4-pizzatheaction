@@ -38,12 +38,13 @@ The profile page is where the users order history is retained with a link to eac
 
 ![Profile page image]()
 
-### Sign Out Page
+### Order History Page
+
 
 ![Order History page image]()
 
 ### Sign Out Page
-
+The sign out page is another all auth template which provides the user the opportunity to sign out or to stay signed in, returning them to the home page.
 
 ![Sign Out page image]()
 
