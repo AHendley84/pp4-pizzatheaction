@@ -60,3 +60,16 @@
     </div>
 </div>
 {% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+<script>
+    $(function() {
+        $('#id_purchase_date').datepicker({
+            dateFormat: 'yy-mm-dd',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '-100:+0'
+        });
+    });
+</script>
+{% endblock %}

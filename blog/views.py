@@ -58,7 +58,7 @@ class AddPostView(CreateView):
 class UpdatePostView(UpdateView):
     model = BlogPost
     template_name = 'blog/update_post.html'
-    fields = ['title', 'category', 'content',]
+    fields = ['title', 'category', 'product_name', 'product_rating', 'purchase_date', 'content',]
 
     def form_valid(self, form):
         # Set the updated_on field to the current date and time

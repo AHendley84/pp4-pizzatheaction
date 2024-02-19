@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils import timezone
@@ -16,6 +17,14 @@ class BlogPost(models.Model):
     content = RichTextField(blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True, null=True, blank=True)
+    product_name = models.CharField(max_length=100, blank=True, null=True)
+    product_rating = models.DecimalField(
+        max_digits=2,
+        decimal_places=1,
+        validators=[MinValueValidator(1), MaxValueValidator(5)],
+        blank=True, null=True
+    )
+    purchase_date = models.DateField(blank=True, null=True)
     likes = models.ManyToManyField(User, related_name='blog_posts')
     comments = models.ManyToManyField(
         'BlogComment',

@@ -39,13 +39,31 @@
                             {% else %}
                             <br>
                             <small class="p-2">
-                                Original post updated on: {{ object.updated_on }}
+                                - Original post updated on: {{ object.updated_on }}
                             </small>
                             {% endif %}
                             <br>
                             <small class="p-2">
-                                Category: {{ object.category }}
+                                - Category: {{ object.category }}
                             </small>
+                            {% if object.product_name %}
+                            <br>
+                            <small class="p-2">
+                                - Product Name: {{ object.product_name }}
+                            </small>
+                            {% endif %}
+                            {% if object.product_rating %}
+                            <br>
+                            <small class="p-2">
+                                - Product Rating: {{ object.product_rating }} out of 5
+                            </small>
+                            {% endif %}
+                            {% if object.purchase_date %}
+                            <br>
+                            <small class="p-2">
+                                - Purchase Date: {{ object.purchase_date }}
+                            </small>
+                            {% endif %}
                         </div>
                         <div class="card-body">
                             {{ object.content|safe }}
