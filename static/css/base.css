@@ -262,6 +262,7 @@ div.accordion a.accordion-button {
     border-color: transparent;
     box-shadow: none;
     text-decoration: none;
+    cursor: pointer;
 }
 
 /* Basket */
