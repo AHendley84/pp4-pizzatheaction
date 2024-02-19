@@ -131,13 +131,17 @@ Again, should a user who is not registered attempt to access the edit post page 
 ![Edit Post page without permissions image]()
 
 ### Delete Post Page
-The delete post page allows the original posts author or a user with super user access the ability to delete a post. THe user is advised that this cannot be undone once completed, with 
+The delete post page allows the original posts author or a user with super user access the ability to delete a post. The user is advised that this cannot be undone once completed, with the option to complete the deletion or cancel.
+
+Again, should a user who is not registered attempt to access the delete post page they are advised they do not have permission to access this page, with a redirection button to the home page.
 
 ![Delete Post page with permissions image]()
 ![Delete Post page without permissions image]()
 
 ### Add Comment Page
+Registered users have the ability to leave comments on posts. Under each individual post is an Add Comment button which directs the user to the Add Comment page. Here a text box is provided for the user to input their response to the original post. It has an add button and a cancel button should the choose not to proceed with the comment.
 
+Again, should a user who is not registered attempt to access the add comment page they are advised they do not have permission to access this page, with a redirection button to the home page.
 
 ![Add Comment page with permissions image]()
 ![Add Comment page without permissions image]()
