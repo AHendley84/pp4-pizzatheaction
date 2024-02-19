@@ -6,49 +6,22 @@ Here are wireframes for each page on small, medium and large devices.
 ### Home Page
 ![]()
 
-### Nav bar
-![]()
-
-### Footer
-![]()
-
-### Register Page
-![]()
-
-### Login Page
+### Register Page / Login Page / Sign Out Page
 ![]()
 
 ### Profile Page
 ![]()
 
-### Sign Out Page
-![]()
-
-### Sign Out Page
-![]()
-
 ### All Products Page
 ![]()
 
-### Products by Brand Page
-![]()
-
-### Products by Category Page
-![]()
-
-### All Products by Rating Page
-![]()
-
-### All Products by Price Page
+### Products by Brand / Products by Category Page
 ![]()
 
 ### View Single Product Page
 ![]()
 
-### Edit Product Page
-![]()
-
-### Edit Product Page
+### Edit Product Page / Add Product Page
 ![]()
 
 ### View Basket Page
@@ -66,10 +39,7 @@ Here are wireframes for each page on small, medium and large devices.
 ### View Post Page
 ![]()
 
-### Add Post Page
-![]()
-
-### Edit Post Page
+### Add Post Page / Edit Post Page
 ![]()
 
 ### Delete Post Page

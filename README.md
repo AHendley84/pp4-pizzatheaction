@@ -76,6 +76,8 @@ For a full list of the features see [FEATURES.md](FEATURES.md).
 ---
 
 Due to development time scales there were a few items I didn't include in this project, however, would consider adding into future builds. These are, but not limited to:
+- Improve the product management page to a central hub for managing products, brands and categories. At present any adjustments to the brands or categories is done via the django admin.
+- Edit and Delete comments on the blog.
 - 
 
 ---
