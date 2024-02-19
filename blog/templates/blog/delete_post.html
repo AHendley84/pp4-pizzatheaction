@@ -28,8 +28,8 @@
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2 mt-3">
             {% if object.created_by == request.user or request.user.is_superuser %}
-                <div class="card">
-                    <div class="card-header">
+                <div class="card border-0 my-4">
+                    <div class="card-header allauth-card-headers">
                         <h2>Delete Post</h2>
                     </div>
                     <div class="card-body">
@@ -38,9 +38,11 @@
                                 {% csrf_token %}
                                 <strong>Once deleted this cannot be undone, are you sure you wish to proceed?</strong>
                             </form>
-                            <button form="deletePost" class="btn btn-danger m-2">Delete</button>
-                            <a class="btn btn-success m-2" href="{% url 'blog:blog_home' %}">Cancel</a>
                         </div>
+                    </div>
+                    <div class="card-footer allauth-card-headers">
+                        <button form="deletePost" class="btn btn-danger m-2">Delete</button>
+                        <a class="btn btn-success m-2" href="{% url 'blog:blog_home' %}">Cancel</a>
                     </div>
                 </div>
             {% else %}

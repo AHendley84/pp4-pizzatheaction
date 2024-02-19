@@ -99,33 +99,39 @@ THe user is notified in the body of the message and via a success notification t
 ![Checkout Success page image]()
 
 ### Blog/Community Page
-The Blog/Community page provides an overview of all posts available to registered users. Each entry provides the title, author, category, created on and depending on if the post has been updated, the date and time it was updated. It also advises how many comments each post has had and the number of likes it has recieved.
+The Blog/Community page provides an overview of all posts available to registered users. Each entry provides the title, author, category, created on and depending on if the post has been updated, the date and time it was updated. It also advises how many comments each post has had and the number of likes it has recieved. If you are the user that created the post or a super user, you have the ability to edit the post or delete the post and these appear to the right of the comments and likes. There is an add post button located at the top right of the page so a new thread can be started.
 
-Should a user who is not registered attempt to access the blog 
+Should a user who is not registered attempt to access the blog they are advised they must be registered and logged in to proceed, with a redirection button to the home page.
 
 ![Blog/Community page with permissions image]()
 ![Blog/Community page without permissions image]()
 
 ### View Post Page
+The view post page allows the user to view a single post and it's associated comments. Registered users can like or unlike the post and add comments. Comments from the posts original author are offset to the right where as all other comments are set to the left to give some visual seperation.
 
+Again, should a user who is not registered attempt to access an indiviudal post they are advised they must be registered and logged in to proceed, with a redirection button to the home page.
 
 ![View Post page with permissions image]()
 ![View Post page without permissions image]()
 
 ### Add Post Page
+The Add Post page provides registered users the opportunity to create a new post. They add a title, a category and then the content of their message. Submission is done via the post button at the bottom and there is also a cancel button should they not wish to proceed.
 
+Again, should a user who is not registered attempt to access the add post page they are advised they must be registered and logged in to proceed, with a redirection button to the home page.
 
 ![Add Post page with permissions image]()
 ![Add Post page without permissions image]()
 
 ### Edit Post Page
+The Edit Post page provides the original posts author or a user with super user access the ability to edit a post post. Similar to the add post, they can edit the title, category and the content of their message. Submission is done via the update button at the bottom and there is also a cancel button should they not wish to proceed.
 
+Again, should a user who is not registered attempt to access the edit post page they are advised they must be registered and logged in to proceed, with a redirection button to the home page.
 
 ![Edit Post page with permissions image]()
 ![Edit Post page without permissions image]()
 
 ### Delete Post Page
-
+The delete post page allows the original posts author or a user with super user access the ability to delete a post. THe user is advised that this cannot be undone once completed, with 
 
 ![Delete Post page with permissions image]()
 ![Delete Post page without permissions image]()
