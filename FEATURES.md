@@ -49,65 +49,59 @@ The sign out page is another all auth template which provides the user the oppor
 ![Sign Out page image]()
 
 ### All Products Page
+The All Products Page displays a list off all products availble to registered and un-registered users. The page is responsive depending on screen size limiting the items to a single column on small displays up to 4 columns on larger displays.
 
+In the products drop down menu is the ability to filter all products by price and rating. This filters the items by either price (low to high) or Rating (high to low). A fither filter dropdown is available in the top right of the screen with reverser functions to those above and more.
 
 ![All Products page image]()
 
 ### Products by Brand Page
-
+The Products by Brand page provide an accordion for each product in the database. This is dynamically generated so if a product is added or removed a it will be reflected here. Upon selecting a brand a summary of that brand is provided with a link to the all products page where it is filtered to the slected brand.
 
 ![Products by Brand page image]()
 
 ### Products by Category Page
-
+Similar to the Products by Brand page, the Products by Category page takes each category and dynamically generates an accordion item for each. A new categroy added or removed will adjust the numbers generated.
 
 ![Products by Category page image]()
 
-### All Products by Rating Page
-
-
-![Products by Rating page image]()
-
-### All Products by Price Page
-
-
-![Products by Price page image]()
-
 ### View Single Product Page
-
+The view single product page displays all of the details of a single product. Another responsive display depending on screen size, here we have the product image, name, brand, category, description and associate fields and the ability to add a quantity to the basket or return to the product page. The brand name and category are links to the all products page filtering all items by either brand name or category.
 
 ![View Single Product page image]()
 
 ### Edit Product Page
-
-
-![Edit Product page with permissions image]()
-![Edit Product page without permissions image]()
-
-### Edit Product Page
-
+The edit product page allows a super user to edit all aspects of the selected product. However, if the user does not have the correct privileges they are advised so and redirected to the sign in page. If they sign in with a user without the correct privileges they are redirected home and a message displayed advising them so.
 
 ![Edit Product page with permissions image]()
 ![Edit Product page without permissions image]()
 
 ### View Basket Page
+The view basket page has two views, one with items and one without. If items are present information about the product including the image, name, SKU and price are displayed. Along side this are the quantity and subtotal with the options to adjust the quantity or remove the item all together. It also provides a basket total, Delivery amount and then the Grand Total. A message is displyed to advise the user that they could get free delivery by spending an extra amount, which is generated dynamically.
 
+If no items are present the user is advised and a button back to the shop is provided.
 
 ![View Basket page with items image]()
 ![View Basket page without items image]()
 
 ### Checkout Page
+THe checkout page provides the user the ability to add delivery information to their profile if they are registered and logged in. Below this is the Stripe Payment field that allows them to enter their card details and to proceed with completing the order. There is also an Order Summary with a count of how many items the customer has, the subtotal based on quantity and unit price, and order total, delivery charge if any and grand total.
 
+If a user tries to access the checkout without any items, they are redirected to the all products page and advised they have no items to checkout with.
 
 ![Checkout page image]()
 
 ### Checkout Success
+Once the order is completed the user is presented with the checkout success screen. It provides their unique order number, date, details of the products ordered, delivery details and the billing information.
 
+THe user is notified in the body of the message and via a success notification to confirm that an email has been sent to confirm the order.
 
 ![Checkout Success page image]()
 
 ### Blog/Community Page
+The Blog/Community page provides an overview of all posts available to registered users. Each entry provides the title, author, category, created on and depending on if the post has been updated, the date and time it was updated. It also advises how many comments each post has had and the number of likes it has recieved.
 
+Should a user who is not registered attempt to access the blog 
 
 ![Blog/Community page with permissions image]()
 ![Blog/Community page without permissions image]()
