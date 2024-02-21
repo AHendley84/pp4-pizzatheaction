@@ -30,10 +30,10 @@
                             {% for category in categories %}
                                 <div class="accordion-item border-1 rounded-1">
                                     <h2 class="accordion-header">
-                                        <a class="accordion-button fs-2" data-bs-toggle="collapse" data-bs-target="#collapse{{ category.id }}"
+                                        <button class="accordion-button fs-2" data-bs-toggle="collapse" data-bs-target="#collapse{{ category.id }}"
                                             aria-expanded="true" aria-controls="collapse{{ category.id }}">
                                             {{ category.friendly_name }}
-                                        </a>
+                                    </button>
                                     </h2>
                                     <div id="collapse{{ category.id }}" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionCategory">
@@ -61,7 +61,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
+<script>
     $(document).ready(function () {
     $('.accordion').on('show.bs.collapse', function () {
         $('.accordion .collapse.show').not($(this).find('.collapse')).collapse('hide');

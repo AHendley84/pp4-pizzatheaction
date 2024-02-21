@@ -256,7 +256,7 @@ div.accordion {
     box-shadow: none;
 }
 
-div.accordion a.accordion-button {
+div.accordion button.accordion-button {
     background-color: #4e5166;
     color: #b5aa9d;
     border-color: transparent;

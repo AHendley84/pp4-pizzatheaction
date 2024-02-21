@@ -30,9 +30,9 @@
                                 {% for brand in brands %}
                                     <div class="accordion-item border-1 rounded-1">
                                         <h2 class="accordion-header">
-                                            <a class="accordion-button fs-2" data-bs-toggle="collapse" data-bs-target="#collapse{{ brand.id }}" aria-expanded="true" aria-controls="collapse{{ brand.id }}">
+                                            <button class="accordion-button fs-2" data-bs-toggle="collapse" data-bs-target="#collapse{{ brand.id }}" aria-expanded="true" aria-controls="collapse{{ brand.id }}">
                                                 {{ brand.friendly_name }}
-                                            </a>
+                                            </button>
                                         </h2>
                                         <div id="collapse{{ brand.id }}" class="accordion-collapse collapse" data-bs-parent="#accordionBrand">
                                             <div class="accordion-body">
@@ -58,7 +58,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
+<script>
     $(document).ready(function () {
     $('.accordion').on('show.bs.collapse', function () {
         $('.accordion .collapse.show').not($(this).find('.collapse')).collapse('hide');
