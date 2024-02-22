@@ -27,6 +27,7 @@
 <div class="container mb-2 p-2">
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2 mt-3">
+            <!-- logic to determine if user has permission to delete a post -->
             {% if object.created_by == request.user or request.user.is_superuser %}
                 <div class="card border-0 my-4">
                     <div class="card-header allauth-card-headers">
@@ -36,7 +37,9 @@
                         <div class="form-group md-3">
                             <form id="deletePost" method="POST">
                                 {% csrf_token %}
-                                <strong>Once deleted this cannot be undone, are you sure you wish to proceed?</strong>
+                                <strong>
+                                    Once deleted this cannot be undone, are you sure you wish to proceed?
+                                </strong>
                             </form>
                         </div>
                     </div>
@@ -46,6 +49,7 @@
                     </div>
                 </div>
             {% else %}
+            <!-- If user does not have permission redirect them to the home page -->
             <div class="card border-0 my-4">
                 <div class="card-body text-center">
                     <h2>You do not have permission to access this page. Please follow the button below to return to the home page.</h2>

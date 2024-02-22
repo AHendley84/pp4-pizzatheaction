@@ -27,6 +27,7 @@
 <div class="container mb-2 p-2">
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2 mt-3">
+            <!-- logic to determine if user has permission to add a comment -->
             {% if request.user.is_authenticated or request.user.is_superuser %}
                 <div class="card border-0 my-4">
                     <div class="card-header allauth-card-headers">
@@ -42,11 +43,16 @@
                         </div>
                     </div>
                     <div class="card-footer allauth-card-headers">
-                        <button class="btn btn-success m-2" form="addComment">Add</button>
-                        <a class="btn btn-danger m-2" href="{% url 'blog:blog_home' %}">Cancel</a>
+                        <button class="btn btn-success m-2" form="addComment">
+                            Add
+                        </button>
+                        <a class="btn btn-danger m-2" href="{% url 'blog:blog_home' %}">
+                            Cancel
+                        </a>
                     </div>
                 </div>
             {% else %}
+            <!-- If user does not have permission redirect them to the home page -->
                 <div class="card border-0 my-4">
                     <div class="card-body text-center">
                         <h2>You do not have permission to access this page. Please follow the button below to return to the home page.</h2>

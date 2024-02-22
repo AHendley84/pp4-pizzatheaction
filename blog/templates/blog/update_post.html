@@ -27,6 +27,7 @@
 <div class="container mb-2 p-2">
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2 mt-3">
+            <!-- logic to determine if user has permission to edit a post -->
             {% if object.created_by == request.user or request.user.is_superuser %}
             <div class="card">
                 <div class="card-header allauth-card-headers">
@@ -45,13 +46,18 @@
                 <div class="card-footer allauth-card-headers">
                     {% if request.user.is_authenticated %}
                         {% if object.created_by == request.user or request.user.is_superuser %}
-                            <button class="btn btn-success mt-3 m-2" form="updatePost">Update</button>
+                            <button class="btn btn-success mt-3 m-2" form="updatePost">
+                                Update
+                            </button>
                         {% endif %}
                     {% endif %}
-                    <a class="btn btn-warning mt-3 m-2" href="{% url 'blog:blog_home' %}">Cancel</a>
+                    <a class="btn btn-warning mt-3 m-2" href="{% url 'blog:blog_home' %}">
+                        Cancel
+                    </a>
                 </div>
             </div>
             {% else %}
+            <!-- If user does not have permission redirect them to the home page -->
             <div class="card border-0 my-4">
                 <div class="card-body text-center">
                     <h2>You do not have permission to access this page. Please follow the button below to return to the home page.</h2>
@@ -68,6 +74,7 @@
 {% block postloadjs %}
 {{ block.super }}
 <script>
+    // Date picker for date purchased field
     $(function() {
         $('#id_purchase_date').datepicker({
             dateFormat: 'yy-mm-dd',

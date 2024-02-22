@@ -27,6 +27,7 @@
 <div class="container mb-2 p-2">
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2 mt-3">
+            <!-- logic to determine if user has permission to add a post -->
             {% if request.user.is_authenticated or request.user.is_superuser %}
                 <div class="card border-0 my-4">
                     <div class="card-header allauth-card-headers">
@@ -47,7 +48,8 @@
                     </div>
                 </div>
             {% else %}
-                <div class="card">
+            <!-- If user does not have permission redirect them to the home page -->
+                <div class="card border-0 my-4">
                     <div class="card-body text-center">
                         <h2>You do not have permission to access this page. Please follow the button below to return to the home page.</h2>
                     </div>
@@ -63,6 +65,7 @@
 {% block postloadjs %}
 {{ block.super }}
 <script>
+    // Date picker for date purchased field
     $(function() {
         $('#id_purchase_date').datepicker({
             dateFormat: 'yy-mm-dd',

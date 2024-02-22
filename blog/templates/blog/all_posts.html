@@ -25,9 +25,11 @@
 </div>
 <div class="container mb-2 p-2">
     <div class="row">
+        <!-- logic to determine if user has permission to view the blog -->
         {% if request.user.is_authenticated %}
         <div class="col-12 col-md-8 offset-md-2 mt-3">
-            <a class="fs-4 btn btn-success float-end my-0 py-0" href="{% url 'blog:add_post' %}">Add Post</a>
+            <a class="fs-4 btn btn-success float-end my-0 py-0"
+                href="{% url 'blog:add_post' %}">Add Post</a>
         </div>
     </div>
     <div class="row">
@@ -36,7 +38,8 @@
                 {% for object in all_objects %}
                     <div class="card m-3">
                         <div class="card-header container-b-background">
-                            <a class="post-title text-decoration-none" href="{% url 'blog:content_view' object.pk %}">
+                            <a class="post-title text-decoration-none"
+                                href="{% url 'blog:content_view' object.pk %}">
                                 <h2 class="fs-3 m-1">{{ object.title }}</h2>
                             </a>
                         </div>
@@ -52,18 +55,26 @@
                             {% if request.user.is_authenticated %}
                                 {% if object.created_by == request.user or request.user.is_superuser %}
                                     <div class="float-end">
-                                        <a class="btn btn-sm btn-warning my-0 py-0" href="{% url 'blog:update_post' pk=object.pk %}">Edit</a>
-                                        <a class="btn btn-sm btn-danger my-0 py-0" href="{% url 'blog:delete_post' object.pk %}">Delete</a>
+                                        <a class="btn btn-sm btn-warning my-0 py-0"
+                                            href="{% url 'blog:update_post' pk=object.pk %}">
+                                            Edit
+                                        </a>
+                                        <a class="btn btn-sm btn-danger my-0 py-0"
+                                            href="{% url 'blog:delete_post' object.pk %}">
+                                            Delete
+                                        </a>
                                     </div>
                                 {% endif %}
                             {% endif %}
                         </div>
                     </div>
                 {% endfor %}
+            <!-- If no posts detected advise the user to add one via the Add Post button -->
             {% else %}
                 <h3>No posts yet! Start a post using the Add Post button above!</h3>
             {% endif %}
         {% else %}
+        <!-- If user does not have permission redirect them to the home page -->
             <div class="col-12 col-md-8 offset-md-2 mt-3 text-center">
                 <div class="card border-0 my-4">
                     <div class="card-body">
@@ -88,6 +99,7 @@
 {% block postloadjs %}
 {{ block.super }}
 <script>
+    // Back to top script
     $('.btt-link').click(function (e) {
         window.scrollTo(0, 0);
     });
