@@ -30,18 +30,24 @@
                                 {% for brand in brands %}
                                     <div class="accordion-item border-1 rounded-1">
                                         <h2 class="accordion-header">
-                                            <button class="accordion-button fs-2" data-bs-toggle="collapse" data-bs-target="#collapse{{ brand.id }}" aria-expanded="true" aria-controls="collapse{{ brand.id }}">
+                                            <button class="accordion-button fs-2" data-bs-toggle="collapse"
+                                                data-bs-target="#collapse{{ brand.id }}" aria-expanded="true"
+                                                aria-controls="collapse{{ brand.id }}">
                                                 {{ brand.friendly_name }}
                                             </button>
                                         </h2>
-                                        <div id="collapse{{ brand.id }}" class="accordion-collapse collapse" data-bs-parent="#accordionBrand">
+                                        <div id="collapse{{ brand.id }}" class="accordion-collapse collapse"
+                                            data-bs-parent="#accordionBrand">
                                             <div class="accordion-body">
                                             <small>
                                                 {{ brand.description }}
                                             </small>
                                             </div>
                                             <div class="accordion-body">
-                                                <a class="btn btn-sm btn-success text-end" href="{% url 'products' %}?brand={{ brand.name }}">Shop {{ brand.friendly_name }}</a>
+                                                <a class="btn btn-sm btn-success text-end"
+                                                    href="{% url 'products' %}?brand={{ brand.name }}">
+                                                    Shop {{ brand.friendly_name }}
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -59,6 +65,7 @@
 {% block postloadjs %}
 {{ block.super }}
 <script>
+    // Script for displaying the accordion correctly
     $(document).ready(function () {
     $('.accordion').on('show.bs.collapse', function () {
         $('.accordion .collapse.show').not($(this).find('.collapse')).collapse('hide');

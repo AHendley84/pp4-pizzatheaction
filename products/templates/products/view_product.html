@@ -17,11 +17,13 @@
             <div class="image-container my-5">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
-                    <img src="{{ product.image.url }}" class="card-img-top img-fluid bg-white view-product-image rounded-2" alt="{{ product.name }}">
+                    <img src="{{ product.image.url }}" class="card-img-top img-fluid bg-white view-product-image rounded-2"
+                        alt="{{ product.name }}">
                 </a>
                 {% else %}
                 <a href="">
-                    <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top img-fluid bg-white view-product-image rounded-2" alt="{{ product.name }}">
+                    <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top img-fluid bg-white view-product-image rounded-2"
+                        alt="{{ product.name }}">
                 </a>
                 {% endif %}
             </div>
@@ -42,11 +44,20 @@
                 <p class="lead mb-0 text-left font-weight-bold font-color-1">£{{ product.price }}</p>
                 {% if product.rating %}
                     {% if product.rating >= 0.1 and product.rating <= 2 %}
-                        <small><i class="fa-solid fa-temperature-empty mr-1 text-primary"></i>&nbsp;{{ product.rating }} / 5</small>
+                        <small>
+                            <i class="fa-solid fa-temperature-empty mr-1 text-primary"></i>
+                            &nbsp;{{ product.rating }} / 5
+                        </small>
                     {% elif product.rating > 2 and product.rating <= 4.9 %}
-                        <small><i class="fa-solid fa-temperature-half mr-1 text-warning"></i>&nbsp;{{ product.rating }} / 5</small>
+                        <small>
+                            <i class="fa-solid fa-temperature-half mr-1 text-warning"></i>
+                            &nbsp;{{ product.rating }} / 5
+                        </small>
                     {% elif product.rating == 5 %}
-                        <small><i class="fa-solid fa-temperature-full mr-1 text-danger"></i>&nbsp;{{ product.rating }} / 5</small>
+                        <small>
+                            <i class="fa-solid fa-temperature-full mr-1 text-danger"></i>
+                            &nbsp;{{ product.rating }} / 5
+                        </small>
                     {% endif %}
                 {% else %}
                 <small>No Rating</small>
@@ -54,28 +65,42 @@
                 {% if request.user.is_superuser %}
                 <div class="text-end mb-2">
                     <small class="ml-3">
-                        <a class="btn btn-sm btn-warning" href="{% url 'edit_product' product.id %}">Edit</a> |
-                        <a class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteDefence">Delete</a>
+                        <a class="btn btn-sm btn-warning"
+                            href="{% url 'edit_product' product.id %}">
+                            Edit
+                        </a> |
+                        <a class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#deleteDefence">
+                            Delete
+                        </a>
                         <!-- Modal warning to prevent accidental deletion of items -->
-                        <div class="modal fade" id="deleteDefence" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteDefenceLabel" aria-hidden="true">
+                        <div class="modal fade" id="deleteDefence" data-bs-backdrop="static"
+                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteDefenceLabel"
+                            aria-hidden="true">
                             <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h1 class="modal-title fs-5 text-danger" id="staticBackdropLabel">Warning</h1>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body text-start fw-bold">
-                                  If you delete {{ product.name }} it cannot be undone. Are you sure you want to proceed?
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
-                                    <div class="ms-auto">
-                                        <a class="btn btn-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5 text-danger" id="staticBackdropLabel">
+                                            Warning
+                                        </h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-start fw-bold">
+                                        If you delete {{ product.name }} it cannot be undone. Are you sure you want to proceed?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success"
+                                            data-bs-dismiss="modal">Cancel</button>
+                                        <div class="ms-auto">
+                                            <a class="btn btn-danger" href="{% url 'delete_product' product.id %}">
+                                                Delete
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                              </div>
                             </div>
-                          </div>
+                        </div>
                     </small>
                 </div>
                 {% endif %}
@@ -143,5 +168,6 @@
 
 {% block postloadjs %}
 {{ block.super }}
+<!-- Quantity input script -->
 {% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}
