@@ -138,12 +138,56 @@ Using the Google Chrome Dev Tools Lighthouse, I checked the performance score of
 ### Device & Browser Testing
 
 #### Responsive Device Testing
-
+Manual testing was conducted on the following devices:
+- Alienware m15 Ryzen Ed. R5
+- ThinkVision P24h-10 External Monitor#
+- Apple iPad 3rd Gen
+- Apple iPad 9th Gen
+- Apple iPhone 12 Pro
+- Samsung Galaxy S23
 
 #### Browser Compatibility
+The site has been tested on the following browsers:
+- Google Chrome Version 122.0.6261.57 (Official Build) (64-bit)
+- Microsoft Edge Version 121.0.2277.128
+- Mozilla Firefox Version 123.0
+- Google Chrome Developer Tools to simulate multiple different device screen sizes
 
 
 ### User Story Testing
 
+I came up with a number of user stories to focus the design and development of the site. Here is the list of user stories with the expected outcome and whether it passed or failed:
+
+|User Story ID|as a/an|I want to be able to...|So that I can...|Expected Outcome|Pass/Fail|
+|---|---|---|---|---|---|
+|**Viewing & Navigation**|
+|1|Shopper|View a list of products|Chose which to purchase|A full list of products are visible to the shopper|Pass|
+|2|Shopper|View individual product details|Identify the price, description, etc|The detail of an individual product is displayed along with price, description, etc|Pass|
+|3|Shopper|View the total of my purchases|Track how much I have spent|The profile page retains the order history with the total of each order|Pass|
+|**Registration and User Accounts**|
+|4|Site User|Easily register for an account|Create a personal account and view my profile|Unregistered site users can follow the link to register for an account from the front page or the nav bar|Pass|
+|5|Site User|Easily login and/or logout|Access my personal account information|If the site user is already resigstered, they can choose the sign in option from the front page or the nav bar|Pass|
+|6|Site User|Easily recover my password in case I forget|Recover access to the account|If the site user does forget the their password, they can follow a link from the sign in page to recover their password|Pass|
+|7|Site User|Receive an email requesting user verify their email address as part of the sign up process|Verify that the users email address is valid|Sending the email is handled on the backend with each prospective user being asked to veirfy their email address before registration is complete|Pass|
+|8|Site User|Have a personalised user profile|View my personal order history, order confirmations and save my personal and payment information|Registered site users can navigate to the Profile page and update their default delivery information and an overview of their order history|Pass|
+|**Sorting and Searching**|
+|9|Shopper|Sort the list of products available|Easily identify the items available by brand, price, rating|Via the Products navigation item a drop down is provided to view products by Branc, Catgeory and then filter all products by Rating (High to Low) and Price (low to High). A Further filter option is available on the Products page with more options|Pass|
+|10|Shopper|Search for a product by name or description|Find a specific product type I would like to purchase|The navigation bar contains the search function which searches all aspects of the product to return the most results|Pass|
+|**Purchasing and Checkout**|
+|11|Shopper|Easily select the quantity of an item when purchasing.|Ensure that I don't purchase the incorrect item or quantity|
+|12|Shopper|View items in my shopping cart to be purchased.|View the total cost of my purchase prior to completion|
+|13|Shopper|Adjust the quantity of individual items in the bag|Easily amend purchases prior to checkout.|
+|14|Shopper|Easily enter my payment information|Check out quickly with no hassles.|
+|15|Shopper|Feel my personal information is securely stored in the website.|Provide the required information with confidence to complete the purchase|
+|16|Shopper|View and order confirmation after checkout|Verify that I haven't made any mistakes.|
+|17|Shopper|Receive email confirmation that the purchase has been successful|Retain confirmation for my own personal records.|
+|**Admin and Store Management**|
+|18|Store Owner|Add a product|Add new items to the store.|
+|19|Store Owner|Edit / Update a product|Change product prices, descriptions, images and other criteria.|
+|20|Store Owner|Delete a product|Remove items that are no longer for sale.|
+|**Customer Interaction**|
+|21|Site User|Easily access the blog feature|View existing blog entries.|
+|22|Site User|Easily create a new blog post|Add a blog post.|
+|23|Site User|Leave comments on existing posts|Interact with other users around their blog posts..|
 
 ### Bugs and Fixes

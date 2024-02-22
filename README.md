@@ -18,33 +18,33 @@ Based on what I wanted the project to provide, I came up with a number of user s
 |---|---|---|---|
 |**Viewing & Navigation**|
 |1|Shopper|View a list of products|Chose which to purchase|
-|2|Shopper|View individual product details|Identify the price, description, valid period|
+|2|Shopper|View individual product details|Identify the price, description, etc|
 |3|Shopper|View the total of my purchases|Track how much I have spent|
 |**Registration and User Accounts**|
-|6|Site User|Easily register for an account|Create a personal account and view my profile|
-|7|Site User|Easily login and/or logout|Access my personal account information|
-|8|Site User|Easily recover my password in case I forget|Recover access to the account|
-|9|Site User|Receive an email confirmation after registering|Verify that my account registration was successful|
-|10|Site User|Have a personalised user profile|View my personal order history, order confirmations and save my personal and payment information|
+|4|Site User|Easily register for an account|Create a personal account and view my profile|
+|5|Site User|Easily login and/or logout|Access my personal account information|
+|6|Site User|Easily recover my password in case I forget|Recover access to the account|
+|7|Site User|Receive an email requesting user verify their email address as part of the sign up process|Verify that the users email address is valid|
+|8|Site User|Have a personalised user profile|View my personal order history, order confirmations and save my personal and payment information|
 |**Sorting and Searching**|
-|11|Shopper|Sort the list of products available|Easily identify the items available by brand, price, rating|
-|12|Shopper|Search for a product by name or description|Find a specific product type I would like to purchase|
+|9|Shopper|Sort the list of products available|Easily identify the items available by brand, price, rating|
+|10|Shopper|Search for a product by name or description|Find a specific product type I would like to purchase|
 |**Purchasing and Checkout**|
-|16|Shopper|Easily select the quantity of an item when purchasing.|Ensure that I don't purchase the incorrect item or quantity|
-|17|Shopper|View items in my shopping cart to be purchased.|View the total cost of my purchase prior to completion|
-|18|Shopper|Adjust the quantity of individual items in the bag|Easily amend purchases prior to checkout.|
-|19|Shopper|Easily enter my payment information|Check out quickly with no hassles.|
-|20|Shopper|Feel my personal information is securely stored in the website.|Provide the required information with confidence to complete the purchase|
-|21|Shopper|View and order confirmation after checkout|Verify that I haven't made any mistakes.|
-|22|Shopper|Receive email confirmation that the purchase has been successful|Retain confirmation for my own personal records.|
+|11|Shopper|Easily select the quantity of an item when purchasing.|Ensure that I don't purchase the incorrect item or quantity|
+|12|Shopper|View items in my shopping cart to be purchased.|View the total cost of my purchase prior to completion|
+|13|Shopper|Adjust the quantity of individual items in the bag|Easily amend purchases prior to checkout.|
+|14|Shopper|Easily enter my payment information|Check out quickly with no hassles.|
+|15|Shopper|Feel my personal information is securely stored in the website.|Provide the required information with confidence to complete the purchase|
+|16|Shopper|View and order confirmation after checkout|Verify that I haven't made any mistakes.|
+|17|Shopper|Receive email confirmation that the purchase has been successful|Retain confirmation for my own personal records.|
 |**Admin and Store Management**|
-|23|Store Owner|Add a product|Add new items to the store.|
-|24|Store Owner|Edit / Update a product|Change product prices, descriptions, images and other criteria.|
-|25|Store Owner|Delete a product|Remove items that are no longer for sale.|
+|18|Store Owner|Add a product|Add new items to the store.|
+|19|Store Owner|Edit / Update a product|Change product prices, descriptions, images and other criteria.|
+|20|Store Owner|Delete a product|Remove items that are no longer for sale.|
 |**Customer Interaction**|
-|26|Site User|Easily access the blog feature|View existing blog entries.|
-|27|Site User|Easily create a new blog post|Add a blog post.|
-|28|Site User|Leave comments on existing posts|Interact with other users around their blog posts..|
+|21|Site User|Easily access the blog feature|View existing blog entries.|
+|22|Site User|Easily create a new blog post|Add a blog post.|
+|23|Site User|Leave comments on existing posts|Interact with other users around their blog posts..|
 
 ### Color Scheme
 ![Coolors color palette](media/documentation/coolors_palette.png)
