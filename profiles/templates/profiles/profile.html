@@ -80,13 +80,17 @@
                     <p class="mb-0">Default Delivery Information</p>
                 </div>
                 <div class="card-body px-5">
-                    <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                    <form class="mt-3" action="{% url 'profile' %}"
+                        method="POST" id="profile-update-form">
                         {% csrf_token %}
                         {{ form|crispy }}
                     </form>
                 </div>
                 <div class="card-footer allauth-card-headers">
-                    <button class="btn rounded-1 btn-success float-end" form="profile-update-form">Update Info</button>
+                    <button class="btn rounded-1 btn-success float-end"
+                        form="profile-update-form">
+                        Update Info
+                    </button>
                 </div>
             </div>
         </div>
