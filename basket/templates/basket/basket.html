@@ -26,6 +26,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
+                <!-- Determine if their are items in the basket and loop through each item -->
                 {% if basket_items %}
                     <div class="table-responsive rounded">
                         <table class="table table-sm table-borderless">
@@ -42,9 +43,11 @@
                                 <tr>
                                     <td class="p-3 w-25">
                                         {% if item.product.image %}
-                                            <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                            <img class="img-fluid rounded" 
+                                                src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
                                         {% else %}
-                                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                                            <img class="img-fluid rounded" 
+                                                src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
                                         {% endif %}
                                     </td>
                                     <td class="py-3">
@@ -55,7 +58,8 @@
                                         <p class="my-0">£{{ item.product.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <form class="form update-form" method="POST" action="{% url 'adjust_basket' item.item_id %}">
+                                        <form class="form update-form" method="POST" 
+                                            action="{% url 'adjust_basket' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <div class="input-group">
@@ -82,8 +86,12 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <a class="update-link btn btn-sm btn-warning my-1"><small>Update</small></a>
-                                        <a class="remove-item btn btn-sm btn-danger float-end my-1" id="remove_{{ item.item_id }}"><small>Remove</small></a>
+                                        <a class="update-link btn btn-sm btn-warning my-1">
+                                            <small>Update</small>
+                                        </a>
+                                        <a class="remove-item btn btn-sm btn-danger float-end my-1" id="remove_{{ item.item_id }}">
+                                            <small>Remove</small>
+                                        </a>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
@@ -104,7 +112,9 @@
                             </tr>
                             <tr>
                                 <td colspan="5" class="text-center">
-                                    <a href="{% url 'products' %}" class="btn rounded-1 btn-lg btn-warning mx-2">Keep Shopping</a>
+                                    <a href="{% url 'products' %}" class="btn rounded-1 btn-lg btn-warning mx-2">
+                                        Keep Shopping
+                                    </a>
                                     <a href="{% url 'checkout' %}" class="btn btn-success rounded-1 btn-lg mx-2">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
@@ -116,6 +126,7 @@
                         </table>
                     </div>
                 {% else %}
+                    <!-- Advise user no items in the basket and button to return to the shop -->
                     <div class="text-center">
                         <p class="mb-5 lead">Your basket is empty</p>
                         <br>
