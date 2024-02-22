@@ -77,8 +77,8 @@ For a full list of the features see [FEATURES.md](FEATURES.md).
 
 Due to development time scales there were a few items I didn't include in this project, however, would consider adding into future builds. These are, but not limited to:
 - Improve the product management page to a central hub for managing products, brands and categories. At present any adjustments to the brands or categories is done via the django admin.
-- Edit and Delete comments on the blog.
-- 
+- Edit and Delete comments made on a blog post by the user that created the comment or via super user access.
+- A live review system where users can leave reviews on products they have purchased to reflect a true rating rather than one input on the admin side.
 
 ---
 ## Technologies Used
@@ -103,6 +103,7 @@ Due to development time scales there were a few items I didn't include in this p
 - [Django](https://www.djangoproject.com/) a high-level Python web framework.
 - [AllAuth](https://docs.allauth.org/en/latest/) an integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
 - [CKEditor](https://ckeditor.com/) a WYSIWYG HTML editor that can fit a wide range of use cases.
+- [Django Validators](https://docs.djangoproject.com/en/5.0/ref/validators/) specifically the max and min value validators.
 - [Django Countries](https://pypi.org/project/django-countries/) provides a country field for Django models.
 - [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) to control the rendering behavior of your Django forms in a very elegant and DRY way.
 - [JS Asset](https://pypi.org/project/django-js-asset/) allows a script tag with additional attributes for django.forms.Media.
@@ -416,7 +417,7 @@ During the course of the project I have found myself searching Slack or Google f
 #### Code
 
 ##### Text
-- [ChatGPT](https://chat.openai.com/auth/login) was used to generate text for the home intro paragraphs for the shop and the blog, and the brand descriptions utilised on the Products by Brand page.
+- [ChatGPT](https://chat.openai.com/auth/login) was used to generate text for the home intro paragraphs for the shop and the brand descriptions utilised on the Products by Brand page.
 
 ##### Images
 - Pizza Image at the top of each page courtsey of [Hotels.com](https://in.hotels.com/go/england/uk-best-outdoor-restaurants-liverpool).
@@ -433,7 +434,8 @@ During the course of the project I have found myself searching Slack or Google f
 - Caputo products, images, prices and descriptions courtsey of [FifoStore.co.uk](https://fifostore.co.uk/).
 
 ### Acknowledgements
+- My wife for being so supportive and understanding when I've been burning the midnight oil and for having belief in me to complete this when I didn't.
 - My mentor Mitko Bachvarov for his help and advice on this and my previous projects.
 - Tutor Support at [Code Institute](https://codeinstitute.net/) for help and guidance when I hit some issues with Webhook Handlers.
-- Our Cohort Facilitator, Amy Richardson, for her support and advice.
+- Our Cohort Facilitator, Amy Richardson, for her support, advice and enthusiasum.
 - All my fellow students in the Feb-2023-PLA channel.

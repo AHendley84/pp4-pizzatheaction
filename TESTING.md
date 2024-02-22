@@ -11,7 +11,7 @@ Due to the scale of the project it would be evident that a robust set of testing
 ---
 
 #### HTML Validation
-Each section of the site was tested using the [W3C HTML Validator](https://validator.w3.org/#validate_by_uri) using the text area of the direct input. Here are the results:
+Each section of the site was tested using the [W3C HTML Validator](https://validator.w3.org/#validate_by_input) using the text area of the direct input. Here are the results:
 
 |Feature|Expected Outcome|Test Performed|Result|Pass/Fail|
 |---|---|---|---|---|
@@ -259,3 +259,17 @@ I came up with a number of user stories to focus the design and development of t
 ![23 - Leave comments on existing posts](media/documentation/testing/userstories/site_user_23.png)
 
 ### Bugs and Fixes
+
+During the development of the site I have discovered two minor bugs that I was unable to resolve. However, I am confident these do not distract from the overall usability of the site and I am unaware of any other bugs that exist.
+
+#### Bug 1 - First and Last name not reading from Django Admin
+
+As part of the development of the site I wanted to incorporate the ability for each registered user to be able to input their first and last name into the Django Admin without having to have super user access. I've managed to construct the ability to add this to the profile page and it successfully updates the user profile. However, once an order is placed I refer back to the profile page, the names do not appear to pull through, but remain on the Admin side.
+
+As per the final build this bug still remains, I have attempted to resolve the issue but wasn't able to prior to submission. It doesn't impact the overall functionality of the site, just requires the user to re-input their names.
+
+#### Bug 2 - 'Original post updated on' displaying when the post hasn't been updated
+
+A function I wanted to add to the blog was a notification on each post to determine if the original post has been updated. I've pushed this to the live site and it doesn't work. I've spent a number of hours trying to work through why this is but I've not been able to get this resolved prior to the submission of the project.
+
+Again, this does not affect the user experience, it's just an extra touch to make the blog post interface look a little cleaner.
