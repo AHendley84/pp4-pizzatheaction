@@ -174,20 +174,88 @@ I came up with a number of user stories to focus the design and development of t
 |9|Shopper|Sort the list of products available|Easily identify the items available by brand, price, rating|Via the Products navigation item a drop down is provided to view products by Branc, Catgeory and then filter all products by Rating (High to Low) and Price (low to High). A Further filter option is available on the Products page with more options|Pass|
 |10|Shopper|Search for a product by name or description|Find a specific product type I would like to purchase|The navigation bar contains the search function which searches all aspects of the product to return the most results|Pass|
 |**Purchasing and Checkout**|
-|11|Shopper|Easily select the quantity of an item when purchasing.|Ensure that I don't purchase the incorrect item or quantity|
-|12|Shopper|View items in my shopping cart to be purchased.|View the total cost of my purchase prior to completion|
-|13|Shopper|Adjust the quantity of individual items in the bag|Easily amend purchases prior to checkout.|
-|14|Shopper|Easily enter my payment information|Check out quickly with no hassles.|
-|15|Shopper|Feel my personal information is securely stored in the website.|Provide the required information with confidence to complete the purchase|
-|16|Shopper|View and order confirmation after checkout|Verify that I haven't made any mistakes.|
-|17|Shopper|Receive email confirmation that the purchase has been successful|Retain confirmation for my own personal records.|
+|11|Shopper|Easily select the quantity of an item when purchasing|Ensure that I don't purchase the incorrect item or quantity|This can be achieved by selecting an indiviudal product|Pass|
+|12|Shopper|View items in my shopping cart to be purchased|View the total cost of my purchase prior to completion|This is fully functioning in the basket, providing updated delivery costs if the order is below the £100 free delivery threshold|Pass|
+|13|Shopper|Adjust the quantity of individual items in the bag|Easily amend purchases prior to checkout.|Prior to proceeding to the checkout the customer can adjust the quantity of an item in the basket|Pass|
+|14|Shopper|Easily enter my payment information|Check out quickly with no hassles.|Registered and unregistered users are able to make purchases with quick access to the payment box provided by Stripe|Pass|
+|15|Shopper|Feel my personal information is securely stored in the website|Provide the required information with confidence to complete the purchase|Using Django and Stripe customers can confidently provide their information which can be securely stored, should the user choose to do so|Pass|
+|16|Shopper|View and order confirmation after checkout|Verify that I haven't made any mistakes|The customer is provided a copy of their order confirmation immediately after the order completes|Pass| 
+|17|Shopper|Receive email confirmation that the purchase has been successful|Retain confirmation for my own personal records.|Emails are automatically generated once the order is placed|Pass|
 |**Admin and Store Management**|
-|18|Store Owner|Add a product|Add new items to the store.|
-|19|Store Owner|Edit / Update a product|Change product prices, descriptions, images and other criteria.|
-|20|Store Owner|Delete a product|Remove items that are no longer for sale.|
+|18|Store Owner|Add a product|Add new items to the store.|This is acheivable through super user authorisation|Pass| 
+|19|Store Owner|Edit / Update a product|Change product prices, descriptions, images and other criteria.|This is acheivable through super user authorisation|Pass|
+|20|Store Owner|Delete a product|Remove items that are no longer for sale.|This is acheivable through super user authorisation. A prompt advises the user that this cannot be undone and do they want to proceed, adding a last line of defensive if the delete button has been hit in error|Pass|
 |**Customer Interaction**|
-|21|Site User|Easily access the blog feature|View existing blog entries.|
-|22|Site User|Easily create a new blog post|Add a blog post.|
-|23|Site User|Leave comments on existing posts|Interact with other users around their blog posts..|
+|21|Site User|Easily access the blog feature|View existing blog entries.|Registered site users can access the blog via the navigation bar or via a link on the home page|Pass|
+|22|Site User|Easily create a new blog post|Add a blog post.|Once in the blog section there is a clear 'Add Post' button|Pass|
+|23|Site User|Leave comments on existing posts|Interact with other users around their blog posts|Once a registered user is viewing a blog post there is an Add Comment link which brings up the comment function to add that to the original post, which is then viewable under the original post|Pass|
+
+#### User Story Testing Images
+
+- 1 - View a list of products<br>
+![1 - View a list of products](media/documentation/testing/userstories/shopper_1.png)
+
+- 2 - View individual product details<br>
+![2 - View individual product details](media/documentation/testing/userstories/shopper_2.png)
+
+- 3 - View the total of my purchases<br>
+![3 - View the total of my purchases](media/documentation/testing/userstories/shopper_3.png)
+
+- 4 - Easily register for an account<br>
+![4 - Easily register for an account](media/documentation/testing/userstories/site_user_4.png)
+
+- 5 - Easily login and/or logout<br>
+![5 - Easily login and/or logout](media/documentation/testing/userstories/site_user_5.png)
+
+- 6 - Easily recover my password in case I forget<br>
+![6 - Easily recover my password in case I forget](media/documentation/testing/userstories/site_user_6.png)
+
+- 8 - Have a personalised user profile<br>
+![8 - Have a personalised user profile](media/documentation/testing/userstories/site_user_8.png)
+
+- 9 - Sort the list of products available<br>
+![9 - Sort the list of products available](media/documentation/testing/userstories/shopper_9.png)
+
+- 10 - Search for a product by name or description<br>
+![10 - Search for a product by name or description](media/documentation/testing/userstories/shopper_10.png)
+
+- 11 - Easily select the quantity of an item when purchasing<br>
+![11 - Easily select the quantity of an item when purchasing](media/documentation/testing/userstories/shopper_11.png)
+
+- 12 - View items in my shopping cart to be purchased<br>
+![12 - View items in my shopping cart to be purchased](media/documentation/testing/userstories/shopper_12.png)
+
+- 13 - Adjust the quantity of individual items in the bag<br>
+![13 - Adjust the quantity of individual items in the bag](media/documentation/testing/userstories/shopper_13.png)
+
+- 14 - Easily enter my payment information<br>
+![14 - Easily enter my payment information](media/documentation/testing/userstories/shopper_14.png)
+
+- 15 - Feel my personal information is securely stored in the website<br>
+![15 - Feel my personal information is securely stored in the website](media/documentation/testing/userstories/shopper_15.png)
+
+- 16 - View and order confirmation after checkout|Verify that I haven't made any mistakes<br>
+![16 - View and order confirmation after checkout|Verify that I haven't made any mistakes](media/documentation/testing/userstories/shopper_16.png)
+
+- 17 - Receive email confirmation that the purchase has been successful<br>
+![17 - Receive email confirmation that the purchase has been successful](media/documentation/testing/userstories/shopper_17.png)
+
+- 18 - Add a product<br>
+![18 - Add a product](media/documentation/testing/userstories/store_owner_18.png)
+
+- 19 - Edit / Update a product<br>
+![19 - Edit / Update a product](media/documentation/testing/userstories/store_owner_19.png)
+
+- 20 - Delete a product<br>
+![20 - Delete a product](media/documentation/testing/userstories/store_owner_20.png)
+
+- 21 - Easily access the blog feature<br>
+![21 - Easily access the blog feature](media/documentation/testing/userstories/site_user_21.png)
+
+- 22 - Easily create a new blog post<br>
+![22 - Easily create a new blog post](media/documentation/testing/userstories/site_user_22.png)
+
+- 23 - Leave comments on existing posts<br>
+![23 - Leave comments on existing posts](media/documentation/testing/userstories/site_user_23.png)
 
 ### Bugs and Fixes
