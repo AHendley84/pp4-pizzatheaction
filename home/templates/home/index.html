@@ -40,6 +40,7 @@
                 </div>
             </div>
         </div>
+        <!-- Logic to determine if the user is not authenticated to display login info else display the link to the community/blog -->
         {% if not request.user.is_authenticated %}
         <div class="col-sm-12 col-md-6 p-3 d-flex flex-column align-items-stretch">
             <div class="container-b-background p-3 rounded-2">
