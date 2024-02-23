@@ -1,7 +1,9 @@
 # Portfolio Project 4 - PIZZATHEACTION
 ## Full Stack Frameworks with Django Milestone Project
 
-For my fourth and final project, I have undertaken the task of conceptualizing, crafting, and deploying a comprehensive Full Stack web application accompanied by a relational database, employing the Django/Python Full Stack MVC framework, and harnessing contemporary technologies. 
+For my fourth and final project, I have undertaken the task of conceptualizing, crafting, and deploying a comprehensive Full Stack web application accompanied by a relational database, employing the Django/Python Full Stack MVC framework, and harnessing contemporary technologies.
+
+This project is based around an online store and community of Pizza lovers. Unregistered and registered users have full e commerce functionality with a range of products available, where as the community is only accessible to registered users. It is intended as a one-stop-shop for everything pizza!
 
 ![Visual Representation](media/documentation/responsivedemonstration.png)
 
