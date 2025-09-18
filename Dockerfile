@@ -25,4 +25,5 @@ COPY . .
 EXPOSE $PORT
 
 # Command to run app
-CMD gunicorn pp4-pizzatheaction.wsgi --bind 0.0.0.0:$PORT
+CMD ["gunicorn", "pp4_pizzatheaction.wsgi", "--bind", "0.0.0.0:$PORT"]
+
