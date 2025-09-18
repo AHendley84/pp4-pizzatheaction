@@ -1,29 +1,26 @@
-# Use Python 3.9 slim base image
-FROM python:3.9-slim
-
-# Set environment variables
-ENV PYTHONUNBUFFERED=1 \
-    PIP_NO_CACHE_DIR=1 \
-    PORT=8000
-
-# Set working directory
+# Stage 1: Build stage
+FROM python:3.9-slim AS builder
 WORKDIR /app
 
-# Upgrade pip and downgrade setuptools for old django-allauth
-RUN pip install --upgrade pip \
-    && pip install "setuptools==58.0.0"
+ENV PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
 
-# Copy only the dependency files first to leverage Docker cache
+# Install dependencies
 COPY requirements.txt constraints.txt ./
+RUN pip install --upgrade pip \
+    && pip install "setuptools==58.0.0" \
+    && pip install --prefix=/install -r requirements.txt
 
-# Install dependencies in a single layer
-RUN pip install -r requirements.txt
+# Stage 2: Final image
+FROM python:3.9-slim
+WORKDIR /app
+ENV PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 PORT=8000
 
-# Copy the rest of the app
+# Copy installed packages
+COPY --from=builder /install /usr/local
+
+# Copy app code
 COPY . .
 
-# Expose the port
 EXPOSE $PORT
-
-# Use JSON array for CMD to prevent shell issues with signals
 CMD ["gunicorn", "pp4_pizzatheaction.wsgi", "--bind", "0.0.0.0:8000"]
