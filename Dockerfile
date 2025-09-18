@@ -9,21 +9,21 @@ ENV PYTHONUNBUFFERED=1 \
 # Set working directory
 WORKDIR /app
 
-# Copy requirements and constraints first (for caching)
+# Upgrade pip and downgrade setuptools for old django-allauth
+RUN pip install --upgrade pip \
+    && pip install "setuptools==58.0.0"
+
+# Copy only the dependency files first to leverage Docker cache
 COPY requirements.txt constraints.txt ./
 
-# Downgrade setuptools first (required for old django-allauth)
-RUN pip install "setuptools==58.0.0"
-
-# Install dependencies
+# Install dependencies in a single layer
 RUN pip install -r requirements.txt
 
 # Copy the rest of the app
 COPY . .
 
-# Expose port (Heroku uses $PORT env var)
+# Expose the port
 EXPOSE $PORT
 
-# Command to run app
-CMD ["gunicorn", "pp4_pizzatheaction.wsgi", "--bind", "0.0.0.0:$PORT"]
-
+# Use JSON array for CMD to prevent shell issues with signals
+CMD ["gunicorn", "pp4_pizzatheaction.wsgi", "--bind", "0.0.0.0:8000"]
