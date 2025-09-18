@@ -1,3 +1,5 @@
+-c constraints.txt
+setuptools==58.0.0
 asgiref==3.7.2
 boto3==1.33.12
 botocore==1.33.12
