@@ -30,9 +30,16 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 if 'DEVELOPMENT' in os.environ:
     ALLOWED_HOSTS = [
-        '8000-ahendley84-pp4pizzathea-0qvu5gaq5i7.ws-eu108.gitpod.io']
+        '8000-ahendley84-pp4pizzathea-0qvu5gaq5i7.ws-eu108.gitpod.io',
+        'localhost',
+        '127.0.0.1',
+    ]
 else:
-    ALLOWED_HOSTS = ['pizzatheaction-app-eb62fc811095.herokuapp.com']
+    ALLOWED_HOSTS = [
+        'pizzatheaction-app-eb62fc811095.herokuapp.com',
+        'localhost',
+        '127.0.0.1',
+    ]
 
 
 # Application definition
