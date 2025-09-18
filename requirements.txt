@@ -1,12 +1,10 @@
--c constraints.txt
-setuptools==58.0.0
 asgiref==3.7.2
 boto3==1.33.12
 botocore==1.33.12
 chardet==3.0.4
 dj-database-url==0.5.0
 Django==3.2.23
-django-allauth==0.41.0
+django-allauth>=0.63.3
 django-ckeditor==6.7.1
 django-countries==7.2.1
 django-crispy-forms==1.14.0
