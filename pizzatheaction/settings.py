@@ -32,7 +32,7 @@ if 'DEVELOPMENT' in os.environ:
     ALLOWED_HOSTS = [
         '8000-ahendley84-pp4pizzathea-0qvu5gaq5i7.ws-eu108.gitpod.io']
 else:
-    ALLOWED_HOSTS = ['pp4-pizzatheaction-9ec0001d43af.herokuapp.com']
+    ALLOWED_HOSTS = ['pizzatheaction-app-eb62fc811095.herokuapp.com']
 
 
 # Application definition
