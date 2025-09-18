@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = os.environ.get('DEVELOPMENT') == '1'
 
-if 'DEVELOPMENT' in os.environ:
+if DEBUG:
     ALLOWED_HOSTS = [
         '8000-ahendley84-pp4pizzathea-0qvu5gaq5i7.ws-eu108.gitpod.io',
         'localhost',
@@ -37,8 +37,7 @@ if 'DEVELOPMENT' in os.environ:
 else:
     ALLOWED_HOSTS = [
         'pizzatheaction-app-eb62fc811095.herokuapp.com',
-        'localhost',
-        '127.0.0.1',
+        '.herokuapp.com',
     ]
 
 
